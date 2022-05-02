@@ -5,10 +5,10 @@ import styled from "styled-components";
 const HeaderIcons = () => {
   return (
     <Div>
-      <SearchInput />
+      <SearchInput/>
 
-      <IconWrapper>
-        <svg
+      <IconWrapper title="My Wish List">
+        <svg 
           className="stroke"
           width="24"
           height="24"
@@ -22,7 +22,7 @@ const HeaderIcons = () => {
           />
         </svg>
       </IconWrapper>
-      <IconWrapper>
+      <IconWrapper title="My Cart">
         <CartIcon>
         <svg
           width="24"

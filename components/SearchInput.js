@@ -23,7 +23,7 @@ const SearchInput = () => {
         placeholder="What are you looking for?"
       />
 
-      <IconWrapper>
+      <IconWrapper title="Search">
         <Svg
           onClick={handleClick}
           width="24"

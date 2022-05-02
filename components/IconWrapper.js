@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-const IconWrapper = ({children}) => {
+const IconWrapper = ({children, title}) => {
   return (
-    <IconDiv>
+    <IconDiv title={title}>
       {children}      
     </IconDiv>
   )

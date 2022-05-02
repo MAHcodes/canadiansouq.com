@@ -3,7 +3,7 @@ import IconWrapper from "./IconWrapper";
 
 const HamburgerIcon = () => {
   return (
-    <IconWrapper>
+    <IconWrapper title="Menu">
       <HamburgerDiv>
         <span></span>
         <span></span>
