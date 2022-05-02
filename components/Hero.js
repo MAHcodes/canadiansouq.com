@@ -20,7 +20,7 @@ const Hero = () => {
           <Image src={hero} alt="Our Power tools brands" />
           <Image src={lebTag} alt="Lebanon pin tag" />
         </ImgWrapper>
-          <Button />
+        <Button text="Shop now" />
       </div>
     </StyledHero>
   );
@@ -53,6 +53,7 @@ const H2 = styled.h2`
   font-size: 1.75rem;
   text-align: center;
   font-weight: bold;
+  max-width: 28ch;
 `;
 const Span = styled.span`
   text-transform: uppercase;

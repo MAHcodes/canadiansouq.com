@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-const Button = () => {
+const Button = ({text, widthFull}) => {
   return (
-    <StyledButton>
-      Shop Now
+    <StyledButton widthFull={widthFull}>
+      {text}
     </StyledButton>
   )
 }
@@ -16,6 +16,8 @@ const StyledButton = styled.button`
  font-weight: bold;
  transition: box-shadow var(--td) var(--ttf);
  cursor: pointer;
+ text-align: center;
+ width: ${props => props.widthFull && "100%"};
 
  &:focus,
  &:hover {
