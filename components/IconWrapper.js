@@ -16,6 +16,7 @@ const IconDiv = styled.div`
   min-height: var(--size);
   cursor: pointer;
   border-radius: var(--br);
+  transition: background-color var(--td) var(--ttf);
 
   &:focus,
   &:hover {

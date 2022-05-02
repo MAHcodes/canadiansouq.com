@@ -23,6 +23,7 @@ const HeaderIcons = () => {
         </svg>
       </IconWrapper>
       <IconWrapper>
+        <CartIcon>
         <svg
           width="24"
           height="24"
@@ -43,6 +44,8 @@ const HeaderIcons = () => {
             </clipPath>
           </defs>
         </svg>
+          <Span>2</Span>
+          </CartIcon>
       </IconWrapper>
     </Div>
   );
@@ -68,5 +71,28 @@ const Div = styled.div`
     }
   }
 `;
+
+const Span = styled.span`
+  width: 1rem;
+  height: 1rem;
+  padding: .125rem;
+  border-radius: 50%;
+  background-color: rgb(var(--success));
+  position: absolute;
+  inset: 0 0 auto auto; 
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  transition: transform  var(--td) var(--ttf);
+`
+
+const CartIcon = styled.div`
+  position: relative;
+  &:hover span {
+    transform: scale(1.15);
+  }
+`
 
 export default HeaderIcons;

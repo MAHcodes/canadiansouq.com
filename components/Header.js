@@ -8,7 +8,7 @@ const Header = () => {
     <StyledHeader>
       <div className="container">
       <HamburgerIcon />
-      <Link href="/" passHref><H1>Canadian&nbsp;Souq</H1></Link>
+      <Link href="/" passHref><H1>Canadian Souq</H1></Link>
         <HeaderIcons />
       </div>
     </StyledHeader>
@@ -19,16 +19,21 @@ const StyledHeader = styled.header`
   background-color: rgb(var(--black));
   border-radius: 0 0 var(--br) var(--br);
   color: rgb(var(--white));
-  padding-block: .5rem;
+  padding-block: .55rem;
+  position: sticky;
+  inset: 0 0 auto 0;
+  z-index: 10;
 
   & .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: .5rem;
   }
 `
 const H1 = styled.h1`
   cursor: pointer;
+  flex: 1;
 `
 
 export default Header

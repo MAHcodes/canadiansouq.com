@@ -20,7 +20,7 @@ const SearchInput = () => {
         }}
         className={`${searchHidden ? "hidden" : undefined}`}
         type="search"
-        placeholder="Search by product name..."
+        placeholder="What are you looking for?"
       />
 
       <IconWrapper>
@@ -53,15 +53,16 @@ const Input = styled.input`
   background-color: rgb(var(--white));
   color: rgb(var(--black));
   position: absolute;
-  inset: 0 calc(100% + .5rem) 0 auto;
+  inset: 0 0 0 auto;
   transition: width var(--td) var(--ttf);
   height :100%;
   transform-origin: right center;
   border-radius: var(--br);
-  width: 20rem;
-  max-width: 64vw;
+  width: calc(100vw - 6.75rem);
+  max-width: 20rem;
   padding-inline: .75rem; 
   font-size: .85rem;
+  z-index: 5;
 
   &.hidden {
     width: 0;

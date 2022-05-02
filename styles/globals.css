@@ -28,7 +28,6 @@ body {
   scroll-behavior: smooth;
   font-size: clamp(1rem, 2.5vmin, 1.25rem);
   text-size-adjust: none;
-  overflow-x: hidden;
 }
 
 * {
