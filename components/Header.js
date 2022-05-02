@@ -7,19 +7,21 @@ const Header = () => {
   return (
     <StyledHeader>
       <div className="container">
-      <HamburgerIcon />
-      <Link href="/" passHref><H1>Canadian Souq</H1></Link>
+        <HamburgerIcon />
+        <Link href="/" passHref>
+          <H1>Canadian Souq</H1>
+        </Link>
         <HeaderIcons />
       </div>
     </StyledHeader>
-  )
-}
+  );
+};
 
 const StyledHeader = styled.header`
   background-color: rgb(var(--black));
   border-radius: 0 0 var(--br) var(--br);
   color: rgb(var(--white));
-  padding-block: .55rem;
+  padding-block: 0.55rem;
   position: sticky;
   inset: 0 0 auto 0;
   z-index: 10;
@@ -28,12 +30,13 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: .5rem;
+    gap: 0.5rem;
   }
-`
+`;
 const H1 = styled.h1`
   cursor: pointer;
+  font-weight: 800;
   flex: 1;
-`
+`;
 
-export default Header
+export default Header;
