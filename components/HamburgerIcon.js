@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import IconWrapper from "./IconWrapper";
 
-const HamburgerIcon = () => {
+const HamburgerIcon = ({action}) => {
   return (
-    <IconWrapper title="Menu">
-      <HamburgerDiv>
+    <IconWrapper >
+      <HamburgerDiv onClick={action} title="Menu">
         <span></span>
         <span></span>
         <span></span>
