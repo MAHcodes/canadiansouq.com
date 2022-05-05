@@ -24,6 +24,10 @@ const StyledButton = styled.button`
    box-shadow: .5rem .5rem 1rem -.5rem rgba(var(--black), 60%),
    inset .5rem .5rem 1rem -.5rem rgba(var(--white), 40%);
  }
+ &:active {
+   box-shadow: -.5rem -.5rem 1rem -.5rem rgba(var(--black), 60%),
+   inset -.5rem -.5rem 1rem -.5rem rgba(var(--white), 40%);
+ }
 `
 
 export default Button
