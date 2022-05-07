@@ -3,30 +3,25 @@ import Link from "next/link";
 import Overlay from "../Overlay";
 import Top from "./Top";
 import Middle from "./Middle";
+import Bottom from "./Bottom";
 
-const NavBar = ({ activeNav, setActiveNav }) => {
+const NavBar = ({ activeNav, setActiveNav, screenX}) => {
   return (
     <>
       <Nav activeNav={activeNav}>
         <Top setActiveNav={setActiveNav} />
         <Middle />
-        <Bottom>Btoom</Bottom>
+        <Bottom />
       </Nav>
-      {activeNav && <Overlay action={() => setActiveNav(false)} z={12} />}
+      {activeNav && (screenX <= 1350) && <Overlay action={() => setActiveNav(false)} z={12} />}
     </>
   );
 };
-
-const Bottom = styled.div`
-  padding-top: 1rem;
-  border-top: 1px solid rgba(var(--gray), 50%);
-`;
 
 const Nav = styled.nav`
   position: fixed;
   background-color: rgb(var(--white));
   color: rgb(var(--black));
-  padding: 1rem;
   border-radius: 0 var(--br-1) var(--br-1) 0;
   box-shadow: 0 0 1rem -0.75rem rgb(var(--black));
   z-index: 13;
@@ -37,6 +32,16 @@ const Nav = styled.nav`
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
+
+  padding: 1rem;
+
+  @media (min-width: 1350px) {
+    position: unset;
+    background-color: rgb(var(--black));
+    color: rgb(var(--white));
+    padding-block: 0 !important;
+    justify-content: space-between;
+  }
 
   p {
     font-weight: bold;

@@ -6,14 +6,16 @@ import NavBar from "./NavBar/NavBar";
 import { useState, useEffect  } from "react";
 
 const Header = () => {
+  const [screenX, setScreenX] = useState(0);
   const [activeNav, setActiveNav] = useState(false);
 
   useEffect(() => {
     const updateNav = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth >= 500) {
-        setActiveNav(true);
-      }
+        setScreenX(screenWidth);
+        if ( screenWidth >= 1350 ) {
+          setActiveNav(true);
+        }
     };
     updateNav();
     window.addEventListener("resize", updateNav);
@@ -30,7 +32,7 @@ const Header = () => {
         <Link href="/" passHref>
           <H1>Canadian Souq</H1>
         </Link>
-        <NavBar activeNav={activeNav} setActiveNav={setActiveNav} />
+        <NavBar screenX={screenX} activeNav={activeNav} setActiveNav={setActiveNav} />
         <HeaderIcons />
       </div>
     </StyledHeader>

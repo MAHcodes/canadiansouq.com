@@ -22,6 +22,10 @@ const HamburgerDiv = styled.div`
   height: 100%;
   padding: 0.5rem;
 
+  @media (min-width: 1350px) {
+    display: none;
+  }
+
   &:hover span,
   &:focus span {
     width: 100% !important;

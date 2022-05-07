@@ -34,6 +34,10 @@ const Div = styled.div`
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(var(--gray), 50%);
   margin-bottom: 1rem;
+
+  @media (min-width: 1350px) {
+    display: none;
+  }
 `;
 
 const Svg = styled.svg`
