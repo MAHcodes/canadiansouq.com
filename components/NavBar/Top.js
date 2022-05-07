@@ -35,7 +35,7 @@ const Div = styled.div`
   border-bottom: 1px solid rgba(var(--gray), 50%);
   margin-bottom: 1rem;
 
-  @media (min-width: 1350px) {
+  @media (min-width: 1580px) {
     display: none;
   }
 `;

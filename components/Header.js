@@ -13,7 +13,7 @@ const Header = () => {
     const updateNav = () => {
       const screenWidth = window.innerWidth;
         setScreenX(screenWidth);
-        if ( screenWidth >= 1350 ) {
+        if ( screenWidth >= 1580 ) {
           setActiveNav(true);
         }
     };
@@ -58,7 +58,9 @@ const StyledHeader = styled.header`
 const H1 = styled.h1`
   cursor: pointer;
   font-weight: 800;
-  flex: 1;
+  @media(max-width: 1580px) {
+    flex: 1;
+  }
 `;
 
 export default Header;

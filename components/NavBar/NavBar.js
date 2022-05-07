@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
 import Overlay from "../Overlay";
 import Top from "./Top";
 import Middle from "./Middle";
@@ -13,7 +12,7 @@ const NavBar = ({ activeNav, setActiveNav, screenX}) => {
         <Middle />
         <Bottom />
       </Nav>
-      {activeNav && (screenX <= 1350) && <Overlay action={() => setActiveNav(false)} z={12} />}
+      {activeNav && (screenX <= 1580) && <Overlay action={() => setActiveNav(false)} z={12} />}
     </>
   );
 };
@@ -35,11 +34,11 @@ const Nav = styled.nav`
 
   padding: 1rem;
 
-  @media (min-width: 1350px) {
+  @media (min-width: 1580px) {
     position: unset;
     background-color: rgb(var(--black));
     color: rgb(var(--white));
-    padding-block: 0 !important;
+    padding-block: 0;
     justify-content: space-between;
   }
 

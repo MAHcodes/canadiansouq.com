@@ -62,7 +62,7 @@ const Input = styled.input`
   max-width: 20rem;
   padding-inline: .75rem; 
   font-size: .85rem;
-  z-index: 5;
+  z-index: 16;
 
   &.hidden {
     width: 0;

@@ -3,6 +3,7 @@ import IconWrapper from "./IconWrapper";
 
 const HamburgerIcon = ({action}) => {
   return (
+    <Icon>
     <IconWrapper >
       <HamburgerDiv onClick={action} title="Menu">
         <span></span>
@@ -10,6 +11,7 @@ const HamburgerIcon = ({action}) => {
         <span></span>
       </HamburgerDiv>
     </IconWrapper>
+    </Icon>
   );
 };
 
@@ -21,10 +23,6 @@ const HamburgerDiv = styled.div`
   transition: background-color var(--td) var(--ttf);
   height: 100%;
   padding: 0.5rem;
-
-  @media (min-width: 1350px) {
-    display: none;
-  }
 
   &:hover span,
   &:focus span {
@@ -47,5 +45,11 @@ const HamburgerDiv = styled.div`
     width: 80%;
   }
 `;
+
+const Icon = styled.div`
+  @media (min-width: 1580px) {
+    display: none;
+  }
+`
 
 export default HamburgerIcon;
