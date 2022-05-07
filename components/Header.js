@@ -2,7 +2,7 @@ import styled from "styled-components";
 import HamburgerIcon from "./HamburgerIcon";
 import Link from "next/link";
 import HeaderIcons from "./HeaderIcons";
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar";
 import { useState, useEffect  } from "react";
 
 const Header = () => {
