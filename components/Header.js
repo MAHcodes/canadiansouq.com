@@ -15,7 +15,9 @@ const Header = () => {
         setScreenX(screenWidth);
         if ( screenWidth >= 1580 ) {
           setActiveNav(true);
-        }
+        } else {
+          setActiveNav(false);
+      }
     };
     updateNav();
     window.addEventListener("resize", updateNav);
