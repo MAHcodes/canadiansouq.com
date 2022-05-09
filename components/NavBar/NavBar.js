@@ -45,7 +45,6 @@ const Nav = styled.nav`
   p {
     font-weight: bold;
     font-size: 1rem;
-    cursor: pointer;
   }
 
   li {

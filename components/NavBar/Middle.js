@@ -134,6 +134,7 @@ const P = styled.p`
   display: flex;
   align-items: center;
   margin-block: 0.5rem;
+  cursor: pointer;
   @media (min-width: 1580px) {
     flex-direction: row-reverse;
   }

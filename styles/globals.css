@@ -27,7 +27,7 @@ body {
   font-family: "NunitoSans", Poppins, serif;
   font-weight: 400;
   scroll-behavior: smooth;
-  font-size: clamp(1rem, 2.5vmin, 1.25rem);
+  font-size: clamp(1rem, 2.5vmin, 1.15rem);
   text-size-adjust: none;
   background-color: rgb(var(--white));
   color: rgb(var(--black));
