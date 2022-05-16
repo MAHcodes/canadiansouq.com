@@ -1,12 +1,8 @@
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch("/api/products");
-  const data = await res.json();
+  const products = await res.json();
 
-  return {
-    props: {
-      products: data,
-    }
-  }
+  return { props: { products } };
 }
 const CardsScroll = ({products}) => {
   console.log(products);
