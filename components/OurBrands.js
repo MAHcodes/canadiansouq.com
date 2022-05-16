@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import makitaLogo from "../public/images/makita-logo.svg";
 import milwaukeeLogo from "../public/images/milwaukee-logo.svg";
 import dewaltLogo from "../public/images/dewalt-logo.svg";
