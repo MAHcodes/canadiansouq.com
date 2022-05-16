@@ -2,6 +2,7 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 import OurBrands from "../components/OurBrands";
 import Features from "../components/Features";
+import ProductsCarousel from "../components/ProductsCarousel";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <OurBrands />
       <Features />
+      <ProductsCarousel title="Featured Products" all="/products/featured" productsList={[1, 2, 3, 4, 5]} />
     </>
   );
 }
