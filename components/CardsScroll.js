@@ -9,6 +9,7 @@ export const getStaticProps = async () => {
   }
 }
 const CardsScroll = ({products}) => {
+  console.log(products);
   return (
     <div>
       {JSON.stringify(products)}

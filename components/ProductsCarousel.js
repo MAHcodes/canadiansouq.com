@@ -2,7 +2,7 @@ import Link from "next/link"
 import styled from "styled-components"
 import CardsScroll from "./CardsScroll";
 
-const ProductsCarousel = ({title, all, productsList}) => {
+const ProductsCarousel = ({title, all }) => {
   return (
     <Div>
       <div className="container">
@@ -10,7 +10,7 @@ const ProductsCarousel = ({title, all, productsList}) => {
           <Title>{title}</Title>
           <Link href={all}>view all</Link>
         </Info>
-        <CardsScroll productsList={productsList} />
+        <CardsScroll />
       </div>
     </Div>
   )

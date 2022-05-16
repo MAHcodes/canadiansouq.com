@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <OurBrands />
       <Features />
-      <ProductsCarousel title="Featured Products" all="/products/featured" productsList={[1, 2, 3, 4, 5]} />
+      <ProductsCarousel title="Featured Products" all="/products/featured" />
     </>
   );
 }
