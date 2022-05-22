@@ -7,7 +7,7 @@ const CATEGORIES = {
   "Hand Tools": ["All"],
   Electronics: ["All"],
   Automotive: ["All"],
-  "Home Applicants": ["All"],
+  "Home Appliances": ["All"],
   Others: ["All"],
 };
 
