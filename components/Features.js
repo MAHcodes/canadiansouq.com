@@ -104,7 +104,7 @@ const Feature = styled.div`
   flex-direction: column;
   padding: 2rem 1rem;
   border-radius: var(--br-1);
-  box-shadow: 0px 0.5rem 2.5rem rgba(var(--black), 0.2);
+  background-color: rgb(var(--FFF));
 
   & p {
     text-align: center;
