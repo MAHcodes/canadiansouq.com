@@ -3,8 +3,11 @@ import Hero from "../components/Hero";
 import OurBrands from "../components/OurBrands";
 import Features from "../components/Features";
 import ProductsCarousel from "../components/ProductsCarousel";
+import { FeaturedProductsIDs } from "../stores/products";
+import { server } from '../config';
+import ROUTES from "../stores/routes";
 
-export default function Home() {
+export default function Home({FeaturedProducts}) {
   return (
     <>
       <Head>
@@ -16,7 +19,14 @@ export default function Home() {
       <Hero />
       <OurBrands />
       <Features />
-      <ProductsCarousel title="Featured Products" all="/products/featured" />
+      <ProductsCarousel title="Featured Products" productsList={FeaturedProducts} all={ROUTES.FeaturedRoute} />
     </>
   );
+}
+
+export const getServerSideProps = async () => {
+  const res = await fetch(`${server}/api/products`);
+  const products = await res.json();
+
+  return { props: { FeaturedProducts: FeaturedProductsIDs.map(id => products[id]) } };
 }
