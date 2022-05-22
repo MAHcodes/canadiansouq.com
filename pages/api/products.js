@@ -1,6 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json({
     "2": {
+      "id": "2",
       'title': '1/4" (6,4 mm) Titanium IR Drill bit',
       'model': 'DD5116',
       'brand': 'DeWALT',
@@ -14,6 +15,7 @@ export default function handler(req, res) {
       'availability': 2,
     },
     "3": {
+      "id": "3",
       'title': '5/16" (7,9mm) Titanium IR Drill bit',
       'model': 'DD5120',
       'brand': 'DeWALT',
@@ -27,6 +29,7 @@ export default function handler(req, res) {
       'availability': 1,
     },
     "4": {
+      "id": "4",
       'title': '3/8" (9,5 mm) Industrial Cobalt Drill bit',
       'model': 'DWA1224',
       'brand': 'DeWALT',
@@ -40,6 +43,7 @@ export default function handler(req, res) {
       'availability': 3,
     },
     "5": {
+      "id": "5",
       'title': '7/16" (11,1 mm) Industrial Cobalt Drill bit',
       'model': 'DWA1228',
       'brand': 'DeWALT',
@@ -53,6 +57,7 @@ export default function handler(req, res) {
       'availability': 2,
     },
     "6": {
+      "id": "6",
       'title': '1/2" (12,7 mm) Industrial Cobalt Drill bit',
       'model': 'DWA1232',
       'brand': 'DeWALT',
@@ -66,6 +71,7 @@ export default function handler(req, res) {
       'availability': 2,
     },
     "7": {
+      "id": "7",
       'title': '20V MAX* XR® 5Ah Battery',
       'model': 'DCB205',
       'brand': 'DeWALT',
@@ -79,6 +85,7 @@ export default function handler(req, res) {
       'availability': 6,
     },
     "8": {
+      "id": "8",
       'title': '20V MAX* XR® 6Ah Battery',
       'model': 'DCB206',
       'brand': 'DeWALT',
@@ -92,6 +99,7 @@ export default function handler(req, res) {
       'availability': 4,
     },
     "13": {
+      "id": "13",
       'title': '20V MAX* Lithium Ion Compact Drill/Driver Kit',
       'model': 'DCD771',
       'brand': 'DeWALT',
@@ -105,6 +113,7 @@ export default function handler(req, res) {
       'availability': 1,
     },
     "17": {
+      "id": "17",
       'title': '20V MAX* Lithium Ion 4-1/2" (115mm) / 5" (125mm) Grinder (tool only)',
       'model': 'DCG412',
       'brand': 'DeWALT',
@@ -118,6 +127,7 @@ export default function handler(req, res) {
       'availability': 1,
     },
     "18": {
+      "id": "18",
       'title': '20V MAX* XR® 4.5 in. Paddle Switch Small Angle Grinder with Kickback Brake (tool only)',
       'model': 'DCG413',
       'brand': 'DeWALT',
@@ -131,6 +141,7 @@ export default function handler(req, res) {
       'availability': 1,
     },
     "20": {
+      "id": "20",
       'title': 'Metal Grinding Wheel Type 27',
       'model': 'DW4543',
       'brand': 'DeWALT',
@@ -144,6 +155,7 @@ export default function handler(req, res) {
       'availability': 1,
     },
     "21": {
+      "id": "21",
       'title': 'CROSS LINE AND PLUMB SPOTS LASER',
       'model': 'DW0822',
       'brand': 'DeWALT',
