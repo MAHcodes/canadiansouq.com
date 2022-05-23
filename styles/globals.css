@@ -10,6 +10,8 @@
   --ttf: ease-in-out; /* transition-timing-function */
   --icon-size: 2rem;
   --p-sec: 3rem;
+  --fz-4: 1rem;
+  --fz-5: .9rem;
 }
 
 @font-face {
