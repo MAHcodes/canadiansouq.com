@@ -1,12 +1,19 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Button from "./Button";
+import Link from "next/link";
 
 const CardsScroll = ({ productsList }) => {
   const bookmarkIcon = (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg
+      className="stroke"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
       <path
-        d="M4.16431 17.5833L4.16408 17.5833C4.15037 17.5833 4.14142 17.5803 4.13708 17.5782C4.13537 17.5773 4.13441 17.5767 4.13395 17.5763C4.11136 17.5455 4.08331 17.4893 4.08331 17.3866V3.08154C4.08331 2.80397 4.40136 2.41675 4.90148 2.41675H15.1541C15.6179 2.41675 15.9166 2.77059 15.9166 3.08154V17.3867C15.9166 17.4754 15.9034 17.5289 15.8935 17.5562C15.8885 17.5701 15.884 17.5785 15.8812 17.5829C15.8791 17.5832 15.8761 17.5834 15.8721 17.5834C15.8563 17.5834 15.7811 17.5788 15.6332 17.4598L15.6325 17.4592L11.0616 13.7874C11.0615 13.7873 11.0613 13.7872 11.0612 13.787C10.7646 13.5483 10.3875 13.4416 10.0345 13.4416C9.68228 13.4416 9.30473 13.5478 9.00814 13.7864C9.00783 13.7866 9.00752 13.7868 9.00722 13.7871L4.42192 17.4591L4.42019 17.4605C4.28553 17.5689 4.19274 17.5833 4.16431 17.5833ZM15.8854 17.5819C15.8855 17.5819 15.8851 17.5822 15.884 17.5824L15.8854 17.5819Z"
+        d="M4.9972 21.2499H4.99696C4.91804 21.2499 4.86597 21.2156 4.84061 21.1813C4.79355 21.1175 4.75 21.0185 4.75 20.8638V3.69774C4.75 3.2668 5.21468 2.75 5.8818 2.75H18.1849C18.8157 2.75 19.25 3.23343 19.25 3.69774V20.8639C19.25 21.1034 19.1815 21.1879 19.1626 21.2076C19.1408 21.2303 19.1058 21.25 19.0466 21.25C18.9832 21.25 18.8607 21.2254 18.6658 21.0684L18.6651 21.0679L13.1799 16.6616C12.8548 16.3997 12.4369 16.2799 12.0414 16.2799C11.6469 16.2799 11.2286 16.3991 10.9037 16.6605C10.9034 16.6607 10.9031 16.661 10.9028 16.6612L5.40009 21.0679L5.39836 21.0693C5.21683 21.2155 5.0733 21.2499 4.9972 21.2499Z"
         stroke="#242424"
         strokeWidth="1.5"
       />
@@ -15,22 +22,35 @@ const CardsScroll = ({ productsList }) => {
 
   return (
     <Div>
-      {productsList.map((product) => (
+      {productsList.slice(0, 14).map((product) => (
         <Card key={product.id}>
-          <ImageWrapper>
-          <Image src={product.images[0]} width="150px" height="150px" alt="" />
-          </ImageWrapper>
+          <Link href={`/product/${product.id}`} passHref>
+            <ImageWrapper>
+              <Image
+                src={product.images[0]}
+                layout="fill"
+                alt={product.title}
+                objectFit="contain"
+              />
+            </ImageWrapper>
+          </Link>
           <Info>
-            <About>
-              <Category>{product.category}</Category>
-              <Financial>
-                {product.cost !== product.price && <Cost>{product.cost}</Cost>}
-                <Price>{product.price}</Price>
-              </Financial>
-            </About>
-            <Title>{product.title}</Title>
+            <Link href={`/product/${product.id}`} passHref>
+              <AboutWrapper>
+                <About>
+                  <Category>{product.category}</Category>
+                  <Financial>
+                    {product.cost !== product.price && (
+                      <Cost>${product.cost}</Cost>
+                    )}
+                    <Price>${product.price}</Price>
+                  </Financial>
+                </About>
+                <Title className='title'>{product.title}</Title>
+              </AboutWrapper>
+            </Link>
             <Buttons>
-              <Button padding=".75em 1.5em" widthFull text="Add to cart" />
+              <Button padding=".5em 1.5em" widthFull text="Add to cart" />
               <Button
                 sec
                 padding=".5em .5em"
@@ -75,11 +95,20 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  padding: 1rem;
+  margin: 1rem;
   overflow: hidden;
-`
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--br);
+  cursor: pointer;
+`;
 
-const About = styled.div``;
+const About = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 0.5rem;
+`;
 
 const Info = styled.div`
   display: flex;
@@ -87,24 +116,47 @@ const Info = styled.div`
   flex: 1;
 `;
 
-const Category = styled.p``;
+const AboutWrapper = styled.div`
+  cursor: pointer;
 
-const Financial = styled.div``;
+  &:hover .title  {
+    text-decoration: underline;    
+  }
+`
 
-const Cost = styled.p``;
+const Category = styled.p`
+  font-size: var(--fz-4);
+  color: rgba(var(--black), 55%);
+`;
 
-const Price = styled.p``;
+const Financial = styled.div`
+  text-align: center;
+`;
+
+const Cost = styled.p`
+  font-size: var(--fz-5);
+  color: rgba(var(--black), 55%);
+  text-decoration: line-through;
+`;
+
+const Price = styled.p`
+  font-weight: bold;
+`;
 
 const Title = styled.h3`
   flex: 1;
-  max-width: 30ch;
+  overflow: hidden;
+  margin-block-end: 1rem;
+  max-height: 2.8em;
+  line-height: 1.4;
+  max-width: 25ch;
 `;
 
 const Buttons = styled.div`
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-block-start: auto;
 
   & > button:first-of-type {
     flex: 1;

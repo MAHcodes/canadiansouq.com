@@ -17,8 +17,8 @@ const Hero = () => {
           products from Canada in Lebanon!
         </H2>
         <ImgWrapper>
-          <Image src={hero} alt="Our Power tools brands" />
-          <Image src={lebTag} alt="Lebanon pin tag" />
+          <Image src={hero} alt="Our Power tools brands" priority />
+          <Image src={lebTag} alt="Lebanon pin tag" priority />
         </ImgWrapper>
         <Button text="Shop now" />
       </div>

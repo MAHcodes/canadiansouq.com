@@ -27,18 +27,15 @@ const StyledButton = styled.button`
  border:${props => props.sec ? "2px solid rgb(var(--black))" : "rgb(var(--black))" };
 
  & > svg {
-   width: var(--icon-size);
-   height: var(--icon-size);
+   --size: 1.5rem;
+   width: var(--size);
+   height : var(--size);
  }
 
  &:focus,
  &:hover {
-   box-shadow: .5rem .5rem 1rem -.5rem rgba(var(--black), 60%),
-   inset .5rem .5rem 1rem -.5rem rgba(var(--white), 40%);
  }
  &:active {
-   box-shadow: -.5rem -.5rem 1rem -.5rem rgba(var(--black), 60%),
-   inset -.5rem -.5rem 1rem -.5rem rgba(var(--white), 40%);
  }
 `
 
