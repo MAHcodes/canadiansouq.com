@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import Link from "next/link";
 
-const CardsScroll = ({ productsList }) => {
+const CardsScroll = ({ productsList, setScroll }) => {
   const bookmarkIcon = (
     <svg
       className="stroke"
@@ -20,8 +20,19 @@ const CardsScroll = ({ productsList }) => {
     </svg>
   );
 
+  const handleScroll = (e) => {
+    console.log(e.target.scrollLeft);
+    if (e.target.scrollLeft <= 0) {
+      setScroll("start");
+    } else if (e.target.scrollLeft >= e.target.scrollLeftMax) {
+      setScroll("end");
+    } else {
+      setScroll("");
+    }
+  };
+
   return (
-    <Div>
+    <Div onScroll={handleScroll}>
       {productsList.slice(0, 14).map((product) => (
         <Card key={product.id}>
           <Link href={`/product/${product.id}`} passHref>
@@ -46,7 +57,7 @@ const CardsScroll = ({ productsList }) => {
                     <Price>${product.price}</Price>
                   </Financial>
                 </About>
-                <Title className='title'>{product.title}</Title>
+                <Title className="title">{product.title}</Title>
               </AboutWrapper>
             </Link>
             <Buttons>
@@ -119,10 +130,10 @@ const Info = styled.div`
 const AboutWrapper = styled.div`
   cursor: pointer;
 
-  &:hover .title  {
-    text-decoration: underline;    
+  &:hover .title {
+    text-decoration: underline;
   }
-`
+`;
 
 const Category = styled.p`
   font-size: var(--fz-4);
