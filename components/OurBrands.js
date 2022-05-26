@@ -1,37 +1,47 @@
-import styled from "styled-components";
-import makitaLogo from "../public/images/makita-logo.svg";
-import milwaukeeLogo from "../public/images/milwaukee-logo.svg";
-import dewaltLogo from "../public/images/dewalt-logo.svg";
-import matcoToolsLogo from "../public/images/matco-tools-logo.svg";
-import hiltiLogo from "../public/images/hilti-logo.svg";
-import Image from "next/image";
+import styled, { keyframes } from "styled-components";
+import Brands from "./Brands";
 
 const OurBrands = () => {
   return (
-    <div>
-      <div className="container">
-        <ImagesWrapper>
-          <Image src={milwaukeeLogo} alt="Milwaukee Logo" />
-          <Image src={hiltiLogo} alt="HILTI Logo" />
-          <Image src={dewaltLogo} alt="DeWALT Logo" />
-          <Image src={makitaLogo} alt="Makita Logo" />
-          <Image src={matcoToolsLogo} alt="Matco Tools Logo" />
-        </ImagesWrapper>
-      </div>
-    </div>
+    <Section>
+      <Container>
+        <Brands />
+        <Brands />
+      </Container>
+    </Section>
   );
 };
 
-const ImagesWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  overflow-x: auto;
+const Section = styled.section`
+  position: relative;
+  overflow: hidden;
+  height: 8rem;
+`;
 
-  & > span {
-    min-width: 500px !important;
+const mobileScroll = keyframes`
+  to {
+    left: -200%;
   }
 `;
 
+const desktopScroll = keyframes`
+  to {
+    left: -100%;
+  }
+`;
+
+const Container = styled.div`
+  width: 400%;
+
+  @media (min-width: 800px) {
+    width: 200%;
+  }
+
+  position: absolute;
+  left: 0;
+  animation: ${mobileScroll} 10s linear infinite;
+  @media (min-width: 800px) {
+    animation: ${desktopScroll} 20s linear infinite;
+  }
+`;
 export default OurBrands;
