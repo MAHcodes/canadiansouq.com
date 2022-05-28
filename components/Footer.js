@@ -28,6 +28,15 @@ const Footer = () => {
           <VisitUs>
             <Title>Visit Us</Title>
             <h4>Mon - Sat 9:00am - 5:00pm</h4>
+            <iframe
+              width="831"
+              height="372"
+              src="https://maps.google.com/maps?q=8FVG+4J2,%20Maifadoun&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+            ></iframe>
           </VisitUs>
         </Wrapper>
 
@@ -64,7 +73,12 @@ const Wrapper = styled.div`
   display: grid;
   align-items: start;
   justify-content: space-between;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "c c f" "v v v";
+  gap: 1rem;
+
+  @media (min-width: 800px) {
+    grid-template-areas: "c v v" "f v v";
+  }
 `;
 
 const Title = styled.h3`
@@ -75,6 +89,7 @@ const Title = styled.h3`
 `;
 
 const ContactUs = styled.div`
+  grid-area: c;
   display: flex;
   align-items: start;
   flex-direction: column;
@@ -88,13 +103,24 @@ const ContactUs = styled.div`
 `;
 
 const FollowUs = styled.div`
+  grid-area: f;
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media(min-width: 800px) {
+    justify-self: start;
+  }
 `;
 
 const VisitUs = styled.div`
-  justify-self: end;
+  grid-area: v;
+  & > iframe {
+    width: 100%;
+    border-radius: var(--br);
+    margin-block-start: .5rem;
+    max-height: 15rem;
+    aspect-ratio: 16:9;
+  }
 `;
 
 const Credit = styled.div`
