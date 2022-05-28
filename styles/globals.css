@@ -10,6 +10,9 @@
   --ttf: ease-in-out; /* transition-timing-function */
   --icon-size: 2rem;
   --p-sec: 3rem;
+  --fz-1: 1.5rem;
+  --fz-2: 1.25rem;
+  --fz-3: 1.125rem;
   --fz-4: 1rem;
   --fz-5: .9rem;
 }

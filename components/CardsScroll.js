@@ -24,7 +24,7 @@ const CardsScroll = ({ productsList, setScroll }) => {
     console.log(e.target.scrollLeft);
     if (e.target.scrollLeft <= 0) {
       setScroll("start");
-    } else if (e.target.scrollLeft >= e.target.scrollLeftMax) {
+    } else if (e.target.scrollLeft >= (e.target.scrollLeftMax - 0)) {
       setScroll("end");
     } else {
       setScroll("");
