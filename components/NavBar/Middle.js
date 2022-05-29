@@ -1,15 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
-
-const CATEGORIES = {
-  "Power Tools": ["All", "DeWALT", "Milwaukee", "HILTI", "makita"],
-  "Hand Tools": ["All"],
-  Electronics: ["All"],
-  Automotive: ["All"],
-  "Home Appliances": ["All"],
-  Others: ["All"],
-};
+import CATEGORIES from "../../stores/Categories";
 
 const Middle = () => {
   const [opened, setOpened] = useState("");
