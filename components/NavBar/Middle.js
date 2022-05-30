@@ -42,10 +42,7 @@ const Middle = () => {
                 return (
                   <Link
                     key={brand}
-                    href={`/products/${category[0]
-                      .toLowerCase()
-                      .split(" ")
-                      .join("")}/${brand.toLowerCase().split(" ").join("")}`}
+                    href={`/products/${category[0]}/${brand}`}
                     passHref
                   >
                     <Li open={opened === category[0]}>{brand}</Li>

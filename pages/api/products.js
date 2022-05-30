@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export default function handler(_, res) {
   res.status(200).json({
     "2": {
       "id": "2",
