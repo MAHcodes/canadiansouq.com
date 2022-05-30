@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
   const products = await res.json();
 
   const newProducts = Object.entries(products).filter((product) => {
-    if (brand === "all") return product[1].category === cat;
+    if (brand === "All") return product[1].category === cat;
     return product[1].brand === brand && product[1].category === cat;
   });
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import Link from "next/link";
 
-const Card = ({product}) => {
+const Card = ({ product, grid }) => {
   const bookmarkIcon = (
     <svg
       className="stroke"
@@ -21,7 +21,7 @@ const Card = ({product}) => {
   );
 
   return (
-    <Div>
+    <Div grid={grid}>
       <Link href={`/product/${product.id}`} passHref>
         <ImageWrapper>
           <Image
@@ -42,14 +42,14 @@ const Card = ({product}) => {
                 <Price>${product.price}</Price>
               </Financial>
             </About>
-            <Title className="title">{product.title}</Title>
+            <Title grid={grid} className="title">{product.title}</Title>
           </AboutWrapper>
         </Link>
-        <Buttons>
-          <Button padding=".5em .5em" widthFull text="Add to cart" />
+        <Buttons grid={grid}>
+          <Button padding=".5em 1em" widthFull text="Add to cart" />
           <Button
             sec
-            padding=".5em .5em"
+            padding=".5em"
             text={bookmarkIcon}
             altText="Bookmark Icon"
           />
@@ -66,8 +66,8 @@ const Div = styled.div`
   transition: box-shadow var(--td) var(--ttf);
   display: flex;
   align-items: stretch;
-  flex-direction: column;
   gap: 1rem;
+  flex-direction: ${(props) => (props.grid ? "row" : "column")};
 
   &:hover {
     box-shadow: 0px 0.5rem 2.5rem rgba(var(--black), 0.15);
@@ -75,7 +75,7 @@ const Div = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  margin: 1rem;
+  margin: .5rem;
   overflow: hidden;
   position: relative;
   aspect-ratio: 1;
@@ -129,7 +129,7 @@ const Title = styled.h3`
   margin-block-end: 1rem;
   max-height: 2.8em;
   line-height: 1.4;
-  max-width: 25ch;
+  max-width: ${props => props.grid ? "100%" : "25ch"};
 `;
 
 const Buttons = styled.div`
@@ -139,9 +139,9 @@ const Buttons = styled.div`
   margin-block-start: auto;
 
   & > button:first-of-type {
-    flex: 1;
+    flex: ${(props) => (props.grid ? 0 : 1)};
+    margin-left: auto;
   }
 `;
-
 
 export default Card;

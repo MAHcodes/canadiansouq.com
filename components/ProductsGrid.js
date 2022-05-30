@@ -15,7 +15,7 @@ const ProductsGrid = ({ prods }) => {
 
         <Grid grid={grid}>
           {prods.map((prod) => {
-            return <Card key={prod.id} product={prod} />;
+            return <Card grid={grid} key={prod.id} product={prod} />;
           })}
         </Grid>
       </div>
@@ -27,7 +27,7 @@ const Div = styled.div``;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.grid ? "1fr" : "repeat(auto-fill, minmax(14rem, 1fr))" };
+  grid-template-columns: ${props => props.grid ? "1fr" : "repeat(auto-fill, minmax(10rem, 1fr))" };
   gap: 1rem;
 
   @media (min-width: 800px) {
