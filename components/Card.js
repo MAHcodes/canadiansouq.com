@@ -23,7 +23,7 @@ const Card = ({ product, grid }) => {
   return (
     <Div grid={grid}>
       <Link href={`/product/${product.id}`} passHref>
-        <ImageWrapper>
+        <ImageWrapper grid={grid}>
           <Image
             src={product.image || product.images[0]}
             layout="fill"
@@ -42,7 +42,9 @@ const Card = ({ product, grid }) => {
                 <Price>${product.price}</Price>
               </Financial>
             </About>
-            <Title grid={grid} className="title">{product.title}</Title>
+            <Title grid={grid} className="title">
+              {product.title}
+            </Title>
           </AboutWrapper>
         </Link>
         <Buttons grid={grid}>
@@ -65,9 +67,9 @@ const Div = styled.div`
   border-radius: var(--br);
   transition: box-shadow var(--td) var(--ttf);
   display: flex;
-  align-items: stretch;
   gap: 1rem;
   flex-direction: ${(props) => (props.grid ? "row" : "column")};
+  align-items: ${(props) => (props.grid ? "center" : "stretch")};
 
   &:hover {
     box-shadow: 0px 0.5rem 2.5rem rgba(var(--black), 0.15);
@@ -75,12 +77,16 @@ const Div = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  margin: .5rem;
+  margin: 0.5rem;
   overflow: hidden;
   position: relative;
   aspect-ratio: 1;
   border-radius: var(--br);
   cursor: pointer;
+  min-width: 6rem;
+  @media (max-width: 350px) {
+    min-width: 4rem;
+  }
 `;
 
 const About = styled.div`
@@ -94,6 +100,11 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
+
+  @media (max-width: 300px) {
+    padding-bottom: 4rem;
+  }
 `;
 
 const AboutWrapper = styled.div`
@@ -129,7 +140,7 @@ const Title = styled.h3`
   margin-block-end: 1rem;
   max-height: 2.8em;
   line-height: 1.4;
-  max-width: ${props => props.grid ? "100%" : "25ch"};
+  max-width: ${(props) => (props.grid ? "100%" : "25ch")};
 `;
 
 const Buttons = styled.div`
@@ -141,6 +152,11 @@ const Buttons = styled.div`
   & > button:first-of-type {
     flex: ${(props) => (props.grid ? 0 : 1)};
     margin-left: auto;
+  }
+
+  @media (max-width: 300px) {
+    position: absolute;
+    inset: auto 0 0 auto;
   }
 `;
 

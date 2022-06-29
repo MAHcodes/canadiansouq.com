@@ -27,7 +27,7 @@ const Div = styled.div``;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.grid ? "1fr" : "repeat(auto-fill, minmax(10rem, 1fr))" };
+  grid-template-columns: ${props => props.grid ? "1fr" : "repeat(auto-fill, minmax(13rem, 1fr))" };
   gap: 1rem;
 
   @media (min-width: 800px) {
