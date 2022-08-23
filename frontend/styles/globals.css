@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: "NunitoSans";
+  font-weight: 400;
+  src: local("NunitoSans"), url(../public/fonts/NunitoSans-Regular.ttf) format("truetype") ;
+}
+
+@font-face {
+  font-family: "NunitoSans";
+  font-weight: 800;
+  src: local("NunitoSans"), url(../public/fonts/NunitoSans-Bold.ttf) format("truetype") ;
+}
+
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: NunitoSans, Poppins, Helvetica Neue, sans-serif;
+  font-size: clamp(1rem, 2.5vmin, 1.15rem);
+  text-size-adjust: none;
+
+  @apply bg-white text-black font-normal scroll-smooth
 }
 
 a {
@@ -16,15 +33,14 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  @apply box-border;
+   -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+img {
+  user-select: none;
+}
+
+.container {
+  @apply mx-auto px-4;
 }
