@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Button from "../components/Button";
+import OurBrands from "../sections/OurBrands";
 import Head from "next/head";
 
 const Home: NextPage = () => {
@@ -35,6 +36,8 @@ const Home: NextPage = () => {
           <Button text="Shop now" main />
         </div>
       </main>
+
+      <OurBrands />
     </div>
   );
 };
