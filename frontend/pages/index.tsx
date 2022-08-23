@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Button from "../components/Button";
 import Head from "next/head";
 
 const Home: NextPage = () => {
@@ -27,10 +28,11 @@ const Home: NextPage = () => {
             </span>{" "}
             Products from Canada in Lebanon!
           </h2>
-          <div className="w-[70vw] max-w-[750px] relative my-16">
+          <div className="w-[70vw] max-w-[750px] relative my-12">
             <img className="mx-auto mb-4" src="/images/lebanonTag.svg" alt="Lebanon pin tag" />
             <img src="/images/hero.png" alt="Our Power tools brands" />
           </div>
+          <Button text="Shop now" main />
         </div>
       </main>
     </div>
