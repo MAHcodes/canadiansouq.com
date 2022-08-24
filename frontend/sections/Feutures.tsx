@@ -8,7 +8,7 @@ import {
 
 const Feutures = () => (
   <section className="container ">
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 py-12">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 py-12">
       <Feature Icon={DeliveryTruck} title="Delivery all over Lebanon" />
       <Feature Icon={OriginalBadge} title="Original products" />
       <Feature Icon={BestPrices} title="Best prices" />

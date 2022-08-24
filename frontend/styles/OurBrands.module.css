@@ -23,7 +23,7 @@
   animation: mobileScroll 10s linear infinite;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .wrapper {
     width: 200%;
     animation: desktopScroll 20s linear infinite;

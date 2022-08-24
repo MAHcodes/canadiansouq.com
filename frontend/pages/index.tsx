@@ -4,6 +4,8 @@ import Head from "next/head";
 import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
 import React from "react";
+import ProductsSlider from "../components/ProductsSlider";
+import getProducts from "../graphql/queries/getProducts";
 
 const Home: NextPage = () => {
   return (
@@ -20,9 +22,24 @@ const Home: NextPage = () => {
       <Hero />
       <OurBrands />
       <Feutures />
+      <ProductsSlider 
+        title="Featured Products"
+        />
 
     </div>
   );
 };
+
+export const getStaticProps = async () => {
+  const { error, data } = getProducts();
+
+  if (error) console.log(error);
+
+  return {
+    props: {
+      products: data;
+    }
+  }
+}
 
 export default Home;
