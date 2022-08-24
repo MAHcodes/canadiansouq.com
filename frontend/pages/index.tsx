@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
 import OurBrands from "../sections/OurBrands";
 import Head from "next/head";
 import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
 import React from "react";
-import ProductsSlider from "../components/ProductsSlider";
-import getProducts from "../graphql/queries/getProducts";
+import { getFeaturedProducts } from "../graphql/queries/getProducts";
+import { IProduct } from "../utils/types";
 
-const Home: NextPage = () => {
+const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
+  console.log(featuredProducts[0].attributes.featured);
   return (
     <div>
       <Head>
@@ -22,24 +22,17 @@ const Home: NextPage = () => {
       <Hero />
       <OurBrands />
       <Feutures />
-      <ProductsSlider 
-        title="Featured Products"
-        />
-
     </div>
   );
 };
 
-export const getStaticProps = async () => {
-  const { error, data } = getProducts();
-
-  if (error) console.log(error);
-
+export const getServerSideProps = async () => {
+  const featuredProducts = await getFeaturedProducts();
   return {
     props: {
-      products: data;
-    }
-  }
-}
+      featuredProducts,
+    },
+  };
+};
 
 export default Home;
