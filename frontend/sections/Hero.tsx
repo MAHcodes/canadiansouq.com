@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import React from "react";
 
 const Hero = () => (
   <main className="py-12">
@@ -13,7 +14,7 @@ const Hero = () => (
             alt=""
           />
         </span>{" "}
-        Products from Canada in Lebanon!
+        products from Canada in Lebanon!
       </h2>
       <div className="w-[70vw] max-w-[750px] relative my-12">
         <img
