@@ -1,9 +1,9 @@
 import React from "react";
 import {
-  BestPrices,
-  CashOnDelivery,
   DeliveryTruck,
   OriginalBadge,
+  BestPrices,
+  CashOnDelivery,
 } from "../components/icons";
 
 const Feutures = () => (
@@ -18,7 +18,7 @@ const Feutures = () => (
 );
 
 interface Props {
- title: string;
+  title: string;
   Icon: React.FunctionComponent;
 }
 

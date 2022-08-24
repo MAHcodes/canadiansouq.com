@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function DeliveryTruck({}: Props) {
+const DeliveryTruck = () => {
   return (
     <svg width="75" height="75" viewBox="0 0 75 75" fill="none">
       <path

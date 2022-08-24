@@ -1,5 +1,5 @@
 import React from 'react'
-import { IProduct } from "../utils/types";
+import { IProduct } from "../types";
 
 type Props = {
   title: string;

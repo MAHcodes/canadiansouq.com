@@ -4,7 +4,7 @@ import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
 import React from "react";
 import { getFeaturedProducts } from "../graphql/queries/getProducts";
-import { IProduct } from "../utils/types";
+import { IProduct } from "../types";
 
 const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
   console.log(featuredProducts[0].attributes.featured);
