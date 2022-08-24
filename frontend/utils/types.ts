@@ -1,3 +1,8 @@
 export interface IProduct {
-  name: string;
+  id?: number;
+  attributes: {
+    name?: string;
+    featured?: boolean;
+    availability?: number;
+  };
 }
