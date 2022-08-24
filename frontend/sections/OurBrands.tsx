@@ -1,18 +1,18 @@
-import styled, { keyframes } from "styled-components";
+import styles from "../styles/OurBrands.module.css";
 
-const OurBrands = (props: {}) => {
+const OurBrands = () => {
   return (
-    <Section>
-      <Container>
+    <section className={styles.section}>
+      <div className={styles.wrapper}>
         <Brands />
         <Brands />
-      </Container>
-    </Section>
+      </div>
+    </section>
   );
 };
 
 const Brands = () => (
-  <div className="brands">
+  <div className={styles.brands}>
     <img
       src="/images/milwaukee-logo.svg"
       alt="Milwaukee Logo"
@@ -32,39 +32,5 @@ const Brands = () => (
     />
   </div>
 );
-
-const Section = styled.section`
-  position: relative;
-  overflow: hidden;
-  height: 8rem;
-`;
-
-const mobileScroll = keyframes`
-  to {
-    left: -200%;
-  }
-`;
-
-const desktopScroll = keyframes`
-  to {
-    left: -100%;
-  }
-`;
-
-const Container = styled.div`
-  width: 400%;
-
-  @media (min-width: 800px) {
-    width: 200%;
-  }
-
-  position: absolute;
-  left: 0;
-  animation: ${mobileScroll} 10s linear infinite;
-
-  @media (min-width: 800px) {
-    animation: ${desktopScroll} 20s linear infinite;
-  }
-`;
 
 export default OurBrands;

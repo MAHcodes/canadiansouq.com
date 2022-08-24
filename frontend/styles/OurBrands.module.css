@@ -1,0 +1,46 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  height: 8rem;
+}
+
+@keyframes mobileScroll {
+  to {
+    left: -200%;
+  }
+}
+
+@keyframes desktopScroll {
+  to {
+    left: -100%;
+  }
+}
+
+.wrapper {
+  width: 400%;
+  position: absolute;
+  left: 0;
+  animation: mobileScroll 10s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    width: 200%;
+    animation: desktopScroll 20s linear infinite;
+  }
+}
+
+.brands {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-inline: 5vw;
+
+  float: left;
+  width: 50%;
+}
+
+.brands > img {
+  height: 8rem;
+}

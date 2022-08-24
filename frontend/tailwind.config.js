@@ -15,14 +15,6 @@ module.exports = {
         success: "rgb(39, 174, 96)",
         danger: "rgb(233, 90, 90)",
       },
-      animation: {
-        slideLeft: "brandsSlide 20s linear infinite",
-      },
-      keyframes: {
-        brandsSlide: {
-          to: { left: "-100%" },
-        },
-      },
     },
   },
   plugins: [],
