@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeliveryTruck = () => {
+export const DeliveryTruck = () => {
   return (
     <svg width="75" height="75" viewBox="0 0 75 75" fill="none">
       <path
@@ -19,4 +19,3 @@ const DeliveryTruck = () => {
   );
 }
 
-export default DeliveryTruck;

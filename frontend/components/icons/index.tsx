@@ -1,11 +1,4 @@
-import DeliveryTruck from "./DeliveryTruck";
-import OriginalBadge from "./OriginalBadge";
-import BestPrices from "./BestPrices";
-import CashOnDelivery from "./CashOnDelivery";
-
-export {
-  DeliveryTruck,
-  OriginalBadge,
-  BestPrices,
-  CashOnDelivery,
-};
+export { DeliveryTruck } from "./DeliveryTruck";
+export { OriginalBadge } from "./OriginalBadge";
+export { BestPrices } from "./BestPrices";
+export { CashOnDelivery } from "./CashOnDelivery";
