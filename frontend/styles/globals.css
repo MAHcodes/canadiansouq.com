@@ -44,3 +44,22 @@ img {
 .container {
   @apply mx-auto px-4;
 }
+
+.twolines {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   line-height: 1.5;
+   max-height: 3;
+}
+
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.noscrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} 

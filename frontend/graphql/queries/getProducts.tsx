@@ -9,6 +9,13 @@ export const getFeaturedProducts = async () => {
           attributes {
             availability
             featured
+            images {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }
