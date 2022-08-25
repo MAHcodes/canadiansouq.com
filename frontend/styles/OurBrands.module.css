@@ -2,11 +2,12 @@
   position: relative;
   overflow: hidden;
   height: 8rem;
+  margin-block: 2vw;
 }
 
 @keyframes mobileScroll {
   to {
-    left: -200%;
+    left: -250%;
   }
 }
 
@@ -17,7 +18,7 @@
 }
 
 .wrapper {
-  width: 400%;
+  width: 500%;
   position: absolute;
   left: 0;
   animation: mobileScroll 10s linear infinite;
