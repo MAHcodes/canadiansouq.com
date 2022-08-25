@@ -5,6 +5,7 @@ import Feutures from "../sections/Feutures";
 import React from "react";
 import { getFeaturedProducts } from "../graphql/queries/getProducts";
 import { IProduct } from "../types";
+import ProductsSlider from "../components/ProductsSlider";
 
 const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
   console.log(featuredProducts[0].attributes.featured);
@@ -22,11 +23,12 @@ const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
       <Hero />
       <OurBrands />
       <Feutures />
+      <ProductsSlider title="Featured Products" />
     </div>
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const featuredProducts = await getFeaturedProducts();
   return {
     props: {
