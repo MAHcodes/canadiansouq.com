@@ -23,7 +23,7 @@ const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
       <Hero />
       <OurBrands />
       <Feutures />
-      <ProductsSlider title="Featured Products" />
+      <ProductsSlider title="Featured Products" slug="featured" products={featuredProducts} />
     </div>
   );
 };
