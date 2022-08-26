@@ -4,3 +4,8 @@ export { BestPrices } from "./BestPrices";
 export { CashOnDelivery } from "./CashOnDelivery";
 export { Arrow } from "./Arrow";
 export { Bookmark } from "./Bookmark";
+export { Phone } from "./Phone";
+export { Mail } from "./Mail";
+export { Whatsapp } from "./Whatsapp"
+export { Instagram } from "./Instagram"
+export { Facebook } from "./Facebook"
