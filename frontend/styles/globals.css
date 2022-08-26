@@ -2,19 +2,19 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 @font-face {
   font-family: "NunitoSans";
   font-weight: 400;
-  src: local("NunitoSans"), url(../public/fonts/NunitoSans-Regular.ttf) format("truetype") ;
+  src: local("NunitoSans"),
+    url(../public/fonts/NunitoSans-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "NunitoSans";
   font-weight: 800;
-  src: local("NunitoSans"), url(../public/fonts/NunitoSans-Bold.ttf) format("truetype") ;
+  src: local("NunitoSans"),
+    url(../public/fonts/NunitoSans-Bold.ttf) format("truetype");
 }
-
 
 html,
 body {
@@ -24,7 +24,7 @@ body {
   font-size: clamp(1rem, 2.5vmin, 1.15rem);
   text-size-adjust: none;
 
-  @apply bg-white text-black font-normal scroll-smooth
+  @apply bg-white text-black font-normal scroll-smooth;
 }
 
 a {
@@ -34,7 +34,7 @@ a {
 
 * {
   @apply box-border;
-   -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -46,13 +46,13 @@ img {
 }
 
 .twolines {
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2;
-   line-height: 1.5;
-   max-height: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.5;
+  max-height: 3;
 }
 
 .noscrollbar::-webkit-scrollbar {
@@ -62,4 +62,4 @@ img {
 .noscrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} 
+}
