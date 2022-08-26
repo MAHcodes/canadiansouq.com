@@ -11,18 +11,18 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => (
   <div
-    className={`bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-2xl items-stretch snap-center
+    className={`bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-2xl items-stretch snap-center group
         ${grid ? "flex-row" : "flex-col w-[14rem]"}
       `}
   >
     <Link href={`/product/${product.id}`}>
       <div
-        className={`flex items-center justify-center cursor-pointer ${
+        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg ${
           !grid && "my-2"
         }`}
       >
         <img
-          className="min-w-[6rem] w-48 h-48 object-cover"
+          className="min-w-[6rem] w-48 h-48 object-cover group-hover:scale-105 group-active:scale-105 transition-transform"
           src={"/images" + product.attributes.images!.data[0].attributes.url}
           alt={product.attributes.title}
         />
