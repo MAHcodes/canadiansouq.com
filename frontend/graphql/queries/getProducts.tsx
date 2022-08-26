@@ -6,9 +6,29 @@ export const getFeaturedProducts = async () => {
     query getFeaturedProducts {
       products(filters: { featured: { eq: true } }) {
         data {
+          id
           attributes {
+            title
+            model
+            brand {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
             availability
             featured
+            price
+            cost
+            description
+            categories {
+              data {
+                attributes {
+                  title
+                }
+              }
+            }
             images {
               data {
                 attributes {

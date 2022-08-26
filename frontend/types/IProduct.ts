@@ -1,15 +1,40 @@
 export interface IProduct {
   id?: number;
   attributes: {
-    name?: string;
+    title?: string;
     featured?: boolean;
     availability?: number;
     model?: string;
-    brand?: string;
-    category?: string;
-    price?: number,
-    cost?: number,
-    description?: string,
-    images?: string[],
+    brand?: IBrand;
+    categories?: ICategory;
+    price?: number;
+    cost?: number;
+    description?: string;
+    images?: IImages;
   };
+}
+
+export interface IBrand {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+    };
+  };
+}
+
+export interface ICategory {
+  data: {
+    attributes: {
+      title: string;
+    };
+  }[];
+}
+
+export interface IImages {
+  data: {
+    attributes: {
+      url: string;
+    };
+  }[];
 }

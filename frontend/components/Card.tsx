@@ -23,13 +23,13 @@ const Card = ({ grid, product }: Props) => (
       >
         <img
           className="min-w-[6rem] w-48 h-48 object-cover"
-          src={product.attributes.images![0]}
-          alt={product.attributes.name}
+          src={"/images" + product.attributes.images!.data[0].attributes.url}
+          alt={product.attributes.title}
         />
       </div>
     </Link>
 
-    <div>
+    <div className="flex flex-col justify-between w-full">
       <Link href={`/product/${product.id}`}>
         <div className="flex flex-col w-full cursor-pointer">
           <div
@@ -39,7 +39,7 @@ const Card = ({ grid, product }: Props) => (
           >
             <div>
               <h2 className="text-base text-gray">
-                {product.attributes.category}
+                {product.attributes.categories!.data[0].attributes.title}
               </h2>
             </div>
             <div className="flex items-center flex-col">
@@ -60,7 +60,7 @@ const Card = ({ grid, product }: Props) => (
                 grid && "font-semibold"
               }`}
             >
-              {product.attributes.name}
+              {product.attributes.title}
             </h2>
             {grid && (
               <p className="text-gray text-base twolines">
