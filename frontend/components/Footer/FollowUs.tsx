@@ -3,7 +3,7 @@ import { Whatsapp, Instagram, Facebook } from "../icons";
 import Title from "./Title";
 
 const FollowUs = () => (
-  <div>
+  <div className="md:order-2">
     <Title text="Follow Us" />
     <SocialIcons>
       <>
