@@ -9,3 +9,4 @@ export { Mail } from "./Mail";
 export { Whatsapp } from "./Whatsapp"
 export { Instagram } from "./Instagram"
 export { Facebook } from "./Facebook"
+export { OpenTime } from "./OpenTime"
