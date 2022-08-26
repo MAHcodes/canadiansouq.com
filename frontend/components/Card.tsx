@@ -16,16 +16,22 @@ const Card = ({ grid, product }: Props) => (
       `}
   >
     <Link href={`/product/${product.id}`}>
-      <div className="cursor-pointer">
-        <div className={`flex items-center justify-center ${!grid && "my-2"}`}>
-          <img
-            className="w-48 h-48 object-cover"
-            src={product.attributes.images![0]}
-            alt={product.attributes.name}
-          />
-        </div>
+      <div
+        className={`flex items-center justify-center cursor-pointer ${
+          !grid && "my-2"
+        }`}
+      >
+        <img
+          className="min-w-[6rem] w-48 h-48 object-cover"
+          src={product.attributes.images![0]}
+          alt={product.attributes.name}
+        />
+      </div>
+    </Link>
 
-        <div className="flex flex-col w-full">
+    <div>
+      <Link href={`/product/${product.id}`}>
+        <div className="flex flex-col w-full cursor-pointer">
           <div
             className={`flex items-center justify-between ${
               grid ? "w-full" : "w-[12rem]"
@@ -36,7 +42,7 @@ const Card = ({ grid, product }: Props) => (
                 {product.attributes.category}
               </h2>
             </div>
-            <div>
+            <div className="flex items-center flex-col">
               {product.attributes.price !== product.attributes.cost && (
                 <h4 className="text-sm text-gray line-through">
                   ${product.attributes.cost}
@@ -63,17 +69,17 @@ const Card = ({ grid, product }: Props) => (
             )}
           </div>
         </div>
+      </Link>
 
-        <div className="flex items-stretch justify-end gap-2 mt-2">
-          <Button
-            text="Add to Cart"
-            pad={`p-2 ${grid ? "px-6" : "flex-1"}`}
-            main
-          />
-          <Button text={<Bookmark />} sec pad="p-2" font="font-base" />
-        </div>
+      <div className="flex items-stretch justify-end gap-2 mt-2">
+        <Button
+          text="Add to Cart"
+          pad={`p-2 ${grid ? "px-6" : "flex-1"}`}
+          main
+        />
+        <Button text={<Bookmark />} sec pad="p-2" font="font-base" />
       </div>
-    </Link>
+    </div>
   </div>
 );
 
