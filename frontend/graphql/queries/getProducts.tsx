@@ -1,10 +1,10 @@
 import { gql, request } from "graphql-request";
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 
-export const getFeaturedProducts = async () => {
+export const getFeaturedProducts = async (variables: {limit: number}) => {
   const PRODUCTS = gql`
-    query getFeaturedProducts {
-      products(filters: { featured: { eq: true } }) {
+    query getFeaturedProducts($limit: Int!) {
+      products(filters: { featured: { eq: true }} , pagination: { limit: $limit } ) {
         data {
           id
           attributes {
@@ -41,14 +41,14 @@ export const getFeaturedProducts = async () => {
     }
   `;
 
-  const result = await request(graphqlAPI, PRODUCTS);
+  const result = await request(graphqlAPI, PRODUCTS, variables);
   return result.products.data;
 };
 
-export const getNewArrivalProducts = async () => {
+export const getNewArrivalProducts = async (variables: { limit: number }) => {
   const PRODUCTS = gql`
-    query getNewArrivalProducts {
-      products(filters: { new: { eq: true } }) {
+    query getNewArrivalProducts($limit: Int!) {
+      products(sort: "createdAt:desc", pagination: { limit: $limit }) {
         data {
           id
           attributes {
@@ -85,6 +85,6 @@ export const getNewArrivalProducts = async () => {
     }
   `;
 
-  const result = await request(graphqlAPI, PRODUCTS);
+  const result = await request(graphqlAPI, PRODUCTS, variables);
   return result.products.data;
 };
