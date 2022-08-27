@@ -4,9 +4,10 @@ interface Props {
   sec?: boolean;
   pad?: string;
   font?: string;
+  className?: string;
 }
 
-const Button = ({ text, main, pad, sec, font }: Props) => {
+const Button = ({ text, main, pad, sec, font, className }: Props) => {
   return (
     <button
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer
@@ -14,6 +15,7 @@ const Button = ({ text, main, pad, sec, font }: Props) => {
         ${pad || "px-8 py-4"} 
         ${sec && "text-black bg-transparent border-black border-2 border-solid"}
         ${font && font}
+        ${className}
     `}>
       {text}
     </button>

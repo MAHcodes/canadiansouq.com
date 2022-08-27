@@ -27,7 +27,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
   };
 
   return (
-    <div className="flex items-stretch gap-2 mt-4">
+    <div className="flex items-stretch gap-2 mt-4 overflow-hidden w-full">
       <NextPrev action={prevImg} rotate="rotate-90" />
 
       <div className="basis-5/6 flex flex-col items-center gap-2">
@@ -42,7 +42,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
         <div className="flex items-center gap-4 overflow-x-auto">
           {images.data.map((img, idx) => (
             <img
-              className="w-16 aspect-square rounded-md"
+              className="w-16 aspect-square rounded-md cursor-pointer"
               onClick={() => setPreviewIdx(idx)}
               src={`/images${img.attributes.url.replace(
                 "/uploads/",
@@ -66,7 +66,7 @@ const NextPrev = ({
   action: () => void;
   rotate: string;
 }) => (
-  <div className="basis-1/12 cursor-pointer hover:bg-gray hover:bg-opacity-25 rounded-lg" onClick={action}>
+  <div className="basis-1/12 cursor-pointer hover:bg-black active:bg-black active:bg-opacity-10 hover:bg-opacity-10 transition-colors rounded-md" onClick={action}>
     <Arrow className={`w-full h-full pointer-events-none ${rotate}`} />
   </div>
 );

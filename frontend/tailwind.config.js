@@ -28,6 +28,9 @@ module.exports = {
           "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
         }
       }
+    },
+    gridTemplateColumns: {
+      "productInfo": "auto 1fr"
     }
   },
   plugins: [],
