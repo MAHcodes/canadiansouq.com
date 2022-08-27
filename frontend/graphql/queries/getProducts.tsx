@@ -48,7 +48,7 @@ export const getFeaturedProducts = async (variables: {limit: number}) => {
 export const getNewArrivalProducts = async (variables: { limit: number }) => {
   const PRODUCTS = gql`
     query getNewArrivalProducts($limit: Int!) {
-      products(sort: "createdAt:desc", pagination: { limit: $limit }) {
+      products(sort: "updatedAt:desc", pagination: { limit: $limit }) {
         data {
           id
           attributes {

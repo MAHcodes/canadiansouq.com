@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 8rem;
-  margin-block: 2vw;
+  margin-block: calc(2rem + 2vw);
 }
 
 @keyframes mobileScroll {

@@ -1,4 +1,5 @@
 import React from 'react'
+import ImagesSlider from '../../components/ImagesSlider';
 import { getProduct, getProductsIDs } from '../../graphql/queries/getProducts'
 import { IProduct } from '../../types'
 
@@ -8,7 +9,9 @@ interface Props {
 
 const Product = ({product}: Props) => {
   return (
-    <div className='container'>{product.attributes.title}</div>
+    <div className='container'>
+      <ImagesSlider images={product.attributes.images!} alt={product.attributes.title} />
+    </div>
   )
 }
 

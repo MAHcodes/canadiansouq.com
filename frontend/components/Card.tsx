@@ -23,7 +23,7 @@ const Card = ({ grid, product }: Props) => (
       >
         <img
           className="min-w-[6rem] w-48 h-48 object-cover group-hover:scale-105 group-active:scale-105 transition-transform"
-          src={"/images" + product.attributes.images!.data[0].attributes.url}
+          src={"/images" + product.attributes.images?.data[0].attributes.url}
           alt={product.attributes.title}
         />
       </div>
@@ -39,7 +39,7 @@ const Card = ({ grid, product }: Props) => (
           >
             <div>
               <h2 className="text-base text-gray">
-                {product.attributes.categories!.data[0].attributes.title}
+                {product.attributes.brand?.data.attributes.name}
               </h2>
             </div>
             <div className="flex items-center flex-col">
