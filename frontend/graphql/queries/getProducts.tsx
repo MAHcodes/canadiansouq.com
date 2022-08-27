@@ -18,7 +18,50 @@ export const getFeaturedProducts = async () => {
               }
             }
             availability
-            featured
+            price
+            cost
+            description
+            categories {
+              data {
+                attributes {
+                  title
+                }
+              }
+            }
+            images {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, PRODUCTS);
+  return result.products.data;
+};
+
+export const getNewArrivalProducts = async () => {
+  const PRODUCTS = gql`
+    query getNewArrivalProducts {
+      products(filters: { new: { eq: true } }) {
+        data {
+          id
+          attributes {
+            title
+            model
+            brand {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            availability
             price
             cost
             description

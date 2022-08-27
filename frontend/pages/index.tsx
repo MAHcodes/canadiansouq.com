@@ -3,11 +3,16 @@ import Head from "next/head";
 import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
 import React from "react";
-import { getFeaturedProducts } from "../graphql/queries/getProducts";
+import { getFeaturedProducts, getNewArrivalProducts } from "../graphql/queries/getProducts";
 import { IProduct } from "../types";
 import ProductsSlider from "../components/ProductsSlider";
 
-const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
+interface Props {
+  featuredProducts: IProduct[];
+  newArrivalProcucts: IProduct[];
+}
+
+const Home = ({ featuredProducts, newArrivalProcucts }: Props ) => {
   console.log(featuredProducts[0].attributes.featured);
   return (
     <div>
@@ -24,15 +29,18 @@ const Home = ({ featuredProducts }: { featuredProducts: IProduct[] }) => {
       <OurBrands />
       <Feutures />
       <ProductsSlider title="Featured Products" slug="featured" products={featuredProducts} />
+      <ProductsSlider title="New Arrivals" slug="new-arrival" products={newArrivalProcucts} />
     </div>
   );
 };
 
 export const getStaticProps = async () => {
   const featuredProducts = await getFeaturedProducts();
+  const newArrivalProcucts = await getNewArrivalProducts();
   return {
     props: {
       featuredProducts,
+      newArrivalProcucts,
     },
   };
 };
