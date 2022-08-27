@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Home = ({ featuredProducts, newArrivalProcucts }: Props ) => {
-  console.log(featuredProducts[0].attributes.featured);
   return (
     <div>
       <Head>

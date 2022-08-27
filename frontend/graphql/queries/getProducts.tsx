@@ -88,3 +88,63 @@ export const getNewArrivalProducts = async (variables: { limit: number }) => {
   const result = await request(graphqlAPI, PRODUCTS, variables);
   return result.products.data;
 };
+
+export const getProductsIDs = async () => {
+  const PRODUCTS = gql`
+    query getProductsIDs {
+      products {
+        data {
+          id
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, PRODUCTS);
+  return result.products.data;
+};
+
+export const getProduct = async (id: number) => {
+  const PRODUCTS = gql`
+    query getProduct($id: ID!) {
+      product(id: $id) {
+        data {
+          id
+          attributes {
+            title
+            model
+            brand {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            availability
+            price
+            cost
+            description
+            categories {
+              data {
+                attributes {
+                  title
+                }
+              }
+            }
+            images {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, PRODUCTS, { id });
+  return result.product.data;
+};
+

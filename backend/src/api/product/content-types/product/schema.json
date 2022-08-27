@@ -56,9 +56,6 @@
     "featured": {
       "type": "boolean",
       "required": false
-    },
-    "new": {
-      "type": "boolean"
     }
   }
 }
