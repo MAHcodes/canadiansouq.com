@@ -27,7 +27,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
   };
 
   return (
-    <div className="flex items-stretch gap-2 mt-4 overflow-hidden w-full">
+    <div className="flex items-stretch gap-2 mt-4 overflow-hidden">
       <NextPrev action={prevImg} rotate="rotate-90" />
 
       <div className="basis-5/6 flex flex-col items-center gap-2">
