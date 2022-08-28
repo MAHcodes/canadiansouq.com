@@ -10,3 +10,6 @@ export { Whatsapp } from "./Whatsapp"
 export { Instagram } from "./Instagram"
 export { Facebook } from "./Facebook"
 export { OpenTime } from "./OpenTime"
+export { AddedtoCart } from "./AddedtoCart";
+export { AddtoCart } from "./AddtoCart";
+export { Cart } from "./Cart";
