@@ -12,8 +12,8 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => (
   <div
-    className={`bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center group overflow-x-clip
-        ${grid ? "flex-row w-full" : "flex-col max-w-[14rem]"}
+    className={`card bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center group overflow-x-clip
+        ${grid ? "flex-row w-full" : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-0"}
       `}
   >
     <Link href={`/product/${product.id}`}>
