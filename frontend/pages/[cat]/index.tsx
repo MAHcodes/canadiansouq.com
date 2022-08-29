@@ -1,4 +1,5 @@
 import React from "react";
+import ProductsGrid from "../../components/ProductsGrid";
 import { getCategories } from "../../graphql/queries/getCategories";
 import { getCategoryProducts } from "../../graphql/queries/getProducts";
 import { ICategory, IProduct } from "../../types";
@@ -8,8 +9,7 @@ type Props = {
 };
 
 const Products = ({ products }: Props) => {
-  console.log(products);
-  return <div className="container">Products</div>;
+  return <ProductsGrid products={products} />;
 };
 
 export const getStaticProps = async ({params}: {params: {cat: string}}) => {
