@@ -52,7 +52,11 @@ img {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-height: 1.5;
-  max-height: 3;
+  max-height: 5ch;
+}
+
+.twolines pre {
+  max-width: 50vw;
 }
 
 .noscrollbar::-webkit-scrollbar {

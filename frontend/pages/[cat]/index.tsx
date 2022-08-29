@@ -23,8 +23,6 @@ export const getStaticProps = async ({
       category.attributes.products.data
   );
 
-  console.log(products);
-
   return {
     props: {
       products,

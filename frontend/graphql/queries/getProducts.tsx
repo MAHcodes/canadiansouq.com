@@ -10,6 +10,7 @@ export const getCategoryProducts = async (cat: { cat: string }) => {
             title
             products {
               data {
+                id
                 attributes {
                   title
                   brand {

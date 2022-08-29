@@ -18,7 +18,7 @@ module.exports = {
       gridTemplateColumns: {
         productSliderAndInfo: "40% auto",
         productInfo: "auto 1fr",
-        productsGrid: "repeat(auto-fill, minmax(14rem, 1fr))",
+        productsGrid: "repeat(auto-fill, minmax(10rem, 1fr))",
       },
     },
     keyframes: {
