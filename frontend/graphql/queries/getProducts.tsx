@@ -4,7 +4,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 export const getCategoryProducts = async (cat: { cat: string }) => {
   const PRODUCTS = gql`
     query getCategoryProducts($cat: String!) {
-      categories(filters: { title: { eq: $cat} }) {
+      categories(filters: { title: { eq: $cat } }) {
         data {
           attributes {
             title
@@ -12,6 +12,23 @@ export const getCategoryProducts = async (cat: { cat: string }) => {
               data {
                 attributes {
                   title
+                  brand {
+                    data {
+                      attributes {
+                        name
+                      }
+                    }
+                  }
+                  price
+                  cost
+                  description
+                  images {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
             }
