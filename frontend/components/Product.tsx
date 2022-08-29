@@ -1,15 +1,16 @@
-import React from 'react'
-import { IProduct } from '../types'
-import Button from './Button'
-import { AddtoCart, Bookmark } from './icons'
-import ImagesSlider from './ImagesSlider'
+import Markdown from "marked-react";
+import React from "react";
+import { IProduct } from "../types";
+import Button from "./Button";
+import { AddtoCart, Bookmark } from "./icons";
+import ImagesSlider from "./ImagesSlider";
 
 interface Props {
   product: IProduct;
   asPath: string;
 }
 
-const Product = ({product, asPath}: Props) => {
+const Product = ({ product, asPath }: Props) => {
   return (
     <div className="container grid lg:grid-cols-productSliderAndInfo gap-6 overflow-x-hidden">
       <ImagesSlider
@@ -28,9 +29,9 @@ const Product = ({product, asPath}: Props) => {
         </div>
         <div className="flex items-stretch gap-2 my-4">
           <a
-            href={`https://wa.me/+96181921320/?text=${process.env.HOST || ""}${
-              asPath
-            }`}
+            href={`https://wa.me/+96181921320/?text=${
+              process.env.HOST || ""
+            }${asPath}`}
             className="flex-1"
           >
             <Button text="Buy Now" main pad="py-3 px-5" className="w-full" />
@@ -56,27 +57,29 @@ const Product = ({product, asPath}: Props) => {
           />
           <Info title="Model" text={product.attributes.model!} />
           <Info title="Condition" text={product.attributes.condition!} />
-          <Info
-            title="Description"
-            text={product.attributes.description!}
-            className="col-span-2"
-          />
+          <Info title="Description" className="col-span-2">
+            <div className="col-span-2">
+              <Markdown>{product.attributes.description!}</Markdown>
+            </div>
+          </Info>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 interface InfoProps {
   title: string;
-  text: string;
+  text?: string;
   className?: string;
+  children?: JSX.Element;
 }
 
-const Info = ({ title, text, className }: InfoProps) => (
+const Info = ({ title, text, className, children }: InfoProps) => (
   <>
     <h4 className="text-gray font-bold text-base">{title}:</h4>
-    <h2 className={`${className} text-lg`}>{text}</h2>
+    {text && <h2 className={`${className} text-lg`}>{text}</h2>}
+    {children}
   </>
 );
 
