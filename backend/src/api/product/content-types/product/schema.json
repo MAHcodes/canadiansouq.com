@@ -47,12 +47,6 @@
       "target": "api::brand.brand",
       "inversedBy": "products"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "products"
-    },
     "featured": {
       "type": "boolean",
       "required": false
@@ -65,6 +59,12 @@
       ],
       "default": "New",
       "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
     }
   }
 }

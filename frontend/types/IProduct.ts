@@ -7,7 +7,7 @@ export interface IProduct {
     availability?: number;
     model?: string;
     brand?: IBrand;
-    categories?: ICategory;
+    category?: ICategory;
     price?: number;
     cost?: number;
     description?: string;
@@ -25,11 +25,9 @@ export interface IBrand {
 }
 
 export interface ICategory {
-  data: {
-    attributes: {
-      title: string;
-    };
-  }[];
+  attributes: {
+    title: string;
+  };
 }
 
 export interface IImages {

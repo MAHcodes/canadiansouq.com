@@ -22,13 +22,6 @@ export const getProduct = async (id: number) => {
             cost
             condition
             description
-            categories {
-              data {
-                attributes {
-                  title
-                }
-              }
-            }
             images {
               data {
                 attributes {
