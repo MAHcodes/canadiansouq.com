@@ -56,6 +56,15 @@
     "featured": {
       "type": "boolean",
       "required": false
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Used"
+      ],
+      "default": "New",
+      "required": true
     }
   }
 }

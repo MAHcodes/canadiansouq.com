@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { getProduct, getProductsIDs } from "../../graphql/queries/getProducts";
+import { getProductsIDs } from "../../graphql/queries/getProducts";
 import { IProduct } from "../../types";
 import ProductInfo from "../../components/Product";
+import { getProduct } from "../../graphql/queries/getProduct";
 
 interface Props {
   product: IProduct;

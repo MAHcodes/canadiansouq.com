@@ -9,7 +9,6 @@ export const getFeaturedProducts = async (variables: {limit: number}) => {
           id
           attributes {
             title
-            model
             brand {
               data {
                 attributes {
@@ -17,17 +16,9 @@ export const getFeaturedProducts = async (variables: {limit: number}) => {
                 }
               }
             }
-            availability
             price
             cost
             description
-            categories {
-              data {
-                attributes {
-                  title
-                }
-              }
-            }
             images {
               data {
                 attributes {
@@ -53,7 +44,6 @@ export const getNewArrivalProducts = async (variables: { limit: number }) => {
           id
           attributes {
             title
-            model
             brand {
               data {
                 attributes {
@@ -61,17 +51,9 @@ export const getNewArrivalProducts = async (variables: { limit: number }) => {
                 }
               }
             }
-            availability
             price
             cost
             description
-            categories {
-              data {
-                attributes {
-                  title
-                }
-              }
-            }
             images {
               data {
                 attributes {
@@ -103,48 +85,3 @@ export const getProductsIDs = async () => {
   const result = await request(graphqlAPI, PRODUCTS);
   return result.products.data;
 };
-
-export const getProduct = async (id: number) => {
-  const PRODUCTS = gql`
-    query getProduct($id: ID!) {
-      product(id: $id) {
-        data {
-          id
-          attributes {
-            title
-            model
-            brand {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
-            availability
-            price
-            cost
-            description
-            categories {
-              data {
-                attributes {
-                  title
-                }
-              }
-            }
-            images {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const result = await request(graphqlAPI, PRODUCTS, { id });
-  return result.product.data;
-};
-

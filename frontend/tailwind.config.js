@@ -6,7 +6,6 @@ module.exports = {
     "./sections/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {},
     extend: {
       colors: {
         white: "rgb(230, 230, 230)",

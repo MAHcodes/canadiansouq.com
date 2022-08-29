@@ -55,6 +55,7 @@ const Product = ({product, asPath}: Props) => {
             text={product.attributes.brand?.data.attributes.name!}
           />
           <Info title="Model" text={product.attributes.model!} />
+          <Info title="Condition" text={product.attributes.condition!} />
           <Info
             title="Description"
             text={product.attributes.description!}

@@ -3,6 +3,7 @@ export interface IProduct {
   attributes: {
     title?: string;
     featured?: boolean;
+    condition?: string;
     availability?: number;
     model?: string;
     brand?: IBrand;
