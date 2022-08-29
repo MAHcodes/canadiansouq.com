@@ -22,7 +22,7 @@ const Hero = () => (
           src="/images/lebanonTag.svg"
           alt="Lebanon pin tag"
         />
-        <img src="/images/hero.png" alt="Our Power tools brands" />
+        <img src="/images/hero.avif" alt="Our Power tools brands" />
       </div>
       <Button text="Shop now" main />
     </div>
