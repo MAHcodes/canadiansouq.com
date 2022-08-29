@@ -1,6 +1,41 @@
 import { gql, request } from "graphql-request";
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 
+export const getProducts = async () => {
+  const PRODUCTS = gql`
+    query getProducts {
+      products {
+        data {
+          id
+          attributes {
+            title
+            brand {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            price
+            cost
+            description
+            images {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, PRODUCTS);
+  return result.products.data;
+};
+
 export const getFeaturedProducts = async (variables: {limit: number}) => {
   const PRODUCTS = gql`
     query getFeaturedProducts($limit: Int!) {
