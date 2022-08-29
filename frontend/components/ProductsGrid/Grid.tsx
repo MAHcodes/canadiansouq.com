@@ -8,9 +8,8 @@ type Props = {
 };
 
 const Grid = ({ grid, products }: Props) => {
-  console.log(products)
   return (
-    <div className={`grid gap-4 ${grid ? "1fr" : "grid-flow-col"}`}>
+    <div className={`grid gap-2 ${grid ? "1fr" : "grid-cols-productsGrid"}`}>
       {products.map((product) => (
         <Card grid={grid} key={product.id} product={product} />
       ))}

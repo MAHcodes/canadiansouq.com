@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { IProduct } from "../types";
 import Button from "./Button";
-import { Bookmark } from "./icons";
+import { AddtoCart, Bookmark, Cart } from "./icons";
 
 interface Props {
   grid?: boolean;
@@ -12,7 +12,7 @@ interface Props {
 const Card = ({ grid, product }: Props) => (
   <div
     className={`bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center group
-        ${grid ? "flex-row" : "flex-col w-[14rem]"}
+        ${grid ? "flex-row" : "flex-col w-full min-w-[14rem]"}
       `}
   >
     <Link href={`/product/${product.id}`}>
@@ -33,9 +33,7 @@ const Card = ({ grid, product }: Props) => (
       <Link href={`/product/${product.id}`}>
         <div className="flex flex-col w-full cursor-pointer">
           <div
-            className={`flex items-center justify-between ${
-              grid ? "w-full" : "w-[12rem]"
-            }`}
+            className={`flex items-center justify-between w-full ${!grid && "min-w-[12rem]"}`}
           >
             <div>
               <h2 className="text-base text-gray">

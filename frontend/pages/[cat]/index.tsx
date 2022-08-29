@@ -18,13 +18,16 @@ export const getStaticProps = async ({
   params: { cat: string };
 }) => {
   const categroyProducts = await getCategoryProducts({ cat: params.cat });
-  const [products] = categroyProducts.map(category => (category.attributes.products.data))
+  const [products] = categroyProducts.map(
+    (category: { attributes: { products: { data: IProduct[] } } }) =>
+      category.attributes.products.data
+  );
 
-  console.log(products)
+  console.log(products);
 
   return {
     props: {
-      products
+      products,
     },
   };
 };

@@ -1,3 +1,5 @@
+import { useLayoutEffect, useState } from "react";
+
 interface Props {
   text: string | JSX.Element;
   main?: boolean;
