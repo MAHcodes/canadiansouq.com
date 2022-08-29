@@ -39,7 +39,7 @@ const Product = ({ product, asPath }: Props) => {
           <Button text={<AddtoCart />} sec pad="p-3" />
           <Button text={<Bookmark />} sec pad="p-3" />
         </div>
-        <div className="grid grid-cols-productInfo gap-x-6 gap-y-3">
+        <div className="grid grid-cols-productInfo gap-x-6 gap-y-4">
           <Info
             title="Availability"
             text={
