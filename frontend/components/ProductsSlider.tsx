@@ -15,9 +15,10 @@ const ProductsSlider = ({ title, slug, products }: Props) => {
   const [scroll, setScroll] = useState("start");
 
   const handleScroll = (e: any) => {
-    if (e.target.scrollLeft <= 10) {
+    const leftMax = e.target.scrollWidth - e.target.clientWidth;
+    if (e.target.scrollLeft <= 0) {
       setScroll("start");
-    } else if (e.target.scrollLeft >= e.target.scrollLeftMax - 10) {
+    } else if (e.target.scrollLeft >= leftMax - 0) {
       setScroll("end");
     } else {
       setScroll("");
