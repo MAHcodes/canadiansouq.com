@@ -7,10 +7,11 @@ import { ICategory, IProduct } from "../../types";
 
 type Props = {
   products: IProduct[];
+  brands: string[];
 };
 
-const Products = ({ products }: Props) => {
-  return <ProductsGrid products={products} />;
+const Products = ({ products, brands }: Props) => {
+  return <ProductsGrid products={products} brands={brands} />;
 };
 
 export const getStaticProps = async ({
@@ -26,7 +27,7 @@ export const getStaticProps = async ({
       category.attributes.products.data
   );
 
-  const brands = categoryBrands.map((category => (category.attributes.name)))
+  const brands = categoryBrands.map((category: {attributes: {name: string}}) => (category.attributes.name))
 
   return {
     props: {

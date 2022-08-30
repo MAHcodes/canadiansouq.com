@@ -1,14 +1,16 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  brands: string[];
+};
 
-const Filter = (props: Props) => {
+const Filter = ({brands}: Props) => {
   return (
-    <div className="bg-fff rounded-md mb-4 p-2 relative before:absolute before:border-b-fff before:border-solid before:border-transparent before:border-8 before:top-0 before:right-2 before:translate-y-[-100%]">
+    <div className="bg-fff rounded-md mb-4 p-4 relative before:absolute before:border-b-fff before:border-solid before:border-transparent before:border-8 before:top-0 before:right-2 before:translate-y-[-100%]">
       <h3 className="text-center font-bold">Filter</h3>
       brand:
       <ul>
-        
+        {brands.map(brand => <li key={brand}>{brand}</li>)}
       </ul>
     </div>
   );

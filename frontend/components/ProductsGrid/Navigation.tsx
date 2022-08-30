@@ -7,9 +7,10 @@ type Props = {
   router: any;
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
+  brands: string[];
 };
 
-const Navigation = ({ router, grid, setGrid }: Props) => {
+const Navigation = ({ router, grid, setGrid, brands }: Props) => {
   const [filter, setFilter] = useState(true);
 
   return (
@@ -35,7 +36,7 @@ const Navigation = ({ router, grid, setGrid }: Props) => {
         </div>
       </div>
 
-      {filter && <FilterOptions />}
+      {filter && <FilterOptions brands={brands} />}
     </>
   );
 };

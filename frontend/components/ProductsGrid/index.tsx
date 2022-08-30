@@ -6,16 +6,17 @@ import Navigation from './Navigation'
 
 type Props = {
   products: IProduct[];
+  brands: string[];
 }
 
-const ProductsGrid = ({products: prods}: Props) => {
+const ProductsGrid = ({products: prods, brands}: Props) => {
   const [grid, setGrid] = useState(false)
   const [products, setProducts] = useState(prods);
   const router = useRouter();
 
   return (
     <div className='container'>
-      <Navigation grid={grid} setGrid={setGrid} router={router} />
+      <Navigation grid={grid} setGrid={setGrid} router={router} brands={brands} />
       <Grid grid={grid} products={products} />
     </div>
   )
