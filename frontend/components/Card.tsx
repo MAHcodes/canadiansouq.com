@@ -64,7 +64,7 @@ const Card = ({ grid, product }: Props) => (
               {product.attributes.title}
             </h2>
             {grid && (
-              <div className="text-gray text-base twolines">
+              <div className="text-gray text-base twolines pointer-events-none">
                 <Markdown>{product.attributes.description}</Markdown>
               </div>
             )}

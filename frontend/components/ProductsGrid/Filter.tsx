@@ -1,4 +1,5 @@
 import React from "react";
+import CheckBox from "../CheckBox";
 
 type Props = {
   brands: string[];
@@ -10,6 +11,9 @@ const Filter = ({brands}: Props) => {
       <h3 className="text-center font-bold">Filter</h3>
       brand:
       <ul>
+        <li>
+          <CheckBox />
+        </li>
         {brands.map(brand => <li key={brand}>{brand}</li>)}
       </ul>
     </div>
