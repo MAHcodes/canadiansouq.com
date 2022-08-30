@@ -40,7 +40,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
           />
         </div>
 
-        {imgsCount >  1 && <div className="flex items-center gap-4 overflow-x-auto">
+        {imgsCount >  1 && <div className="flex items-center gap-4 overflow-x-auto pb-2">
           {images.data.map((img, idx) => (
             <img
               key={img.attributes.url}

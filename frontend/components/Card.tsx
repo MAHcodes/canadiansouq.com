@@ -12,14 +12,18 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => (
   <div
-    className={`card bg-fff p-4 rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center group overflow-x-clip
-        ${grid ? "flex-row w-full" : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-0"}
+    className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4
+        ${
+          grid
+            ? "flex-row w-full"
+            : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-0"
+        }
       `}
   >
     <Link href={`/product/${product.id}`}>
       <div
-        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg ${
-          grid ? "basis-2/6 min-w-[7rem] max-w-[16rem]" : "my-2"
+        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg group ${
+          grid ? "basis-3/12 min-w-[7rem] max-w-[16rem]" : "my-2"
         }`}
       >
         <img
@@ -30,15 +34,13 @@ const Card = ({ grid, product }: Props) => (
       </div>
     </Link>
 
-    <div className="flex flex-col justify-between flex-1">
+    <div className="flex flex-col justify-between group flex-1 basis-3/4">
       <Link href={`/product/${product.id}`}>
-        <div className="flex flex-col cursor-pointer">
-          <div
-            className={`flex items-center justify-between`}
-          >
+        <div className="flex flex-col cursor-pointer flex-1">
+          <div className={`flex items-center justify-between`}>
             <div>
               <h2 className="text-base text-gray">
-                {product.attributes.brand?.data.attributes.name}
+                {product.attributes.brand?.data?.attributes?.name}
               </h2>
             </div>
             <div className="flex items-center flex-col">
@@ -55,7 +57,7 @@ const Card = ({ grid, product }: Props) => (
 
           <div className="flex-1">
             <h2
-              className={`text-lg my-2 two-lines hover:underline ${
+              className={`text-lg my-2 two-lines group-hover:underline ${
                 grid && "font-semibold"
               }`}
             >

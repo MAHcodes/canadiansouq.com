@@ -8,8 +8,9 @@ type Props = {
   products: IProduct[];
 }
 
-const ProductsGrid = ({products}: Props) => {
+const ProductsGrid = ({products: prods}: Props) => {
   const [grid, setGrid] = useState(false)
+  const [products, setProducts] = useState(prods);
   const router = useRouter();
 
   return (
