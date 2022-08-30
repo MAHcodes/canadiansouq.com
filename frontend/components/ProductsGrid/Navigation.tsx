@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
+import { IProduct } from "../../types";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
 import FilterOptions from "./Filter";
@@ -8,9 +9,11 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
+  products: IProduct[];
+  setProducts: any;
 };
 
-const Navigation = ({ router, grid, setGrid, brands }: Props) => {
+const Navigation = ({ router, grid, setGrid, brands, products, setProducts }: Props) => {
   const [filter, setFilter] = useState(true);
 
   return (
@@ -36,7 +39,7 @@ const Navigation = ({ router, grid, setGrid, brands }: Props) => {
         </div>
       </div>
 
-      {filter && <FilterOptions brands={brands} />}
+      {filter && <FilterOptions brands={brands} products={products} setProducts={setProducts} />}
     </>
   );
 };

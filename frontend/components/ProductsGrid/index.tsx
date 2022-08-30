@@ -16,7 +16,7 @@ const ProductsGrid = ({products: prods, brands}: Props) => {
 
   return (
     <div className='container'>
-      <Navigation grid={grid} setGrid={setGrid} router={router} brands={brands} />
+      <Navigation grid={grid} setGrid={setGrid} router={router} brands={brands} products={products} setProducts={setProducts} />
       <Grid grid={grid} products={products} />
     </div>
   )
