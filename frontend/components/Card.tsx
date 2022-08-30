@@ -12,7 +12,7 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => (
   <div
-    className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4
+    className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4 group 
         ${
           grid
             ? "flex-row w-full"
@@ -22,7 +22,7 @@ const Card = ({ grid, product }: Props) => (
   >
     <Link href={`/product/${product.id}`}>
       <div
-        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg group ${
+        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg ${
           grid ? "basis-3/12 min-w-[7rem] max-w-[16rem]" : "my-2"
         }`}
       >
@@ -34,7 +34,7 @@ const Card = ({ grid, product }: Props) => (
       </div>
     </Link>
 
-    <div className="flex flex-col justify-between group flex-1 basis-3/4">
+    <div className="flex flex-col justify-between flex-1">
       <Link href={`/product/${product.id}`}>
         <div className="flex flex-col cursor-pointer flex-1">
           <div className={`flex items-center justify-between`}>
