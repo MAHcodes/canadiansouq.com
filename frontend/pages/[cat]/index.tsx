@@ -1,4 +1,3 @@
-import React from "react";
 import ProductsGrid from "../../components/ProductsGrid";
 import { getCategoryBrands } from "../../graphql/queries/getBrands";
 import { getCategories } from "../../graphql/queries/getCategories";

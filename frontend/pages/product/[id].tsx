@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import React from "react";
 import { getProductsIDs } from "../../graphql/queries/getProducts";
 import { IProduct } from "../../types";
 import ProductInfo from "../../components/Product";

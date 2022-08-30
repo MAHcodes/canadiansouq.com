@@ -1,4 +1,3 @@
-import React from "react";
 
 const Credit = () => (
   <div className="container text-base">

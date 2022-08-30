@@ -1,5 +1,4 @@
 import Button from "../components/Button";
-import React from "react";
 
 const Hero = () => (
   <main className="py-12">

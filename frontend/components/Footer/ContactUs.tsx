@@ -1,4 +1,3 @@
-import React from "react";
 import { Mail, Phone } from "../icons";
 import Info from "./Info";
 import Title from "./Title";

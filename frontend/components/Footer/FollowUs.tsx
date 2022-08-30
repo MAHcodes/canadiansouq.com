@@ -1,4 +1,3 @@
-import React from "react";
 import { Whatsapp, Instagram, Facebook } from "../icons";
 import Title from "./Title";
 

@@ -1,6 +1,5 @@
 import Markdown from "marked-react";
 import Link from "next/link";
-import React from "react";
 import { IProduct } from "../types";
 import Button from "./Button";
 import { Bookmark } from "./icons";

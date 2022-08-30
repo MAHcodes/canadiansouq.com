@@ -1,5 +1,4 @@
 import Markdown from "marked-react";
-import React from "react";
 import { IProduct } from "../types";
 import Button from "./Button";
 import { AddtoCart, Bookmark } from "./icons";

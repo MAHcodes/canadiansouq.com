@@ -1,4 +1,3 @@
-import React from "react";
 
 export const Arrow = ({ className }: { className: string }) => {
   return (

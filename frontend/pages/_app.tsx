@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
-import React from "react";
 import { Footer } from "../components/Footer";
 import { Router } from "next/router";
 import NProgress from "nprogress";

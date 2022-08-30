@@ -1,4 +1,3 @@
-import React from "react";
 
 export const CashOnDelivery = () => (
   <svg width="75" height="75" viewBox="0 0 75 75" fill="none">

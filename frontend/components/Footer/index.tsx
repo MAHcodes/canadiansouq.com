@@ -1,4 +1,3 @@
-import React from "react";
 import ContactUs from "./ContactUs";
 import Credit from "./Credit";
 import FollowUs from "./FollowUs";

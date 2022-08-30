@@ -2,7 +2,6 @@ import OurBrands from "../sections/OurBrands";
 import Head from "next/head";
 import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
-import React from "react";
 import { getFeaturedProducts, getNewArrivalProducts } from "../graphql/queries/getProducts";
 import { IProduct } from "../types";
 import ProductsSlider from "../components/ProductsSlider";

@@ -1,4 +1,3 @@
-import React from "react";
 
 export const BestPrices = () => (
   <svg width="74" height="78" viewBox="0 0 74 78" fill="none">

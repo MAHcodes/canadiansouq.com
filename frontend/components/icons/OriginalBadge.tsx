@@ -1,4 +1,3 @@
-import React from "react";
 
 export const OriginalBadge = () => (
   <svg width="76" height="75" viewBox="0 0 76 75" fill="none">

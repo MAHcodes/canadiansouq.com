@@ -1,4 +1,3 @@
-import React from "react";
 
 export const Instagram = () => (
   <a href="https://instagram.com/canadiansouq" target="_blank"

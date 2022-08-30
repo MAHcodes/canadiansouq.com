@@ -1,4 +1,3 @@
-import React from "react";
 import { OpenTime } from "../icons";
 import Title from "./Title";
 

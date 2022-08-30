@@ -1,4 +1,3 @@
-import React from "react";
 
 export const Facebook = () => (
   <a href="https://facebook.com/canadiansouq" target="_blank"

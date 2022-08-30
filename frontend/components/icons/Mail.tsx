@@ -1,4 +1,3 @@
-import React from "react";
 
 export const Mail = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="w-4 h-4">
