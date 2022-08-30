@@ -14,11 +14,7 @@ const Products = ({ products, brands }: Props) => {
   return <ProductsGrid products={products} brands={brands} />;
 };
 
-export const getStaticProps = async ({
-  params,
-}: {
-  params: { cat: string };
-}) => {
+export const getStaticProps = async ({params}: {params: { cat: string }}) => {
   const categroyProducts = await getCategoryProducts({ cat: params.cat });
   const categoryBrands = await getCategoryBrands(params.cat);
 

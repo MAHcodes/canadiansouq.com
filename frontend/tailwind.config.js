@@ -21,18 +21,27 @@ module.exports = {
         productsGridM: "repeat(auto-fill, minmax(10rem, 1fr))",
         productsGridD: "repeat(auto-fill, minmax(14rem, 1fr))",
       },
-    },
-    keyframes: {
-      bounce: {
-        "0%, 100%": {
-          transform: "none",
-          "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+      keyframes: {
+        bounce: {
+          "0%, 100%": {
+            transform: "none",
+            "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+          },
+          "50%": {
+            transform: "translateY(25%)",
+            "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
+          },
         },
-        "50%": {
-          transform: "translateY(25%)",
-          "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
+        slideDownIn: {
+          from: {
+            transform: "scale(.5)",
+            opacity: "0",
+          },
         },
       },
+      animation: {
+        slideDownIn: "slideDownIn 250ms ease-in-out",
+      }
     },
   },
   plugins: [],
