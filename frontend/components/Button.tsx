@@ -1,7 +1,6 @@
-import { useLayoutEffect, useState } from "react";
-
 interface Props {
   text: string | JSX.Element;
+  title?: string;
   main?: boolean;
   sec?: boolean;
   icon?: boolean;
@@ -11,7 +10,7 @@ interface Props {
   onClick?: () => void;
 }
 
-const Button = ({ text, main, pad, sec, font, icon, className, onClick }: Props) => {
+const Button = ({ text, main, pad, sec, font, icon, className, onClick, title }: Props) => {
   return (
     <button
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer
@@ -21,8 +20,10 @@ const Button = ({ text, main, pad, sec, font, icon, className, onClick }: Props)
         ${font && font}
         ${icon && "w-8 h-8 hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
         ${className}
-    `}
-    onClick={onClick}>
+      `}
+      onClick={onClick}
+      title={title}
+    >
       {text}
     </button>
   );
