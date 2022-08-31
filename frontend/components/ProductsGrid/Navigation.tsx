@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { IProduct } from "../../types";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
@@ -9,12 +9,13 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  products: IProduct[];
   setProducts: any;
+  prods: IProduct[];
 };
 
-const Navigation = ({ router, grid, setGrid, brands, products, setProducts }: Props) => {
-  const [filter, setFilter] = useState(true);
+const Navigation = ({ router, grid, setGrid, brands, setProducts, prods }: Props) => {
+  const [openFilter, setOpenFilter] = useState(true);
+  const [filter] = useState([...brands]);
 
   return (
     <>
@@ -35,11 +36,11 @@ const Navigation = ({ router, grid, setGrid, brands, products, setProducts }: Pr
             text={grid ? <Grid /> : <List />}
             onClick={() => setGrid((current: boolean) => !current)}
           />
-          <Button text={<Filter active={filter} />} pad="0" icon onClick={() => setFilter(current => !current)} />
+          <Button text={<Filter active={openFilter} />} pad="0" icon onClick={() => setOpenFilter(current => !current)} />
         </div>
       </div>
 
-      {filter && <FilterOptions brands={brands} products={products} setProducts={setProducts} />}
+      {openFilter && <FilterOptions brands={brands} setProducts={setProducts} prods={prods} filter={filter} />}
     </>
   );
 };

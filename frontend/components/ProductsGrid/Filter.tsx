@@ -3,14 +3,20 @@ import CheckBox from "../CheckBox";
 
 type Props = {
   brands: string[];
-  products: IProduct[];
   setProducts: any;
+  prods: IProduct[];
+  filter: string[];
 };
 
-const Filter = ({brands, products, setProducts }: Props) => {
-  const handleFilterByBrand = (brand: string) => {
-    const newProducts = products.filter(product => product.attributes.brand?.data.attributes.name === brand);
+const Filter = ({brands, setProducts, prods, filter}: Props) => {
+  const filterByBrands = (brands: string[]) => {
+    const newProducts = prods.filter(product => brands.includes(product.attributes.brand?.data.attributes.name!) );
     setProducts(newProducts);
+  }
+
+  const updateFilters = (item: string) => {
+    filter.includes(item) ? filter.splice(filter.indexOf(item), 1) : filter.push(item);
+    filterByBrands(filter)
   }
 
   return (
@@ -19,7 +25,7 @@ const Filter = ({brands, products, setProducts }: Props) => {
       brand:
       <ul>
         {brands.map(brand => <li key={brand}>
-          <CheckBox text={brand} onChange={(text: string) => handleFilterByBrand(text)} />
+          <CheckBox text={brand} onChange={(text: string) => updateFilters(text)} />
         </li>)}
       </ul>
     </div>

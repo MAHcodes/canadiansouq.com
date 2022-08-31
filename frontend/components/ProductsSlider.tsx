@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { IProduct } from "../types";
 import Card from "./Card";
 import { Arrow } from "./icons";
