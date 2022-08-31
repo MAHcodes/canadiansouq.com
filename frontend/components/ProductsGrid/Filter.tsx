@@ -3,12 +3,13 @@ import CheckBox from "../CheckBox";
 
 type Props = {
   brands: string[];
-  setProducts: any;
+  setProducts: (list: IProduct[]) => void;
   prods: IProduct[];
   filter: string[];
 };
 
 const Filter = ({ brands, setProducts, prods, filter }: Props) => {
+
   const filterByBrands = (brands: string[]) => {
     const newProducts = prods.filter((product) =>
       brands.includes(product.attributes.brand?.data.attributes.name!)

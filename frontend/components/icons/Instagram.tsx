@@ -1,6 +1,6 @@
 
 export const Instagram = () => (
-  <a href="https://instagram.com/canadiansouq" target="_blank"
+  <a href="https://instagram.com/canadiansouq" target="_blank" rel="noopener noreferrer"
     className="group cursor-pointer inline-flex items-center justify-center"
   >
     <svg

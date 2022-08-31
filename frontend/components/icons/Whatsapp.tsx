@@ -3,6 +3,7 @@ export const Whatsapp = () => (
   <a
     href="https://wa.me/+96181921320"
     target="_blank"
+    rel="noopener noreferrer"
     className="group cursor-pointer inline-flex items-center justify-center"
   >
     <svg width="20" height="22" viewBox="0 0 20 22" fill="none" className="w-6 h-6">

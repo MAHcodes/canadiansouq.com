@@ -9,7 +9,7 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  setProducts: any;
+  setProducts: (list: IProduct[]) => void;
   prods: IProduct[];
 };
 
