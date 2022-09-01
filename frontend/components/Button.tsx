@@ -20,7 +20,7 @@ const Button = ({ text, main, pad, sec, font, icon, className, onClick, title, d
         ${sec && "text-black bg-transparent border-black border-2 border-solid"}
         ${font && font}
         ${icon && "w-8 h-8"}
-        ${!disabled && icon && "hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
+        ${!disabled && !main && !sec && "hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
         ${className}
         ${disabled && "opacity-40 cursor-not-allowed"}
       `}
