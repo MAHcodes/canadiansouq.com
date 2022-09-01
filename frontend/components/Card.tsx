@@ -11,7 +11,7 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => (
   <div
-    className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4 group 
+    className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4 group
         ${
           grid
             ? "flex-row w-full"

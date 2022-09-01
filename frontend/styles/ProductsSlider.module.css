@@ -12,7 +12,7 @@
 }
 
 .scroll::before {
-  inset: auto auto 0 0;
+  inset: 0 auto 0 0;
   background: linear-gradient(
     to right,
     rgb(230, 230, 230),
@@ -21,7 +21,7 @@
 }
 
 .scroll::after {
-  inset: auto 0 0 auto;
+  inset: 0 0 0 auto;
   background: linear-gradient(
     to left,
     rgb(230, 230, 230),
@@ -29,10 +29,12 @@
   );
 }
 
+.scroll.middle::before,
 .scroll.start::before {
   opacity: 0;
 }
 
+.scroll.middle::after,
 .scroll.end::after {
   opacity: 0;
 }
