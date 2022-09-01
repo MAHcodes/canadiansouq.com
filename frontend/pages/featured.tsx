@@ -8,7 +8,7 @@ interface Props {
   brands: string[];
 }
 
-const featured = ({products, brands}: Props) => (
+const Featured = ({products, brands}: Props) => (
   <ProductsGrid products={products} brands={brands} />
 )
 
@@ -16,7 +16,6 @@ const featured = ({products, brands}: Props) => (
 export const getStaticProps = async () => {
   const products = await getFeaturedProducts({limit: -1});
   const featuredBrands = await getFeaturedBrands();
-  console.log(featuredBrands);
   const brands = featuredBrands.map((brand: {attributes: {name: string}}) => brand.attributes.name)
 
   return {
@@ -27,4 +26,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default featured
+export default Featured

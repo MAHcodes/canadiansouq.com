@@ -27,7 +27,7 @@ const Home = ({ featuredProducts, newArrivalProcucts }: Props ) => {
       <OurBrands />
       <Feutures />
       <ProductsSlider title="Featured Products" slug="featured" products={featuredProducts} />
-      <ProductsSlider title="New Arrivals" slug="new-arrival" products={newArrivalProcucts} />
+      <ProductsSlider title="New Arrivals" slug="new-arrivals" products={newArrivalProcucts} />
     </div>
   );
 };
