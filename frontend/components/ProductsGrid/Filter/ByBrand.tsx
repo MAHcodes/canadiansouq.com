@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { IProduct } from "../../../types";
 import CheckBox from "../../CheckBox";
 import Box from "./Box";
@@ -10,6 +11,7 @@ interface Props {
 };
 
 const ByBrand = ({ brands, setProducts, prods, filter }: Props) => {
+  const router = useRouter();
   const filterByBrand = (item: string) => {
     filter.includes(item)
       ? filter.splice(filter.indexOf(item), 1)
@@ -19,6 +21,8 @@ const ByBrand = ({ brands, setProducts, prods, filter }: Props) => {
       filter.includes(product.attributes.brand?.data.attributes.name!)
     );
     setProducts(newProducts);
+    router.query.page = "0";
+    router.push(router);
   };
 
   return (

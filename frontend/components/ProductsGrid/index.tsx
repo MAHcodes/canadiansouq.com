@@ -13,7 +13,6 @@ type Props = {
 const ProductsGrid = ({ products: prods, brands }: Props) => {
   const [products, setProducts] = useState(prods);
   const [grid, setGrid] = useState(false);
-  const [naviagtePage, setNavigatePage] = useState(0);
 
   useEffect(() => {
       setGrid(JSON.parse(localStorage.getItem("grid") || "false"));
@@ -21,7 +20,7 @@ const ProductsGrid = ({ products: prods, brands }: Props) => {
 
   const router = useRouter();
   const page = router.query.page;
-  const limit = 3;
+  const limit = 1;
   const pagesCount = Math.ceil(products.length / limit) - 1;
 
   return (
