@@ -17,6 +17,11 @@ const Navigation = ({ router, grid, setGrid, brands, setProducts, prods }: Props
   const [openFilter, setOpenFilter] = useState(true);
   const [filter] = useState([...brands]);
 
+  const handleGridChange = () => {
+    localStorage.setItem("grid", JSON.stringify(!grid));
+    setGrid((current: boolean) => !current)
+  };
+
   return (
     <>
       <div className="flex py-4 items-center justify-between">
@@ -34,7 +39,7 @@ const Navigation = ({ router, grid, setGrid, brands, setProducts, prods }: Props
             pad="0"
             icon
             text={grid ? <Grid /> : <List />}
-            onClick={() => setGrid((current: boolean) => !current)}
+            onClick={handleGridChange}
           />
           <Button text={<Filter active={openFilter} />} pad="0" icon onClick={() => setOpenFilter(current => !current)} />
         </div>
