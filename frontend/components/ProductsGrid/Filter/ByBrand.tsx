@@ -21,8 +21,10 @@ const ByBrand = ({ brands, setProducts, prods, filter }: Props) => {
       filter.includes(product.attributes.brand?.data.attributes.name!)
     );
     setProducts(newProducts);
-    router.query.page = "0";
-    router.push(router);
+    if (router.query.page !== "0") {
+      router.query.page = "0";
+      router.push(router);
+    }
   };
 
   return (
