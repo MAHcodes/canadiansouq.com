@@ -25,15 +25,15 @@ const Pagination = ({ router, page, pageCount }: Props) => {
       />
 
       <div className="flex items-center gap-2">
-      {(page >= 3) && <Button icon text="0" pad="0" onClick={() => navigate(0)} />}
-      {(page > 3) && <span>...</span>}
+      {(page >= 2) && <Button icon text="0" pad="0" onClick={() => navigate(0)} />}
+      {(page > 2) && <span>...</span>}
         {[...Array(pageCount + 1)].map((_, i) => {
-          if ( page === i - 2 || page === i -1 || page === i || page === i + 1 || page === i + 2 ) {
-            return <Button icon={i !== page} main={i === page} text={i.toString()} pad={page === i ? "px-4 py-2" : "0"} onClick={() => navigate(i)} />
+          if ( page === i -1 || page === i || page === i + 1) {
+            return <Button icon={i !== page} sec={i === page} text={i.toString()} pad={page === i ? "px-3 py-1" : "0"} onClick={() => navigate(i)} />
           }
         })}
-      {(pageCount > page + 3) && <span>...</span>}
-      {(pageCount >= page + 3) && <Button text={pageCount.toString()} icon pad="0" onClick={() => navigate(pageCount)} />}
+      {(pageCount > page + 2) && <span>...</span>}
+      {(pageCount >= page + 2) && <Button text={pageCount.toString()} icon pad="0" onClick={() => navigate(pageCount)} />}
       </div>
 
       <Button

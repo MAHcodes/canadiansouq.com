@@ -29,7 +29,7 @@ const ProductsSlider = ({ title, slug, products }: Props) => {
     <div className="container py-4">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-bold text-xl">{title}</h2>
-        <Link href={`/products/${slug}`} passHref>
+        <Link href={`/${slug}?page=0`} passHref>
           <span className="flex items-center gap-1 group hover:underline active:underline opacity-80 hover:opacity-100 focus:underline cursor-pointer">
             Explore all
             <span className="rotate-[-90deg]">
