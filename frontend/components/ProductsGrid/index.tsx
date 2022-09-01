@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { IProduct } from "../../types";
 import Grid from "./Grid";
 import Navigation from "./Navigation";
+import Pagination from "./Pagination";
 
 type Props = {
   products: IProduct[];
@@ -11,12 +12,17 @@ type Props = {
 
 const ProductsGrid = ({ products: prods, brands }: Props) => {
   const [products, setProducts] = useState(prods);
-  const router = useRouter();
   const [grid, setGrid] = useState(false);
+  const [naviagtePage, setNavigatePage] = useState(0);
 
   useEffect(() => {
       setGrid(JSON.parse(localStorage.getItem("grid") || "false"));
   }, []);
+
+  const router = useRouter();
+  const page = router.query.page;
+  const limit = 3;
+  const pagesCount = Math.ceil(products.length / limit) - 1;
 
   return (
     <div className="container">
@@ -28,7 +34,10 @@ const ProductsGrid = ({ products: prods, brands }: Props) => {
         setProducts={setProducts}
         prods={prods}
       />
-      <Grid grid={grid} products={products} />
+
+      <Grid grid={grid} products={products.slice(+page! * limit, +page! * limit + limit)} />
+
+      <Pagination router={router} page={+page!} pageCount={+pagesCount!} />
     </div>
   );
 };

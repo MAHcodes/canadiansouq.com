@@ -4,13 +4,14 @@ interface Props {
   main?: boolean;
   sec?: boolean;
   icon?: boolean;
+  disabled?: boolean;
   pad?: string;
   font?: string;
   className?: string;
   onClick?: () => void;
 }
 
-const Button = ({ text, main, pad, sec, font, icon, className, onClick, title }: Props) => {
+const Button = ({ text, main, pad, sec, font, icon, className, onClick, title, disabled }: Props) => {
   return (
     <button
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer
@@ -18,9 +19,12 @@ const Button = ({ text, main, pad, sec, font, icon, className, onClick, title }:
         ${pad || "px-8 py-4"} 
         ${sec && "text-black bg-transparent border-black border-2 border-solid"}
         ${font && font}
-        ${icon && "w-8 h-8 hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
+        ${icon && "w-8 h-8"}
+        ${!disabled && icon && "hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
         ${className}
+        ${disabled && "opacity-40 cursor-not-allowed"}
       `}
+      disabled={disabled}
       onClick={onClick}
       title={title}
     >

@@ -1,5 +1,5 @@
 
-export const Arrow = ({ className }: { className: string }) => {
+export const Arrow = ({ className }: { className?: string }) => {
   return (
     <svg width="18" height="19" viewBox="0 0 18 19" fill="none" className={className}>
       <path
