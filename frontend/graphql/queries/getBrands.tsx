@@ -4,7 +4,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 export const getCategoryBrands = async (category: string) => {
   const CATEGORIES = gql`
     query getBrands($category: String!) {
-      brands(filters: { categories: { title: { eq: $category } } }) {
+      brands(filters: { products: { category: { title: { eq: $category}}}} ) {
         data {
           attributes {
             name
@@ -14,7 +14,6 @@ export const getCategoryBrands = async (category: string) => {
     }
   `;
 
-  const result = await request(graphqlAPI, CATEGORIES, {category});
   const result = await request(graphqlAPI, CATEGORIES, { category });
   return result.brands.data;
 };

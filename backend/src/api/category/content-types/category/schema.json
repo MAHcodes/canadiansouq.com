@@ -22,12 +22,6 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "category"
-    },
-    "brands": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::brand.brand",
-      "inversedBy": "categories"
     }
   }
 }
