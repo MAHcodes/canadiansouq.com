@@ -22,7 +22,7 @@ const Card = ({ grid, product }: Props) => (
     <Link href={`/product/${product.id}`}>
       <div
         className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg ${
-          grid && "basis-1/4 min-w-[6rem] max-w-[16rem]"
+          grid && "basis-48 min-w-[6rem] max-w-[16rem]"
         }`}
       >
         <img

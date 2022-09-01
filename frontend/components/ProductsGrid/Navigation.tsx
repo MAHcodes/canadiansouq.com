@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { IProduct } from "../../types";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
-import FilterOptions from "./Filter";
+import FilterOptions from "./Filter/"
 
 type Props = {
   router: any;
