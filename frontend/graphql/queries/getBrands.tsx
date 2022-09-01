@@ -15,5 +15,23 @@ export const getCategoryBrands = async (category: string) => {
   `;
 
   const result = await request(graphqlAPI, CATEGORIES, {category});
+  const result = await request(graphqlAPI, CATEGORIES, { category });
+  return result.brands.data;
+};
+
+export const getFeaturedBrands = async () => {
+  const CATEGORIES = gql`
+    query getBrands {
+      brands(filters: { products: { featured: { eq: true } } }) {
+        data {
+          attributes {
+            name
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, CATEGORIES);
   return result.brands.data;
 };
