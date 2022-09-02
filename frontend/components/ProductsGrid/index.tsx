@@ -18,6 +18,10 @@ const ProductsGrid = ({ products: prods, brands }: Props) => {
     setGrid(JSON.parse(localStorage.getItem("grid") || "false"));
   }, []);
 
+  useEffect(() => {
+    setProducts(prods);
+  }, [prods])
+
   const router = useRouter();
   const page = router.query.page;
   const limit = 15;
