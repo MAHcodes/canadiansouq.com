@@ -41,7 +41,7 @@ module.exports = {
       },
       animation: {
         slideDownIn: "slideDownIn 250ms ease-in-out",
-      }
+      },
     },
   },
   plugins: [],
