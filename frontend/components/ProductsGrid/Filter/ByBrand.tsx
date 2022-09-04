@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { IProduct } from "../../../types";
+import { IProduct } from "../../../types/IProduct";
 import CheckBox from "../../CheckBox";
 import Box from "./Box";
 

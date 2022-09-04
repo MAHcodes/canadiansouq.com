@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { IProduct } from "../types";
+import { IProduct } from "../types/IProduct";
 import Card from "./Card";
 import { Arrow } from "./icons";
 import styles from "../styles/ProductsSlider.module.css"

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { IProduct } from "../../types";
+import { IProduct } from "../../types/IProduct";
 import Grid from "./Grid";
 import Navigation from "./Navigation";
 import Pagination from "./Pagination";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IImages } from "../types";
+import { IImages } from "../types/IProduct";
 import { Arrow } from "./icons";
 
 interface Props {

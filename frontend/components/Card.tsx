@@ -1,6 +1,6 @@
 import Markdown from "marked-react";
 import Link from "next/link";
-import { IProduct } from "../types";
+import { IProduct } from "../types/IProduct";
 import Button from "./Button";
 import { Bookmark } from "./icons";
 
@@ -29,6 +29,7 @@ const Card = ({ grid, product }: Props) => (
           className="object-cover group-hover:scale-105 group-active:scale-105 transition-transform"
           src={"/images" + product.attributes.images?.data[0].attributes.url}
           alt={product.attributes.title}
+          loading="lazy"
         />
       </div>
     </Link>

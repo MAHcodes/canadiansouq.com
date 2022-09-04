@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { IProduct } from "../../types";
+import { IProduct } from "../../types/IProduct";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
 import FilterOptions from "./Filter/"
