@@ -1,34 +1,55 @@
-interface Props {
-  text: string | JSX.Element;
-  title?: string;
-  main?: boolean;
-  sec?: boolean;
-  icon?: boolean;
-  disabled?: boolean;
-  pad?: string;
-  font?: string;
-  className?: string;
-  onClick?: () => void;
+import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+
+const sizes = {
+  lg: "py-3 px-6 text-base rounded-lg",
+  md: "py-2 px-4 text-sm rounded-md",
+  sm: "py-1 px-2 text-xs rounded-5",
+};
+
+const iconSized = {
+  lg: "p-3",
+  md: "p-2",
+  sm: "p-1",
 }
 
-const Button = ({ text, main, pad, sec, font, icon, className, onClick, title, disabled }: Props) => {
+const colors = {
+  primary: "text-white bg-black border-transparent",
+  secondary: "text-black bg-transparent border-black border-solid",
+  transparent: "border-transparent hover:bg-gray hover:bg-opacity-20",
+};
+
+export interface Props
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  size?: keyof typeof sizes;
+  color?: keyof typeof colors;
+  icon?: ReactNode;
+  onClick: () => void;
+}
+
+const Button: React.FC<Props> = ({
+  children,
+  size = "md",
+  color = "primary",
+  icon,
+  disabled,
+  ...props
+}) => {
   return (
     <button
-      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer
-        ${main && "text-white bg-black"} 
-        ${pad || "px-8 py-4"} 
-        ${sec && "text-black bg-transparent border-black border-2 border-solid"}
-        ${font && font}
-        ${icon && "w-8 h-8"}
-        ${!disabled && !main && !sec && "hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-20 transition-colors"}
-        ${className}
-        ${disabled && "opacity-40 cursor-not-allowed"}
+      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2
+         ${disabled ? "cursor-not-allowed opacity-50" : ""}
+         ${ children ? sizes[size] : iconSized[size] }
+         ${colors[color]}
       `}
-      disabled={disabled}
-      onClick={onClick}
-      title={title}
+      {...props}
     >
-      {text}
+      {icon ? (
+        <span className={size === "lg" ? "w-5" : "w-4"}>{icon}</span>
+      ) : null}
+      {children}
     </button>
   );
 };
