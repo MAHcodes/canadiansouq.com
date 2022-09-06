@@ -17,7 +17,7 @@ export interface IProduct {
 
 export interface IBrand {
   data: {
-    id: number;
+    id?: number;
     attributes: {
       name: string;
     };

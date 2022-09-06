@@ -7,9 +7,6 @@ import { AddtoCart } from '../components/icons';
 export default {
   title: 'Main/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
   args: {
     size: "md",
   },

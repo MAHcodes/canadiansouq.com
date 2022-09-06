@@ -35,8 +35,8 @@ const Product = ({ product, asPath }: Props) => {
           >
             <Button size="lg" className="w-full">Buy Now</Button>
           </a>
-          <Button color="secondary"><AddtoCart /> </Button>
-          <Button color="secondary"><Bookmark /> </Button>
+          <Button color="secondary" size="lg" icon={<AddtoCart /> } />
+          <Button color="secondary" size="lg" icon={<Bookmark /> } />
         </div>
         <div className="grid grid-cols-productInfo gap-x-6 gap-y-4">
           <Info
