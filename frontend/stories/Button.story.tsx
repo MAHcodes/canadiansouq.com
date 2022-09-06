@@ -43,12 +43,12 @@ export const IconWithText = Template.bind({});
 IconWithText.args = {
   color: "secondary",
   children: "Icon With Text",
-  icon: <AddtoCart width="100%" height="100%" />,
+  icon: <AddtoCart />,
 };
 
 
 export const IconNoText = Template.bind({});
 IconNoText.args = {
   color: "transparent",
-  icon: <AddtoCart width="100%" height="100%" />,
+  icon: <AddtoCart />,
 };
