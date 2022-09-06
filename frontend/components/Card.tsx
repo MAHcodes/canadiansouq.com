@@ -15,14 +15,14 @@ const Card = ({ grid, product }: Props) => (
         ${
           grid
             ? "flex-row w-full"
-            : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-[20%] max-w-xs"
+            : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-[20%]"
         }
       `}
   >
     <Link href={`/product/${product.id}`}>
       <div
-        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg ${
-          grid && "basis-48 min-w-[6rem] max-w-[16rem]"
+        className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg mx-auto ${
+          grid ? "basis-48 min-w-[6rem] max-w-[16rem]" : "max-w-[14rem]"
         }`}
       >
         <img
@@ -73,7 +73,7 @@ const Card = ({ grid, product }: Props) => (
       </Link>
 
       <div className="flex items-stretch justify-end gap-2 mt-2">
-        <Button size="md" className="flex-1">Add to Cart</Button>
+        <Button size="md" className={`${grid ? "" : "flex-1"}`}>Add to Cart</Button>
         <Button color="secondary" size="md" icon={<Bookmark />} />
       </div>
     </div>

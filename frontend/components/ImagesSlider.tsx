@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IImages } from "../types/IProduct";
 import Button from "./Button";
 import { Arrow } from "./icons";
+import ImageZoom from "react-image-zooom";
 
 interface Props {
   images: IImages;
@@ -38,11 +39,18 @@ const ImagesSlider = ({ images, alt }: Props) => {
         }`}
       >
         <div className="rounded-lg w-full flex-1">
-          <img
-            className="w-full aspect-square rounded-lg"
-            src={`/images${images.data[previewIdx].attributes.url}`}
-            alt={`${alt} image`}
-          />
+          {images.data.map((img, i) => (
+            <div
+              className={`w-full aspect-square rounded-lg ${
+                i === previewIdx ? "block" : "hidden"
+              }`}
+            >
+              <ImageZoom
+                src={`/images${img.attributes.url}`}
+                alt={`${alt} image`}
+              />
+            </div>
+          ))}
         </div>
 
         {imgsCount > 1 && (

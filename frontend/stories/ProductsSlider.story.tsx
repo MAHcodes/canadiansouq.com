@@ -7,7 +7,7 @@ export default {
   component: ProductsSlider,
   args: {
     title: "Test Products",
-    products: Array(8).fill(exampleProduct),
+    products: Array(15).fill(exampleProduct),
   },
 } as ComponentMeta<typeof ProductsSlider>;
 
