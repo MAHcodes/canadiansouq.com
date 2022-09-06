@@ -73,12 +73,8 @@ const Card = ({ grid, product }: Props) => (
       </Link>
 
       <div className="flex items-stretch justify-end gap-2 mt-2">
-        <Button
-          text="Add to Cart"
-          pad={`p-2 ${grid ? "px-6" : "flex-1"}`}
-          main
-        />
-        <Button text={<Bookmark />} sec pad="p-2" font="font-base" />
+        <Button size="md" className="flex-1">Add to Cart</Button>
+        <Button color="secondary" size="md" icon={<Bookmark />} />
       </div>
     </div>
   </div>

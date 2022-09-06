@@ -23,7 +23,7 @@ const Hero = () => (
         />
         <img src="/images/hero.avif" alt="Our Power tools brands" />
       </div>
-      <Button text="Shop now" main />
+      <Button size="lg">Shop now</Button>
     </div>
   </main>
 );

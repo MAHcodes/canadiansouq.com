@@ -33,10 +33,10 @@ const Product = ({ product, asPath }: Props) => {
             }${asPath}`}
             className="flex-1"
           >
-            <Button text="Buy Now" main pad="py-3 px-5" className="w-full" />
+            <Button size="lg" className="w-full">Buy Now</Button>
           </a>
-          <Button text={<AddtoCart />} sec pad="p-3" />
-          <Button text={<Bookmark />} sec pad="p-3" />
+          <Button color="secondary"><AddtoCart /> </Button>
+          <Button color="secondary"><Bookmark /> </Button>
         </div>
         <div className="grid grid-cols-productInfo gap-x-6 gap-y-4">
           <Info

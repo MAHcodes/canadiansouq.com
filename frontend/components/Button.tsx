@@ -1,15 +1,17 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
 const sizes = {
-  lg: "py-3 px-6 text-base rounded-lg",
-  md: "py-2 px-4 text-sm rounded-md",
-  sm: "py-1 px-2 text-xs rounded-5",
+  lg: "py-3 px-6 text-base",
+  md: "py-2 px-4 text-sm",
+  sm: "py-1 px-2 text-xs",
+  "": "",
 };
 
 const iconSized = {
   lg: "p-3",
   md: "p-2",
   sm: "p-1",
+  "": "",
 }
 
 const colors = {
@@ -23,31 +25,35 @@ export interface Props
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  size?: keyof typeof sizes;
+  size?: keyof typeof sizes | "";
   color?: keyof typeof colors;
   icon?: ReactNode;
-  onClick: () => void;
+  iconAfter?: boolean,
 }
 
 const Button: React.FC<Props> = ({
   children,
-  size = "md",
+  size = "",
   color = "primary",
+  className = "",
   icon,
+  iconAfter,
   disabled,
   ...props
 }) => {
   return (
     <button
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2
-         ${disabled ? "cursor-not-allowed opacity-50" : ""}
+         ${disabled ? "cursor-not-allowed opacity-40" : ""}
          ${ children ? sizes[size] : iconSized[size] }
          ${colors[color]}
+         ${className}
       `}
+      disabled={disabled}
       {...props}
     >
       {icon ? (
-        <span className={size === "lg" ? "w-5" : "w-4"}>{icon}</span>
+        <span className={iconAfter ? "order-2" : ""}>{icon}</span>
       ) : null}
       {children}
     </button>

@@ -16,34 +16,35 @@ const Pagination = ({ router, page, pageCount }: Props) => {
   return (
     <div className="flex items-center justify-between gap-4 my-4">
       <Button
-        pad="0"
-        icon
+        icon={<Arrow className="rotate-90" />}
         title="Previous"
-        text={<Arrow className="w-full h-full rotate-90 min-w-max" />}
+        size="sm"
         onClick={() => navigate(page - 1)}
+        color="transparent"
         disabled={page <= 0}
-      />
+      >Prev</Button>
 
       <div className="flex items-center gap-2">
-      {(page >= 2) && <Button icon text="0" pad="0" onClick={() => navigate(0)} />}
+      {(page >= 2) && <Button color="transparent" size="sm" onClick={() => navigate(0)}>0</Button>}
       {(page > 2) && <span>...</span>}
         {[...Array(pageCount + 1)].map((_, i) => {
           if ( page === i -1 || page === i || page === i + 1) {
-            return <Button icon={i !== page} sec={i === page} text={i.toString()} pad={page === i ? "px-3 py-1" : "0"} onClick={() => navigate(i)} />
+            return <Button color={i === page ? "secondary" : "transparent"} size="sm" onClick={() => navigate(i)}>{i.toString()}</Button>
           }
         })}
       {(pageCount > page + 2) && <span>...</span>}
-      {(pageCount >= page + 2) && <Button text={pageCount.toString()} icon pad="0" onClick={() => navigate(pageCount)} />}
+      {(pageCount >= page + 2) && <Button color="transparent" size="sm" onClick={() => navigate(pageCount)}>{pageCount.toString()}</Button>}
       </div>
 
       <Button
-        pad="0"
-        icon
-        title="Previous"
-        text={<Arrow className="w-full h-full rotate-[-90deg] min-w-max" />}
+        title="Next"
+        size="sm"
+        iconAfter={true}
+        color="transparent"
+        icon={<Arrow className="rotate-[-90deg]" />}
         onClick={() => navigate(+page + 1)}
         disabled={page >= pageCount}
-      />
+      >Next</Button>
     </div>
   );
 };

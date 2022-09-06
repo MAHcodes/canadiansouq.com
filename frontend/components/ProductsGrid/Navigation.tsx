@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { IProduct } from "../../types/IProduct";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
-import FilterOptions from "./Filter/"
+import FilterOptions from "./Filter/";
 
 type Props = {
   router: any;
@@ -13,39 +13,57 @@ type Props = {
   prods: IProduct[];
 };
 
-const Navigation = ({ router, grid, setGrid, brands, setProducts, prods }: Props) => {
+const Navigation = ({
+  router,
+  grid,
+  setGrid,
+  brands,
+  setProducts,
+  prods,
+}: Props) => {
   const [openFilter, setOpenFilter] = useState(true);
   const [filter] = useState([...brands]);
 
   const handleGridChange = () => {
     localStorage.setItem("grid", JSON.stringify(!grid));
-    setGrid((current: boolean) => !current)
+    setGrid((current: boolean) => !current);
   };
 
   return (
     <>
       <div className="flex py-4 items-center justify-between">
         <Button
-          pad="0"
-          icon
-          text={<Arrow className="w-full h-full rotate-90 min-w-max" />}
           onClick={() => router.back()}
+          color="transparent"
+          icon={<Arrow className="rotate-90 w-6 h-6" />}
         />
 
         <h1 className="font-bold text-xl">{router.query.cat}</h1>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-stretch gap-2">
           <Button
-            pad="0"
-            icon
-            text={grid ? <Grid /> : <List />}
+            icon={grid ? <Grid /> : <List />}
+            color="transparent"
+            size="sm"
             onClick={handleGridChange}
           />
-          <Button text={<Filter active={openFilter} />} pad="0" icon onClick={() => setOpenFilter(current => !current)} />
+          <Button
+            icon={<Filter active={openFilter} />}
+            color="transparent"
+            size="sm"
+            onClick={() => setOpenFilter((current) => !current)}
+          />
         </div>
       </div>
 
-      {openFilter && <FilterOptions brands={brands} setProducts={setProducts} prods={prods} filter={filter} />}
+      {openFilter && (
+        <FilterOptions
+          brands={brands}
+          setProducts={setProducts}
+          prods={prods}
+          filter={filter}
+        />
+      )}
     </>
   );
 };
