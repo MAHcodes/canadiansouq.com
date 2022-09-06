@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import { IProduct } from "../types/IProduct";
 import Card from "./Card";
 import { Arrow } from "./icons";
 import styles from "../styles/ProductsSlider.module.css"
 
-type Props = {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
   title: string;
   slug: string;
   products: IProduct[];
 };
 
-const ProductsSlider = ({ title, slug, products }: Props) => {
+const ProductsSlider = ({ title, slug, products, className, ...props }: Props) => {
   const [scroll, setScroll] = useState("start");
 
   const handleScroll = (e: any) => {
@@ -28,7 +28,7 @@ const ProductsSlider = ({ title, slug, products }: Props) => {
   };
 
   return (
-    <div className="container py-4">
+    <div className={`py-4 ${className}`} {...props}>
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-bold text-xl">{title}</h2>
         <Link href={`/${slug}?page=0`} passHref>
