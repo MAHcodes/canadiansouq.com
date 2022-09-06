@@ -42,7 +42,7 @@ const ProductsSlider = ({ title, slug, products, className, ...props }: Props) =
       </div>
 
       <div className={`${styles.scroll} ${scroll && styles[scroll]}`}>
-        <div onScroll={(e) => handleScroll(e)} className="snap-proximity snap-x flex items-stretch gap-2 overflow-x-auto noscrollbar [&>.card]:max-w-[14rem] ">
+        <div onScroll={(e) => handleScroll(e)} className="snap-proximity snap-x flex items-stretch gap-2 overflow-x-auto noscrollbar [&>.card]:max-w-[14rem]">
           {products.map(prod => (
             <Card key={prod.id} product={prod} />
           ))}

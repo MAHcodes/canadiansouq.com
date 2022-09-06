@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRef } from "react";
+import Buttons from "./Buttons";
 import NavBar from "./NavBar";
 
 interface Props {
@@ -23,6 +24,7 @@ const Header = ({ categories }: Props) => {
         </Link>
         </span>
         <NavBar checkboxRef={checkboxRef} categories={categories} />
+        <Buttons />
       </div>
     </header>
   );

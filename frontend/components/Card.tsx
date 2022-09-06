@@ -15,7 +15,7 @@ const Card = ({ grid, product }: Props) => (
         ${
           grid
             ? "flex-row w-full"
-            : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-0 max-w-xs"
+            : "flex-col min-w-[50%] sm:min-w-[40%] md:min-w-[30%] lg:min-w-[20%] max-w-xs"
         }
       `}
   >
