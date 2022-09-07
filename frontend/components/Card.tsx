@@ -1,7 +1,11 @@
 import Markdown from "marked-react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "../redux/cartSlice";
+import { add as addToCart, remove as removeFromCart } from "../redux/cartSlice";
+import {
+  add as addToWishlist,
+  remove as removeFromWishlist,
+} from "../redux/wishlistStore";
 import { RootState } from "../redux/store";
 import { IProduct } from "../types/IProduct";
 import Button from "./Button";
@@ -14,6 +18,7 @@ interface Props {
 
 const Card = ({ grid, product }: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
+  const wishlist = useSelector((state: RootState) => state.wishlist);
   const dispatch = useDispatch();
 
   return (
@@ -87,7 +92,7 @@ const Card = ({ grid, product }: Props) => {
               size="md"
               color="secondary"
               className={`${grid ? "" : "flex-1"}`}
-              onClick={() => dispatch(remove(product.id))}
+              onClick={() => dispatch(removeFromCart(product.id))}
             >
               Remove item
             </Button>
@@ -95,12 +100,26 @@ const Card = ({ grid, product }: Props) => {
             <Button
               size="md"
               className={`${grid ? "" : "flex-1"}`}
-              onClick={() => dispatch(add(product.id))}
+              onClick={() => dispatch(addToCart(product.id))}
             >
               Add to cart
             </Button>
           )}
-          <Button color="secondary" size="md" icon={<Bookmark />} />
+          {wishlist.some((item) => item === product.id) ? (
+            <Button
+              color="secondary"
+              size="md"
+              onClick={() => dispatch(removeFromWishlist(product.id))}
+              icon={<Bookmark clr="fill-black" />}
+            />
+          ) : (
+            <Button
+              color="secondary"
+              size="md"
+              onClick={() => dispatch(addToWishlist(product.id))}
+              icon={<Bookmark />}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import Markdown from "marked-react";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "../redux/cartSlice";
+import { add as addToCart, remove as removeFromCart } from "../redux/cartSlice";
+import { add as addToWishlist, remove as removeFromWishlist } from "../redux/wishlistStore";
 import { RootState } from "../redux/store";
 import { IProduct } from "../types/IProduct";
 import Button from "./Button";
@@ -14,6 +15,7 @@ interface Props {
 
 const Product = ({ product, asPath }: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
+  const wishlist = useSelector((state: RootState) => state.wishlist);
   const dispatch = useDispatch();
 
   return (
@@ -47,18 +49,32 @@ const Product = ({ product, asPath }: Props) => {
             <Button
               color="secondary"
               size="lg"
-              onClick={() => dispatch(remove(product.id))}
+              onClick={() => dispatch(removeFromCart(product.id))}
               icon={<AddedtoCart />}
             />
           ) : (
             <Button
               color="secondary"
               size="lg"
-              onClick={() => dispatch(add(product.id))}
+              onClick={() => dispatch(addToCart(product.id))}
               icon={<AddtoCart />}
             />
           )}
-          <Button color="secondary" size="lg" icon={<Bookmark />} />
+          {wishlist.some((item) => item === product.id) ? (
+            <Button
+              color="secondary"
+              size="lg"
+              onClick={() => dispatch(removeFromWishlist(product.id))}
+              icon={<Bookmark clr="fill-black" />}
+            />
+          ) : (
+            <Button
+              color="secondary"
+              size="lg"
+              onClick={() => dispatch(addToWishlist(product.id))}
+              icon={<Bookmark />}
+            />
+          )}
         </div>
         <div className="grid grid-cols-productInfo gap-x-6 gap-y-4">
           <Info
