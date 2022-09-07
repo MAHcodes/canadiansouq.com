@@ -17,7 +17,7 @@ const Header = ({ categories }: Props) => {
   };
 
   return (
-    <header className="bg-black text-white rounded-b-lg sticky top-0 left-0 right-0 z-40">
+    <header className="bg-black text-white rounded-b-lg sticky top-0 left-0 right-0 z-40 overflow-x-auto">
       <div className="container py-4 flex items-center justify-between gap-4 relative">
         <button className="lg:hidden" onClick={toggleNav}>toggle</button>
         <span className="flex-1 lg:flex-initial">

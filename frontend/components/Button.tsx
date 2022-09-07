@@ -16,8 +16,8 @@ const iconSized = {
 
 const colors = {
   primary: "text-white bg-black border-transparent",
-  secondary: "text-black bg-transparent border-black border-solid",
-  transparent: "border-transparent hover:bg-gray hover:bg-opacity-20",
+  secondary: "text-black bg-transparent border-black",
+  transparent: "border-transparent hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-30",
 };
 
 export interface Props
@@ -43,7 +43,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2
+      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2 border-solid
          ${disabled ? "cursor-not-allowed opacity-40" : ""}
          ${ children ? sizes[size] : iconSized[size] }
          ${colors[color]}

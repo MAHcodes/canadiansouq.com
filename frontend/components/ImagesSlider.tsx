@@ -2,7 +2,6 @@ import { useState } from "react";
 import { IImages } from "../types/IProduct";
 import Button from "./Button";
 import { Arrow } from "./icons";
-import ImageZoom from "react-image-zooom";
 
 interface Props {
   images: IImages;
@@ -38,20 +37,11 @@ const ImagesSlider = ({ images, alt }: Props) => {
           imgsCount > 1 ? "basis-5/6" : "basis-full"
         }`}
       >
-        <div className="rounded-lg w-full flex-1">
-          {images.data.map((img, i) => (
-            <div
-              className={`w-full aspect-square rounded-lg ${
-                i === previewIdx ? "block" : "hidden"
-              }`}
-            >
-              <ImageZoom
-                src={`/images${img.attributes.url}`}
-                alt={`${alt} image`}
-              />
-            </div>
-          ))}
-        </div>
+        <img
+          className="rounded-lg w-full flex-1 overflow-hidden"
+          src={`/images${images.data[previewIdx].attributes.url}`}
+          alt={`${alt} image`}
+        />
 
         {imgsCount > 1 && (
           <div className="flex items-center gap-4 overflow-x-auto pb-2">
