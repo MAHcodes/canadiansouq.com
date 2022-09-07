@@ -1,7 +1,10 @@
 import Markdown from "marked-react";
+import { useDispatch, useSelector } from "react-redux";
+import { add, remove } from "../redux/cartSlice";
+import { RootState } from "../redux/store";
 import { IProduct } from "../types/IProduct";
 import Button from "./Button";
-import { AddtoCart, Bookmark } from "./icons";
+import { AddedtoCart, AddtoCart, Bookmark } from "./icons";
 import ImagesSlider from "./ImagesSlider";
 
 interface Props {
@@ -10,6 +13,9 @@ interface Props {
 }
 
 const Product = ({ product, asPath }: Props) => {
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+
   return (
     <div className="container grid lg:grid-cols-productSliderAndInfo gap-6 overflow-x-hidden">
       <ImagesSlider
@@ -33,10 +39,26 @@ const Product = ({ product, asPath }: Props) => {
             }${asPath}`}
             className="flex-1"
           >
-            <Button size="lg" className="w-full">Buy Now</Button>
+            <Button size="lg" className="w-full">
+              Buy Now
+            </Button>
           </a>
-          <Button color="secondary" size="lg" icon={<AddtoCart /> } />
-          <Button color="secondary" size="lg" icon={<Bookmark /> } />
+          {cart.some((item) => item.id === product.id) ? (
+            <Button
+              color="secondary"
+              size="lg"
+              onClick={() => dispatch(remove(product.id))}
+              icon={<AddedtoCart />}
+            />
+          ) : (
+            <Button
+              color="secondary"
+              size="lg"
+              onClick={() => dispatch(add(product.id))}
+              icon={<AddtoCart />}
+            />
+          )}
+          <Button color="secondary" size="lg" icon={<Bookmark />} />
         </div>
         <div className="grid grid-cols-productInfo gap-x-6 gap-y-4">
           <Info

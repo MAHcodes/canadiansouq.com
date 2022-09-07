@@ -1,8 +1,12 @@
 import { NextRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import Button from "../Button";
 import { Bookmark, Cart } from "../icons";
 
 const Buttons = ({router}: {router: NextRouter}) => {
+  const cartItemsCount = useSelector((state: RootState) => state.cart.length);
+
   return (
     <div className="flex items-center gap-2">
       <Button
@@ -15,7 +19,7 @@ const Buttons = ({router}: {router: NextRouter}) => {
         onClick={() => router.push("/mycart")}
       >
         <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs">
-          3
+          {cartItemsCount}
         </span>
       </Button>
     </div>

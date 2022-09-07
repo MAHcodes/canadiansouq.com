@@ -1,4 +1,3 @@
-
 export const AddedtoCart = () => (
   <svg
     width="24"
