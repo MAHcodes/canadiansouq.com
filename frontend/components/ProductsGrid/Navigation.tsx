@@ -22,7 +22,7 @@ const Navigation = ({
   allProducts,
 }: Props) => {
   const [openFilter, setOpenFilter] = useState(true);
-  const [filter] = useState([...brands]);
+  const [filter, setFilter] = useState([...brands]);
 
   const handleGridChange = () => {
     localStorage.setItem("grid", JSON.stringify(!grid));
@@ -61,7 +61,8 @@ const Navigation = ({
           brands={brands}
           setFilteredProducts={setFilteredProducts}
           allProducts={allProducts}
-          filter={filter}
+          filter={[...filter]}
+          setFilter={setFilter}
         />
       )}
     </>

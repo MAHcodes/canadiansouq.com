@@ -8,14 +8,18 @@ interface Props {
   setFilteredProducts: (list: IProduct[]) => void;
   allProducts: IProduct[];
   filter: string[];
+  setFilter: (list: string[]) => void;
 };
 
-const ByBrand = ({ brands, setFilteredProducts, allProducts, filter }: Props) => {
+const ByBrand = ({ brands, setFilteredProducts, allProducts, filter, setFilter }: Props) => {
   const router = useRouter();
+
   const filterByBrand = (item: string) => {
     filter.includes(item)
       ? filter.splice(filter.indexOf(item), 1)
       : filter.push(item);
+
+    setFilter(filter);
 
     const newProducts = allProducts.filter((product) =>
       filter.includes(product.attributes.brand?.data.attributes.name!)
