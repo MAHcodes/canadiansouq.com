@@ -13,7 +13,7 @@ const Buttons = ({router}: {router: NextRouter}) => {
         size="sm"
         color="transparent"
         icon={<Bookmark clr="stroke-white" />}
-        onClick={() => router.push("/whishlist")}
+        onClick={() => router.push("/wishlist?page=0")}
       />
       <Button color="transparent" className="relative p-1" icon={<Cart />}
         onClick={() => router.push("/mycart")}
