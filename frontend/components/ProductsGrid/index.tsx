@@ -10,8 +10,8 @@ type Props = {
   brands: string[];
 };
 
-const ProductsGrid = ({ products: prods, brands }: Props) => {
-  const [products, setProducts] = useState(prods);
+const ProductsGrid = ({ products: allProducts, brands }: Props) => {
+  const [filteredProducts, setFilteredProducts] = useState(allProducts);
   const [grid, setGrid] = useState(false);
 
   useEffect(() => {
@@ -19,13 +19,13 @@ const ProductsGrid = ({ products: prods, brands }: Props) => {
   }, []);
 
   useEffect(() => {
-    setProducts(prods);
-  }, [prods])
+    setFilteredProducts(allProducts);
+  }, [allProducts])
 
   const router = useRouter();
   const page = router.query.page;
   const limit = 15;
-  const pagesCount = Math.ceil(products.length / limit) - 1;
+  const pagesCount = Math.ceil(filteredProducts.length / limit) - 1;
 
   return (
     <div className="container">
@@ -34,13 +34,13 @@ const ProductsGrid = ({ products: prods, brands }: Props) => {
         setGrid={setGrid}
         router={router}
         brands={brands}
-        setProducts={setProducts}
-        prods={prods}
+        setFilteredProducts={setFilteredProducts}
+        allProducts={allProducts}
       />
 
       <Grid
         grid={grid}
-        products={products.slice(+page! * limit, +page! * limit + limit)}
+        filteredProducts={filteredProducts.slice(+page! * limit, +page! * limit + limit)}
       />
 
       <Pagination router={router} page={+page!} pageCount={+pagesCount!} />

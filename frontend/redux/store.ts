@@ -4,8 +4,8 @@ import wishlistReducer from "./wishlistStore";
 import { loadState } from "./browserStorage";
 
 const reducers = combineReducers({
-    cart: cartReducer,
-    wishlist: wishlistReducer,
+  cart: cartReducer,
+  wishlist: wishlistReducer,
 })
 
 export const store = configureStore({

@@ -9,8 +9,8 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  setProducts: (list: IProduct[]) => void;
-  prods: IProduct[];
+  setFilteredProducts: (list: IProduct[]) => void;
+  allProducts: IProduct[];
 };
 
 const Navigation = ({
@@ -18,8 +18,8 @@ const Navigation = ({
   grid,
   setGrid,
   brands,
-  setProducts,
-  prods,
+  setFilteredProducts,
+  allProducts,
 }: Props) => {
   const [openFilter, setOpenFilter] = useState(true);
   const [filter] = useState([...brands]);
@@ -59,8 +59,8 @@ const Navigation = ({
       {openFilter && (
         <FilterOptions
           brands={brands}
-          setProducts={setProducts}
-          prods={prods}
+          setFilteredProducts={setFilteredProducts}
+          allProducts={allProducts}
           filter={filter}
         />
       )}

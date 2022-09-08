@@ -5,22 +5,22 @@ import Box from "./Box";
 
 interface Props {
   brands: string[];
-  setProducts: (list: IProduct[]) => void;
-  prods: IProduct[];
+  setFilteredProducts: (list: IProduct[]) => void;
+  allProducts: IProduct[];
   filter: string[];
 };
 
-const ByBrand = ({ brands, setProducts, prods, filter }: Props) => {
+const ByBrand = ({ brands, setFilteredProducts, allProducts, filter }: Props) => {
   const router = useRouter();
   const filterByBrand = (item: string) => {
     filter.includes(item)
       ? filter.splice(filter.indexOf(item), 1)
       : filter.push(item);
 
-    const newProducts = prods.filter((product) =>
+    const newProducts = allProducts.filter((product) =>
       filter.includes(product.attributes.brand?.data.attributes.name!)
     );
-    setProducts(newProducts);
+    setFilteredProducts(newProducts);
     if (router.query.page !== "0") {
       router.query.page = "0";
       router.push(router);

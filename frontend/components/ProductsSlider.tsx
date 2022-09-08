@@ -18,9 +18,9 @@ const ProductsSlider = ({ title, slug, products, className, ...props }: Props) =
     const leftMax = e.target.scrollWidth - e.target.clientWidth;
     if (e.target.scrollLeft === leftMax && e.target.scrollLeft === 0 ) {
       setScroll("middle")
-    } else if (e.target.scrollLeft <= 20) {
+    } else if (e.target.scrollLeft <= 5) {
       setScroll("start");
-    } else if (e.target.scrollLeft >= leftMax - 20) {
+    } else if (e.target.scrollLeft >= leftMax - 5) {
       setScroll("end");
     } else {
       setScroll("");

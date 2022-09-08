@@ -9,7 +9,6 @@ import { getCategories } from "../graphql/queries/getCategories";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
-import { debounce } from "debounce";
 import { useEffect, useState } from "react";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -17,11 +16,7 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 
-store.subscribe(
-  debounce(() => {
-    saveState(store.getState());
-  }, 0)
-);
+store.subscribe(() => saveState(store.getState()));
 
 function App({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false)
