@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
 import { debounce } from "debounce";
+import { useEffect, useState } from "react";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -23,6 +24,16 @@ store.subscribe(
 );
 
 function App({ Component, pageProps }: AppProps) {
+  const [showChild, setShowChild] = useState(false)
+
+  useEffect(() => {
+    setShowChild(true)
+  }, [])
+
+  if (!showChild) {
+    return null
+  };
+
   return (
     <Provider store={store}>
       <Header categories={pageProps.categories} />
