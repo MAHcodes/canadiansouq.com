@@ -12,7 +12,7 @@ const CheckBox = ({ text, onChange, filter }: Props) => (
       type="checkbox"
       id={text}
       onChange={() => onChange(text)}
-      defaultChecked={filter.includes(text)}
+      checked={filter.includes(text)}
     />
     <label
       htmlFor={text}

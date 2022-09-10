@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { IProduct } from "../../types/IProduct";
 import Button from "../Button";
 import { Arrow, Grid, List, Filter } from "../icons";
 import FilterOptions from "./Filter/";
@@ -9,8 +8,8 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  setFilteredProducts: (list: IProduct[]) => void;
-  allProducts: IProduct[];
+  filter: { brands: string[]}
+  dispatch: React.Dispatch<any>
 };
 
 const Navigation = ({
@@ -18,11 +17,10 @@ const Navigation = ({
   grid,
   setGrid,
   brands,
-  setFilteredProducts,
-  allProducts,
+  filter,
+  dispatch
 }: Props) => {
   const [openFilter, setOpenFilter] = useState(true);
-  const [filter, setFilter] = useState([...brands]);
 
   const handleGridChange = () => {
     localStorage.setItem("grid", JSON.stringify(!grid));
@@ -59,10 +57,8 @@ const Navigation = ({
       {openFilter && (
         <FilterOptions
           brands={brands}
-          setFilteredProducts={setFilteredProducts}
-          allProducts={allProducts}
-          filter={[...filter]}
-          setFilter={setFilter}
+          filter={filter}
+          dispatch={dispatch}
         />
       )}
     </>
