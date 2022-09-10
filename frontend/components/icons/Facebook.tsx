@@ -1,7 +1,9 @@
+import { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
 
-export const Facebook = () => (
+export const Facebook: React.FC<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>> = (props) => (
   <a href="https://facebook.com/canadiansouq" target="_blank" rel="noopener noreferrer"
     className="group cursor-pointer inline-flex items-center justify-center"
+    {...props}
   >
     <svg
       className="w-6 h-6"
