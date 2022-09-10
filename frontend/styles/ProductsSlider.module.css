@@ -4,15 +4,18 @@
 
 .scroll::before,
 .scroll::after {
-  content: "";
   position: absolute;
   width: 1.5rem;
   height: 100%;
   z-index: 4;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 
 .scroll::before {
   inset: 0 auto 0 0;
+  content: url(../public/images/arrow-left.svg);
   background: linear-gradient(
     to right,
     rgb(230, 230, 230),
@@ -21,6 +24,7 @@
 }
 
 .scroll::after {
+  content: url(../public/images/arrow-right.svg);
   inset: 0 0 0 auto;
   background: linear-gradient(
     to left,

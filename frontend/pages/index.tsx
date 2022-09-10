@@ -33,8 +33,8 @@ const Home = ({ featuredProducts, newArrivalProcucts }: Props ) => {
 };
 
 export const getStaticProps = async () => {
-  const featuredProducts = await getFeaturedProducts({limit: 15});
-  const newArrivalProcucts = await getNewArrivalProducts({limit: 15});
+  const featuredProducts = await getFeaturedProducts({limit: 14});
+  const newArrivalProcucts = await getNewArrivalProducts({limit: 14});
 
   return {
     props: {
