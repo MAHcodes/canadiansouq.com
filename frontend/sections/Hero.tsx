@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import Button from "../components/Button";
 
-const Hero = () => (
-  <main className="py-12">
+const Hero = () => {
+  const router = useRouter();
+  return <main className="py-12">
     <div className="container flex items-center justify-between flex-col">
       <h2 className="text-3xl text-center font-bold max-w-[28ch] leading-relaxed">
         We offer you{" "}
@@ -23,9 +25,9 @@ const Hero = () => (
         />
         <img src="/images/hero.avif" alt="Our Power tools brands" />
       </div>
-      <Button size="lg">Shop now</Button>
+      <Button size="lg" onClick={() => router.push("/new-arrivals?page=0")}>Shop now</Button>
     </div>
   </main>
-);
+};
 
 export default Hero;
