@@ -10,8 +10,7 @@ type Props = {
   brands: string[];
 };
 
-const reducer = (state: any, action: any) => {
-  // TODO fix typescript types
+const reducer = (state: any, action: { type: any; value: string; }) => {
   switch (action.type) {
     case "by-brands":
       return {
@@ -27,8 +26,6 @@ const reducer = (state: any, action: any) => {
           ? state.availability.filter((item: string) => item !== action.value)
           : [...state.availability, action.value],
       };
-    case "reset":
-      return action.value;
   }
 };
 
@@ -44,12 +41,11 @@ const ProductsGrid = ({ products: allProducts, brands }: Props) => {
 
   useEffect(() => {
     setFilteredProducts(allProducts);
-    dispatch({ type: "reset", value: initialFilter });
   }, [allProducts]);
 
   const router = useRouter();
-  const page = router.query.page;
-  const limit = 15;
+  const { page } = router.query;
+  const limit = grid ? 8 : 14;
   const pagesCount = Math.ceil(filteredProducts.length / limit) - 1;
 
   useEffect(() => {

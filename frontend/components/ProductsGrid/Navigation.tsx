@@ -8,7 +8,7 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  filter: { brands: string[]}
+  filter: { brands: string[], availability: string[]}
   dispatch: React.Dispatch<any>
 };
 
@@ -20,7 +20,7 @@ const Navigation = ({
   filter,
   dispatch
 }: Props) => {
-  const [openFilter, setOpenFilter] = useState(true);
+  const [openFilter, setOpenFilter] = useState(false);
 
   const handleGridChange = () => {
     localStorage.setItem("grid", JSON.stringify(!grid));
