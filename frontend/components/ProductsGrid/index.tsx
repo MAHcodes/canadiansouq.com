@@ -20,6 +20,13 @@ const reducer = (state: any, action: any) => {
           ? state.brands.filter((brand: string) => brand !== action.value)
           : [...state.brands, action.value],
       };
+    case "by-availability":
+      return {
+        ...state,
+        availability: state.availability.includes(action.value)
+          ? state.availability.filter((item: string) => item !== action.value)
+          : [...state.availability, action.value],
+      };
     case "reset":
       return action.value;
   }
@@ -46,15 +53,15 @@ const ProductsGrid = ({ products: allProducts, brands }: Props) => {
   const pagesCount = Math.ceil(filteredProducts.length / limit) - 1;
 
   useEffect(() => {
-    if (filter.brands.length === 0) {
-      setFilteredProducts(allProducts);
-    } else {
-      const newFilteredProducts = allProducts.filter((product) => {
-        const prodBrand = product.attributes.brand?.data.attributes.name;
-        return filter.brands.some((item: string) => prodBrand === item);
-      });
-      setFilteredProducts(newFilteredProducts);
-    }
+    const newFilteredProducts = allProducts.filter((product) => {
+      const prodBrand = product.attributes.brand?.data.attributes.name;
+      const prodAvailable = product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
+      return (
+        ( filter.brands.length > 0 ? (filter.brands.some((item: string) => prodBrand === item)): true) &&
+        ( filter.availability.length > 0 ? (filter.availability.some((item: string) => prodAvailable === item)) : true)
+      );
+    });
+    setFilteredProducts(newFilteredProducts);
   }, [filter]);
 
   return (
