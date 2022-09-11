@@ -2,7 +2,7 @@ import Markdown from "marked-react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { add as addToCart, remove as removeFromCart } from "../redux/cartSlice";
-import { add as addToWishlist, remove as removeFromWishlist } from "../redux/wishlistStore";
+import { add as addToWishlist, remove as removeFromWishlist } from "../redux/wishlistSlice";
 import { RootState } from "../redux/store";
 import { IProduct } from "../types/IProduct";
 import Button from "./Button";

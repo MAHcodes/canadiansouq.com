@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./cartSlice";
-import wishlistReducer from "./wishlistStore";
+import wishlistReducer from "./wishlistSlice";
 import { loadState } from "./browserStorage";
 
 const reducers = combineReducers({
