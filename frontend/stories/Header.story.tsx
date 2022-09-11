@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Provider } from "react-redux";
 import Header from "../components/Header";
+import { store } from "../redux/store";
 
 export default {
   title: 'Main/Header',
@@ -9,7 +11,7 @@ export default {
   } 
 } as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof Header> = (args) => <Provider store={store}> <Header {...args} /></Provider>
 
 
 export const List = Template.bind({});
