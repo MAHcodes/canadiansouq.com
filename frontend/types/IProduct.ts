@@ -5,6 +5,7 @@ export interface IProduct {
     featured?: boolean;
     condition?: string;
     availability?: number;
+    type?: string;
     model?: string;
     brand?: IBrand;
     category?: ICategory;

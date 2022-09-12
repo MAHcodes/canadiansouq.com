@@ -2,7 +2,7 @@ import { gql, request } from "graphql-request";
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 
 export const getBrands = async () => {
-  const CATEGORIES = gql`
+  const BRANDS = gql`
     query getBrands {
       brands {
         data {
@@ -14,14 +14,16 @@ export const getBrands = async () => {
     }
   `;
 
-  const result = await request(graphqlAPI, CATEGORIES);
+  const result = await request(graphqlAPI, BRANDS);
   return result.brands.data;
 };
 
 export const getCategoryBrands = async (category: string) => {
-  const CATEGORIES = gql`
+  const BRANDS = gql`
     query getBrands($category: String!) {
-      brands(filters: { products: { category: { title: { eq: $category}}}} ) {
+      brands(
+        filters: { products: { category: { title: { eq: $category } } } }
+      ) {
         data {
           attributes {
             name
@@ -31,12 +33,12 @@ export const getCategoryBrands = async (category: string) => {
     }
   `;
 
-  const result = await request(graphqlAPI, CATEGORIES, { category });
+  const result = await request(graphqlAPI, BRANDS, { category });
   return result.brands.data;
 };
 
 export const getFeaturedBrands = async () => {
-  const CATEGORIES = gql`
+  const BRANDS = gql`
     query getBrands {
       brands(filters: { products: { featured: { eq: true } } }) {
         data {
@@ -48,6 +50,6 @@ export const getFeaturedBrands = async () => {
     }
   `;
 
-  const result = await request(graphqlAPI, CATEGORIES);
+  const result = await request(graphqlAPI, BRANDS);
   return result.brands.data;
 };

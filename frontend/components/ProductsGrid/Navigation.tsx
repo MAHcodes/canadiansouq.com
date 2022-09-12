@@ -8,7 +8,8 @@ type Props = {
   grid: boolean;
   setGrid: Dispatch<SetStateAction<boolean>>;
   brands: string[];
-  filter: { brands: string[], availability: string[]}
+  types: string[];
+  filter: { brands: string[], types: string[], availability: string[]}
   dispatch: React.Dispatch<any>
 };
 
@@ -17,6 +18,7 @@ const Navigation = ({
   grid,
   setGrid,
   brands,
+  types,
   filter,
   dispatch
 }: Props) => {
@@ -57,6 +59,7 @@ const Navigation = ({
       {openFilter && (
         <FilterOptions
           brands={brands}
+          types={types}
           filter={filter}
           dispatch={dispatch}
         />

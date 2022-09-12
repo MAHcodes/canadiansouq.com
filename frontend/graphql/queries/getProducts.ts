@@ -14,6 +14,7 @@ export const getCategoryProducts = async (cat: { cat: string }) => {
                 attributes {
                   title
                   availability
+                  type
                   brand {
                     data {
                       attributes {
@@ -53,6 +54,7 @@ export const getProducts = async () => {
           attributes {
             title
             availability
+            type
             brand {
               data {
                 attributes {
@@ -91,6 +93,7 @@ export const getFeaturedProducts = async (variables: { limit: number }) => {
           id
           attributes {
             availability
+            type
             title
             brand {
               data {
@@ -128,6 +131,7 @@ export const getNewArrivalProducts = async (variables: { limit: number }) => {
           attributes {
             title
             availability
+            type
             brand {
               data {
                 attributes {

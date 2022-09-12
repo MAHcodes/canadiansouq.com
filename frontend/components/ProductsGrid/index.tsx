@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 type Props = {
   products: IProduct[];
   brands: string[];
+  types: string[];
 };
 
 const reducer = (state: any, action: { type: any; value: string; }) => {
@@ -19,6 +20,13 @@ const reducer = (state: any, action: { type: any; value: string; }) => {
           ? state.brands.filter((brand: string) => brand !== action.value)
           : [...state.brands, action.value],
       };
+    case "by-types":
+      return {
+        ...state,
+        types: state.types.includes(action.value)
+          ? state.types.filter((type: string) => type !== action.value)
+          : [...state.types, action.value],
+      };
     case "by-availability":
       return {
         ...state,
@@ -29,9 +37,9 @@ const reducer = (state: any, action: { type: any; value: string; }) => {
   }
 };
 
-const ProductsGrid = ({ products: allProducts, brands }: Props) => {
+const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
-  const initialFilter = { brands: [], availability: [] };
+  const initialFilter = { brands: [], types: [], availability: [] };
   const [filter, dispatch] = useReducer(reducer, initialFilter);
   const [grid, setGrid] = useState(false);
 
@@ -51,9 +59,11 @@ const ProductsGrid = ({ products: allProducts, brands }: Props) => {
   useEffect(() => {
     const newFilteredProducts = allProducts.filter((product) => {
       const prodBrand = product.attributes.brand?.data.attributes.name;
+      const prodType = product.attributes.type;
       const prodAvailable = product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
       return (
         ( filter.brands.length > 0 ? (filter.brands.some((item: string) => prodBrand === item)): true) &&
+        ( filter.types.length > 0 ? (filter.types.some((type: string) => prodType === type)) : true) &&
         ( filter.availability.length > 0 ? (filter.availability.some((item: string) => prodAvailable === item)) : true)
       );
     });
@@ -67,6 +77,7 @@ const ProductsGrid = ({ products: allProducts, brands }: Props) => {
         setGrid={setGrid}
         router={router}
         brands={brands}
+        types={types}
         filter={filter}
         dispatch={dispatch}
       />
