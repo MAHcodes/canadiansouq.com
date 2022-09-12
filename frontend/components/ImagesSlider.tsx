@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IImages } from "../types/IProduct";
 import Button from "./Button";
 import { Arrow } from "./icons";
+import MagnifyImg from "./MagnifyImg";
 
 interface Props {
   images: IImages;
@@ -37,8 +38,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
           imgsCount > 1 ? "basis-5/6" : "basis-full"
         }`}
       >
-        <img
-          className="rounded-lg w-full flex-1 overflow-hidden"
+        <MagnifyImg
           src={`/images${images.data[previewIdx].attributes.url}`}
           alt={`${alt} image`}
         />
