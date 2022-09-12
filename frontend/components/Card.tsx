@@ -32,7 +32,7 @@ const Card = ({ grid, product }: Props) => {
         <div
           className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg mx-auto ${
             grid
-              ? "basis-48 min-w-[6rem] max-w-[8rem] md:max-w-[14rem]"
+              ? "basis-44 min-w-[6rem] max-w-[8rem] md:max-w-[14rem]"
               : "max-w-[14rem]"
           }`}
         >
@@ -88,7 +88,7 @@ const Card = ({ grid, product }: Props) => {
             <Button
               size="md"
               color="secondary"
-              className={`${grid ? "" : "flex-1"}`}
+              className={`whitespace-nowrap ${grid ? "" : "flex-1"}`}
               onClick={() => dispatch(removeFromCart(product.id))}
             >
               Remove item
@@ -108,6 +108,7 @@ const Card = ({ grid, product }: Props) => {
               size="md"
               onClick={() => dispatch(removeFromWishlist(product.id))}
               icon={<Bookmark clr="fill-black" />}
+              className="hidden md:block"
             />
           ) : (
             <Button
@@ -115,6 +116,7 @@ const Card = ({ grid, product }: Props) => {
               size="md"
               onClick={() => dispatch(addToWishlist(product.id))}
               icon={<Bookmark />}
+              className="hidden md:block"
             />
           )}
         </div>

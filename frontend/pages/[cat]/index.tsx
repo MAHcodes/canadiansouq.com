@@ -25,7 +25,7 @@ export const getStaticProps = async ({params}: {params: { cat: string }}) => {
       category.attributes.products.data
   );
 
-  const brands = categoryBrands.map((category: {attributes: {name: string}}) => (category.attributes.name))
+  const brands = categoryBrands.map((category: {attributes: {name: string}}) => (category.attributes.name)).filter((brand: string | null) => brand !== null);
   const types = Array.from( new Set(categoryTypes.map((category: {attributes: {type: string}}) => (category.attributes.type)).filter((type: string | null) => type !== null)));
 
   return {

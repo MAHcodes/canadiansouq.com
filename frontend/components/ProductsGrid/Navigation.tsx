@@ -31,7 +31,7 @@ const Navigation = ({
 
   return (
     <>
-      <div className="flex py-4 items-center justify-between">
+      <div className="flex py-4 items-center justify-between gap-2">
         <Button
           onClick={() => router.back()}
           color="transparent"

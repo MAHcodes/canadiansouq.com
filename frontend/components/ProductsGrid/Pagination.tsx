@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import Button from "../Button";
 import { Arrow } from "../icons";
 
@@ -8,13 +9,15 @@ interface Props {
 }
 
 const Pagination = ({ router, page, pageCount }: Props) => {
+  const isSmallScreen = useMediaQuery({minWidth: 440});
+
   const navigate = (page: number) => {
     router.query.page = page;
     router.push(router);
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 my-4">
+    <div className="flex items-center justify-between gap-4 my-4 overflow-x-auto">
       <Button
         icon={<Arrow className="rotate-90" />}
         title="Previous"
@@ -22,7 +25,7 @@ const Pagination = ({ router, page, pageCount }: Props) => {
         onClick={() => navigate(page - 1)}
         color="transparent"
         disabled={page <= 0}
-      >Prev</Button>
+      >{isSmallScreen ? "Prev" : ""}</Button>
 
       <div className="flex items-center gap-2">
       {(page >= 2) && <Button color="transparent" size="sm" onClick={() => navigate(0)}>0</Button>}
@@ -44,7 +47,7 @@ const Pagination = ({ router, page, pageCount }: Props) => {
         icon={<Arrow className="rotate-[-90deg]" />}
         onClick={() => navigate(+page + 1)}
         disabled={page >= pageCount}
-      >Next</Button>
+      >{isSmallScreen ? "Next" : ""}</Button>
     </div>
   );
 };

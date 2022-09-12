@@ -58,7 +58,7 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
 
   useEffect(() => {
     const newFilteredProducts = allProducts.filter((product) => {
-      const prodBrand = product.attributes.brand?.data.attributes.name;
+      const prodBrand =  product.attributes?.brand?.data?.attributes?.name;
       const prodType = product.attributes.type;
       const prodAvailable = product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
       return (
