@@ -20,7 +20,7 @@ const Navigation = ({
   brands,
   types,
   filter,
-  dispatch
+  dispatch,
 }: Props) => {
   const [openFilter, setOpenFilter] = useState(false);
 
@@ -62,6 +62,7 @@ const Navigation = ({
           types={types}
           filter={filter}
           dispatch={dispatch}
+          
         />
       )}
     </>

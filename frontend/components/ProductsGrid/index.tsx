@@ -11,8 +11,13 @@ type Props = {
   types: string[];
 };
 
-const reducer = (state: any, action: { type: any; value: string; }) => {
+const reducer = (state: any, action: { type: any; value: string }) => {
   switch (action.type) {
+    case "search":
+      return {
+        ...state,
+        search: action.value,
+      };
     case "by-brands":
       return {
         ...state,
@@ -39,7 +44,7 @@ const reducer = (state: any, action: { type: any; value: string; }) => {
 
 const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
-  const initialFilter = { brands: [], types: [], availability: [] };
+  const initialFilter = { brands: [], types: [], availability: [], search: "" };
   const [filter, dispatch] = useReducer(reducer, initialFilter);
   const [grid, setGrid] = useState(false);
 
@@ -58,13 +63,26 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
 
   useEffect(() => {
     const newFilteredProducts = allProducts.filter((product) => {
-      const prodBrand =  product.attributes?.brand?.data?.attributes?.name;
+      const prodBrand = product.attributes?.brand?.data?.attributes?.name;
       const prodType = product.attributes.type;
-      const prodAvailable = product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
+      const prodTitle = product.attributes.title;
+      const prodAvailable =
+        product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
       return (
-        ( filter.brands.length > 0 ? (filter.brands.some((item: string) => prodBrand === item)): true) &&
-        ( filter.types.length > 0 ? (filter.types.some((type: string) => prodType === type)) : true) &&
-        ( filter.availability.length > 0 ? (filter.availability.some((item: string) => prodAvailable === item)) : true)
+        (filter.brands.length > 0
+          ? filter.brands.some((item: string) => prodBrand === item)
+          : true) &&
+        (filter.types.length > 0
+          ? filter.types.some((type: string) => prodType === type)
+          : true) &&
+        (filter.availability.length > 0
+          ? filter.availability.some((item: string) => prodAvailable === item)
+          : true) &&
+        (filter.search.length > 0
+          ? prodTitle
+              ?.toLowerCase()
+              .includes(filter.search.trim().toLowerCase())
+          : true)
       );
     });
     setFilteredProducts(newFilteredProducts);
