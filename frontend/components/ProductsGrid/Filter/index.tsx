@@ -13,7 +13,7 @@ const Filter = ({ brands, types, filter, dispatch}: Props) => {
     <div className="bg-fff rounded-md mb-4 p-4 relative before:absolute before:border-b-fff before:border-solid before:border-transparent before:border-8 before:top-0 before:right-2 before:translate-y-[-100%] animate-slideDownIn origin-top-right">
       <h3 className="text-center font-bold mb-2">Filter</h3>
       <SearchInput onChange={(e) => dispatch({type: "search", value: e.target.value})} />
-      <div className="flex gap-3 flex-col sm:flex-row">
+      <div className="flex gap-3 flex-col md:flex-row">
         {brands.length > 1 ? (
           <OptionsGroup
             title="by brand"

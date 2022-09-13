@@ -14,7 +14,6 @@ const NewArrivals = ({products, brands, types}: Props) => (
   <ProductsGrid products={products} brands={brands} types={types} />
 )
 
-
 export const getStaticProps = async () => {
   const products = await getNewArrivalProducts({limit: -1});
   const newArrivalsBrands = await getBrands();

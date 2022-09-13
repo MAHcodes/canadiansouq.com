@@ -7,6 +7,7 @@ import { IProduct } from "../types/IProduct";
 import Button from "./Button";
 import { AddedtoCart, AddtoCart, Bookmark } from "./icons";
 import ImagesSlider from "./ImagesSlider";
+import Head from "next/head";
 
 interface Props {
   product: IProduct;
@@ -19,6 +20,10 @@ const Product = ({ product, asPath }: Props) => {
   const dispatch = useDispatch();
 
   return (
+    <>
+      <Head>
+        <title>Canadian Souq | {product.attributes.title}</title>
+      </Head>
     <div className="container grid lg:grid-cols-productSliderAndInfo gap-6 overflow-x-hidden">
       <ImagesSlider
         images={product.attributes.images!}
@@ -102,6 +107,7 @@ const Product = ({ product, asPath }: Props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

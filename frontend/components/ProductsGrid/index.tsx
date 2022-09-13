@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useReducer, useState } from "react";
 import { IProduct } from "../../types/IProduct";
@@ -65,7 +66,8 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
     const newFilteredProducts = allProducts.filter((product) => {
       const prodBrand = product.attributes?.brand?.data?.attributes?.name;
       const prodType = product.attributes.type;
-      const prodTitle = product.attributes.title;
+      const prodTitle = product.attributes.title?.toLowerCase();
+      const prodModel = product.attributes.model?.toLowerCase();
       const prodAvailable =
         product.attributes.availability! <= 0 ? "Out of Stock" : "In Stock";
       return (
@@ -79,9 +81,7 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
           ? filter.availability.some((item: string) => prodAvailable === item)
           : true) &&
         (filter.search.length > 0
-          ? prodTitle
-              ?.toLowerCase()
-              .includes(filter.search.trim().toLowerCase())
+          ? (prodTitle?.includes(filter.search.trim().toLowerCase()) || (prodModel?.includes(filter.search.trim().toLowerCase())))
           : true)
       );
     });
@@ -89,6 +89,10 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
   }, [filter]);
 
   return (
+    <>
+      <Head>
+        <title>Canadian Souq | {router.query.cat}</title>
+      </Head>
     <div className="container">
       <Navigation
         grid={grid}
@@ -110,6 +114,7 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
 
       <Pagination router={router} page={+page!} pageCount={+pagesCount!} />
     </div>
+    </>
   );
 };
 
