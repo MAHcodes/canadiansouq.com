@@ -1,26 +1,28 @@
 import React from "react";
 
-const MagnifyImg: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>> = (props) => {
+const MagnifyImg: React.FC<
+  React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  >
+> = (props) => {
   const zoom = (e: any) => {
     let offsetX, offsetY;
 
     try {
+      if (e.nativeEvent.offsetX) {
+        offsetX = e.nativeEvent.offsetX;
+      } else {
+        offsetX = e.nativeEvent.touches[0].pageX;
+      }
 
-    if (e.nativeEvent.offsetX) {
-      offsetX = e.nativeEvent.offsetX;
-    } else {
-      offsetX = e.nativeEvent.touches[0].pageX;
-    }
-
-    if (e.nativeEvent.offsetY) {
-      offsetY = e.nativeEvent.offsetY;
-    } else {
-      offsetY = e.nativeEvent.touches[0].pageY;
-    }
-
-    }
-    catch (err) {
-      console.error(err)
+      if (e.nativeEvent.offsetY) {
+        offsetY = e.nativeEvent.offsetY;
+      } else {
+        offsetY = e.nativeEvent.touches[0].pageY;
+      }
+    } catch (err) {
+      console.error(err);
     }
 
     const x = (offsetX / e.currentTarget.offsetWidth) * 100;
@@ -29,7 +31,7 @@ const MagnifyImg: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLI
 
     // credit for carl on codepen.io: https://codepen.io/carl_was_here/pen/yZxMqV
   };
-  
+
   return (
     <figure
       style={{ backgroundImage: `url(${props.src})` }}

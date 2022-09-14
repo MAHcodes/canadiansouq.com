@@ -41,13 +41,13 @@ const Product = ({ product, asPath }: Props) => {
         </div>
         <div className="flex items-stretch gap-2 my-4">
           <a
-            href={`https://wa.me/+96181921320/?text=${
+            href={`https://wa.me/+96181921320/?text=Hello, I saw this... ${
               process.env.HOST || ""
             }${asPath}`}
             className="flex-1"
           >
             <Button size="lg" className="w-full">
-              Buy Now
+              Order Now
             </Button>
           </a>
           {cart.some((item) => item.id === product.id) ? (
