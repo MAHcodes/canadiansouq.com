@@ -16,7 +16,7 @@ const Buttons = ({router}: {router: NextRouter}) => {
         onClick={() => router.push("/wishlist?page=0")}
       />
       <Button color="transparent" className="relative p-1" icon={<Cart />}
-        onClick={() => router.push("/mycart")}
+        onClick={() => router.push("/cart")}
       >
         <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs">
           {cartItemsCount}
