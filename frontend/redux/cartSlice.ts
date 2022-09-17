@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IProduct } from "../types";
 
-const initialState: {id: number, q: number}[] = [];
+const initialState: {prod: IProduct, qty: number}[] = [];
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     add: (state, action) => {
-      state.push({id: action.payload, q: 1});
+      state.push({prod: action.payload, qty: 1});
     },
     remove: (state, action) => {
-      return state.filter((item) => item.id !== action.payload);
+      return state.filter((item) => item.prod.id !== action.payload);
     },
   }
 })

@@ -49,6 +49,7 @@ App.getInitialProps = async () => {
     console.log(error);
   }
 
+
   return {
     pageProps,
   };

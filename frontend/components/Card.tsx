@@ -84,7 +84,7 @@ const Card = ({ grid, product }: Props) => {
         </Link>
 
         <div className="flex items-stretch justify-end gap-2 mt-2">
-          {cart.some((item) => item.id === product.id) ? (
+          {cart.some((item) => item.prod.id === product.id) ? (
             <Button
               size="md"
               color="secondary"
@@ -97,7 +97,7 @@ const Card = ({ grid, product }: Props) => {
             <Button
               size="md"
               className={`${grid ? "" : "flex-1"}`}
-              onClick={() => dispatch(addToCart(product.id))}
+              onClick={() => dispatch(addToCart(product))}
             >
               Add to cart
             </Button>

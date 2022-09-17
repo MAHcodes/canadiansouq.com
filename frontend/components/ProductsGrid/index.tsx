@@ -86,7 +86,7 @@ const ProductsGrid = ({ products: allProducts, brands, types }: Props) => {
       );
     });
     setFilteredProducts(newFilteredProducts);
-  }, [filter]);
+  }, [filter, allProducts]);
 
   return (
     <>

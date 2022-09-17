@@ -44,13 +44,15 @@ const Product = ({ product, asPath }: Props) => {
             href={`https://wa.me/+96181921320/?text=Hello, I saw this... ${
               process.env.HOST || ""
             }${asPath}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1"
           >
             <Button size="lg" className="w-full">
               Order Now
             </Button>
           </a>
-          {cart.some((item) => item.id === product.id) ? (
+          {cart.some((item) => item.prod.id === product.id) ? (
             <Button
               color="secondary"
               size="lg"
@@ -61,11 +63,11 @@ const Product = ({ product, asPath }: Props) => {
             <Button
               color="secondary"
               size="lg"
-              onClick={() => dispatch(addToCart(product.id))}
+              onClick={() => dispatch(addToCart(product))}
               icon={<AddtoCart />}
             />
           )}
-          {wishlist.some((item) => item === product.id) ? (
+          {wishlist.some((item) => item.id === product.id) ? (
             <Button
               color="secondary"
               size="lg"
@@ -76,7 +78,7 @@ const Product = ({ product, asPath }: Props) => {
             <Button
               color="secondary"
               size="lg"
-              onClick={() => dispatch(addToWishlist(product.id))}
+              onClick={() => dispatch(addToWishlist(product))}
               icon={<Bookmark />}
             />
           )}
