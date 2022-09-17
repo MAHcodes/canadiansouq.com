@@ -1,12 +1,13 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-interface Props {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   href: string;
   Icon: JSX.Element;
   text: string;
 }
 
-const Info = ({ href, Icon, text }: Props) => (
-  <div className="my-2">
+const Info: React.FC<Props> = ({ href, Icon, text, className, ...props }) => (
+  <div className={`my-2 ${className}`} {...props}>
     <a
       href={href}
       target="_blank"
