@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { IProduct } from "../types";
 
-const initialState: number[] = [];
+const initialState: IProduct[] = [];
 
 const wishlistSlice = createSlice({
   name: "wishlist",
@@ -10,7 +11,7 @@ const wishlistSlice = createSlice({
       state.push(action.payload);
     },
     remove: (state, action) => {
-      return state.filter((item) => item !== action.payload)
+      return state.filter((item) => item.id !== action.payload)
     }
   }
 })

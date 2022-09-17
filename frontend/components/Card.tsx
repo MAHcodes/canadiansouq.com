@@ -102,7 +102,7 @@ const Card = ({ grid, product }: Props) => {
               Add to cart
             </Button>
           )}
-          {wishlist.some((item) => item === product.id) ? (
+          {wishlist.some((item) => item.id === product.id) ? (
             <Button
               color="secondary"
               size="md"
@@ -114,7 +114,7 @@ const Card = ({ grid, product }: Props) => {
             <Button
               color="secondary"
               size="md"
-              onClick={() => dispatch(addToWishlist(product.id))}
+              onClick={() => dispatch(addToWishlist(product))}
               icon={<Bookmark />}
               className="hidden md:block"
             />
