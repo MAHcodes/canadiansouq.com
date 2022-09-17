@@ -1,3 +1,5 @@
+import { IBrand, ICategory, IImages } from "./index";
+
 export interface IProduct {
   id?: number;
   attributes: {
@@ -14,27 +16,4 @@ export interface IProduct {
     description?: string;
     images?: IImages;
   };
-}
-
-export interface IBrand {
-  data: {
-    id?: number;
-    attributes: {
-      name: string;
-    };
-  };
-}
-
-export interface ICategory {
-  attributes: {
-    title: string;
-  };
-}
-
-export interface IImages {
-  data: {
-    attributes: {
-      url: string;
-    };
-  }[];
 }

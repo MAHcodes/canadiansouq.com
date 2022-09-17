@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useReducer, useState } from "react";
-import { IProduct } from "../../types/IProduct";
+import { IProduct } from "../../types/";
 import Grid from "./Grid";
 import Navigation from "./Navigation";
 import Pagination from "./Pagination";

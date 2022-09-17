@@ -3,7 +3,7 @@ import { getCategoryBrands } from "../../graphql/queries/getBrands";
 import { getCategories } from "../../graphql/queries/getCategories";
 import { getCategoryProducts } from "../../graphql/queries/getProducts";
 import { getCategoryTypes } from "../../graphql/queries/getTypes";
-import { ICategory, IProduct } from "../../types/IProduct";
+import { ICategory, IProduct } from "../../types/";
 
 type Props = {
   products: IProduct[];

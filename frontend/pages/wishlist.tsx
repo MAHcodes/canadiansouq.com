@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import ProductsGrid from '../components/ProductsGrid';
 import { getProducts } from '../graphql/queries/getProducts'
 import { RootState } from '../redux/store';
-import { IProduct } from '../types/IProduct'
+import { IProduct } from '../types/'
 
 interface Props {
   products: IProduct[];

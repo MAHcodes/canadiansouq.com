@@ -3,7 +3,7 @@ import Head from "next/head";
 import Hero from "../sections/Hero";
 import Feutures from "../sections/Feutures";
 import { getFeaturedProducts, getNewArrivalProducts } from "../graphql/queries/getProducts";
-import { IProduct } from "../types/IProduct";
+import { IProduct } from "../types/";
 import ProductsSlider from "../components/ProductsSlider";
 
 interface Props {

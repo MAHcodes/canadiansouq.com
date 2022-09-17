@@ -1,4 +1,4 @@
-import { IProduct } from "../../types/IProduct";
+import { IProduct } from "../../types/";
 import Card from "../Card";
 
 type Props = {

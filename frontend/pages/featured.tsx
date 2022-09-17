@@ -2,7 +2,7 @@ import ProductsGrid from "../components/ProductsGrid";
 import { getFeaturedBrands } from "../graphql/queries/getBrands";
 import { getFeaturedProducts } from "../graphql/queries/getProducts";
 import { getFeaturedTypes } from "../graphql/queries/getTypes";
-import { IProduct } from "../types/IProduct";
+import { IProduct } from "../types/";
 
 interface Props {
   products: IProduct[];

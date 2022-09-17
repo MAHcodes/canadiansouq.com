@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IImages } from "../types/IProduct";
+import { IImages } from "../types/";
 import Button from "./Button";
 import { Arrow } from "./icons";
 import MagnifyImg from "./MagnifyImg";
