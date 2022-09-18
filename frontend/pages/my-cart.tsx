@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import EmptyCart from "../components/EmptyCart";
 import Navigation from "../components/Navigation";
-import useCartProps from "../hooks/useCartProps";
 import { RootState } from "../redux/store";
 
 interface Props {
@@ -20,7 +19,7 @@ const MyCart = (props: Props) => {
 
   /* console.log(router.query.cart) */
 
-  const urlProps = useCartProps({ cart });
+  const urlProps = cart!.map( item => `${item.prod.id}x${item.qty}`).join("n");
   console.log(urlProps)
 
   return (

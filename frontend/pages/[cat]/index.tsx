@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import ProductsGrid from "../../components/ProductsGrid";
 import { getCategoryBrands } from "../../graphql/queries/getBrands";
 import { getCategories } from "../../graphql/queries/getCategories";
@@ -12,7 +13,8 @@ type Props = {
 };
 
 const Products = ({ products, brands, types }: Props) => {
-  return <ProductsGrid products={products} brands={brands} types={types} />;
+  const { query } = useRouter();
+  return <ProductsGrid products={products} brands={brands} types={types} title={query.cat!.toString()}  />;
 };
 
 export const getStaticProps = async ({params}: {params: { cat: string }}) => {

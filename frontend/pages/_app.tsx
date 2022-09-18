@@ -25,34 +25,17 @@ function App({ Component, pageProps }: AppProps) {
     setShowChild(true)
   }, [])
 
-  if (!showChild) {
-    return null
-  };
+  /* if (!showChild) { */
+  /*   return null */
+  /* }; */
 
   return (
     <Provider store={store}>
-      <Header categories={pageProps.categories} />
+      <Header categories={["Power Tools", "Games"]} />
       <Component {...pageProps} />
       <Footer />
     </Provider>
   );
 }
-
-App.getInitialProps = async () => {
-  let pageProps: {categories?: string[]} = {};
-
-  try {
-    const categoriesArray = await getCategories();
-    const categories= categoriesArray.map((category: {attributes: {title: string}}) => category.attributes.title);
-    pageProps.categories = categories;
-  } catch (error) {
-    console.log(error);
-  }
-
-
-  return {
-    pageProps,
-  };
-};
 
 export default App;

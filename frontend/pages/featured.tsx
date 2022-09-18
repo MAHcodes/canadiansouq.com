@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Featured = ({products, brands, types}: Props) => (
-  <ProductsGrid products={products} brands={brands} types={types} />
+  <ProductsGrid products={products} brands={brands} types={types} title="Featured Products" />
 )
 
 export const getStaticProps = async () => {
