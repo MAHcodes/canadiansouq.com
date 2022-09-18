@@ -8,11 +8,11 @@ interface Props
   title: string;
 }
 
-const Navigation: React.FC<Props> = ({ children, title }) => {
+const Navigation: React.FC<Props> = ({ children, title, className }) => {
   const { back } = useRouter();
 
   return (
-    <div className="flex py-4 items-center justify-between gap-2">
+    <div className={`flex py-4 items-center justify-between gap-2 ${className}`}>
       <Button
         onClick={() => back()}
         color="transparent"

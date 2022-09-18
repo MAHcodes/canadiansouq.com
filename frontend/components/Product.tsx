@@ -8,6 +8,7 @@ import Button from "./Button";
 import { AddedtoCart, AddtoCart, Bookmark } from "./icons";
 import ImagesSlider from "./ImagesSlider";
 import Head from "next/head";
+import Navigation from "./Navigation";
 
 interface Props {
   product: IProduct;
@@ -24,7 +25,8 @@ const Product = ({ product, asPath }: Props) => {
       <Head>
         <title>Canadian Souq | {product.attributes.title}</title>
       </Head>
-    <div className="container grid lg:grid-cols-productSliderAndInfo gap-6 overflow-x-hidden">
+    <div className="container grid lg:grid-cols-productSliderAndInfo gap-x-6 overflow-x-hidden">
+      <Navigation title="" className="col-span-full"><span /></Navigation>
       <ImagesSlider
         images={product.attributes.images!}
         alt={product.attributes.title!}

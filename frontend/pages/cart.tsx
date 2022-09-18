@@ -1,26 +1,40 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Card from "../components/Card";
-import EmptyCart from "../components/EmptyCart";
-import { RootState } from "../redux/store";
+import { useRouter } from 'next/router';
+import React, { useEffect, useLayoutEffect, useMemo, useState } from 'react'
+import { getProducts } from '../graphql/queries/getProducts'
+import useCartProps from '../hooks/useCartProps';
+import { IProduct } from '../types'
 
 interface Props {
+  prods: IProduct[];
 }
 
-const Cart = (props: Props) => {
-  const cart = useSelector((state: RootState) => state.cart);
-  if (cart.length < 1) return <EmptyCart />;
+const Cart = ({prods: prods}: Props) => {
+  const router = useRouter();
+  const [pageProps, setPageProps] = useState("");
+
+  useEffect(() => {
+    if(!router.isReady) return;
+    setPageProps(router.query.cart!.toString())
+  }, [router.isReady])
+
+  const props = useCartProps({ router: pageProps });
+  /* const products = useMemo(() =>  prods.filter(product => items.some((item: number) => item === product.id)), [prods]); */
+  console.log(props)
+
 
   return (
-    <div className="container my-4">
-      <div className="text-center mb-2 font-bold">Navigation</div>
-      <div className="flex flex-col gap-2">
-        {cart.map((product) => (
-          <Card key={product.prod.id} grid product={product.prod} />
-        ))}
-      </div>
-    </div>
-  );
-};
+    <div>Cart</div>
+  )
+}
 
-export default Cart;
+export const getStaticProps = async () => {
+  const prods = await getProducts();
+  
+  return {
+    props: {
+      prods,
+    }
+  }
+}
+
+export default Cart

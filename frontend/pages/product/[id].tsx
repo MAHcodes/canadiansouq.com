@@ -10,7 +10,7 @@ interface Props {
 
 const Product = ({ product }: Props) => {
   const router = useRouter();
-  return <ProductInfo product={product} asPath={router.asPath}  />
+  return <ProductInfo product={product} asPath={router.asPath} />
 };
 
 export const getStaticPaths = async () => {
