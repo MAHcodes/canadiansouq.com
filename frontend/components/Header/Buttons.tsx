@@ -16,7 +16,7 @@ const Buttons = () => {
         icon={<Bookmark clr="stroke-white" />}
       />
       </Link>
-      <Link href="/cart">
+      <Link href="/my-cart">
       <Button color="transparent" className="relative p-1" icon={<Cart />}>
         <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs max-w-[4ch]">
           {cartItemsCount}

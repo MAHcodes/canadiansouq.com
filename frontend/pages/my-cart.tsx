@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../components/Card";
@@ -21,8 +20,7 @@ const MyCart = (props: Props) => {
 
   /* console.log(router.query.cart) */
 
-  const router= useRouter();
-  const urlProps = useCartProps({ router, cart });
+  const urlProps = useCartProps({ cart });
   console.log(urlProps)
 
   return (
