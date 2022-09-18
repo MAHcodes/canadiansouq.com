@@ -14,7 +14,7 @@ const Wishlist: React.FunctionComponent<Props> = () => {
 
   return (
     <div className='container my-4'>
-      <ProductsGrid products={wishlist} brands={brands} types={types} />
+      <ProductsGrid products={wishlist} brands={brands} types={types} title="My WishList" />
     </div>
   )
 }
