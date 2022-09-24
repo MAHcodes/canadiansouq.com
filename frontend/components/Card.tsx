@@ -87,7 +87,7 @@ const Card = ({ grid, product }: Props) => {
           {cart.some((item) => item.prod.id === product.id) ? (
             <Button
               size="md"
-              color="secondary"
+              variant="secondary"
               className={`whitespace-nowrap ${grid ? "" : "flex-1"}`}
               onClick={() => dispatch(removeFromCart(product.id))}
             >
@@ -104,7 +104,7 @@ const Card = ({ grid, product }: Props) => {
           )}
           {wishlist.some((item) => item.id === product.id) ? (
             <Button
-              color="secondary"
+              variant="secondary"
               size="md"
               onClick={() => dispatch(removeFromWishlist(product.id))}
               icon={<Bookmark clr="fill-black" />}
@@ -112,7 +112,7 @@ const Card = ({ grid, product }: Props) => {
             />
           ) : (
             <Button
-              color="secondary"
+              variant="secondary"
               size="md"
               onClick={() => dispatch(addToWishlist(product))}
               icon={<Bookmark />}

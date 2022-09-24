@@ -14,7 +14,7 @@ const iconSized = {
   "": "",
 }
 
-const colors = {
+const variants = {
   primary: "text-white bg-black border-transparent",
   secondary: "text-black bg-transparent border-black",
   transparent: "border-transparent hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-30",
@@ -26,7 +26,7 @@ export interface Props
     HTMLButtonElement
   > {
   size?: keyof typeof sizes | "";
-  color?: keyof typeof colors;
+  variant?: keyof typeof variants;
   icon?: ReactNode;
   iconAfter?: boolean,
 }
@@ -34,7 +34,7 @@ export interface Props
 const Button: React.FC<Props> = ({
   children,
   size = "",
-  color = "primary",
+  variant = "primary",
   className = "",
   icon,
   iconAfter,
@@ -46,7 +46,7 @@ const Button: React.FC<Props> = ({
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2 border-solid
          ${disabled ? "cursor-not-allowed opacity-40" : ""}
          ${ children ? sizes[size] : iconSized[size] }
-         ${colors[color]}
+         ${variants[variant]}
          ${className}
       `}
       disabled={disabled}

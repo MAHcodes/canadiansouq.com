@@ -12,12 +12,12 @@ const Buttons = () => {
       <Link href="/wishlist?page=0">
       <Button
         size="sm"
-        color="transparent"
+        variant="transparent"
         icon={<Bookmark clr="stroke-white" />}
       />
       </Link>
       <Link href="/my-cart">
-      <Button color="transparent" className="relative p-1" icon={<Cart />}>
+      <Button variant="transparent" className="relative p-1" icon={<Cart />}>
         <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs max-w-[4ch]">
           {cartItemsCount}
         </span>

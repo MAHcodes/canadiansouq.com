@@ -56,14 +56,14 @@ const Product = ({ product, asPath }: Props) => {
           </a>
           {cart.some((item) => item.prod.id === product.id) ? (
             <Button
-              color="secondary"
+              variant="secondary"
               size="lg"
               onClick={() => dispatch(removeFromCart(product.id))}
               icon={<AddedtoCart />}
             />
           ) : (
             <Button
-              color="secondary"
+              variant="secondary"
               size="lg"
               onClick={() => dispatch(addToCart(product))}
               icon={<AddtoCart />}
@@ -71,14 +71,14 @@ const Product = ({ product, asPath }: Props) => {
           )}
           {wishlist.some((item) => item.id === product.id) ? (
             <Button
-              color="secondary"
+              variant="secondary"
               size="lg"
               onClick={() => dispatch(removeFromWishlist(product.id))}
               icon={<Bookmark clr="fill-black" />}
             />
           ) : (
             <Button
-              color="secondary"
+              variant="secondary"
               size="lg"
               onClick={() => dispatch(addToWishlist(product))}
               icon={<Bookmark />}

@@ -16,32 +16,32 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  color: "primary",
+  variant: "primary",
   children: "Primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  color: "secondary",
+  variant: "secondary",
   children: "Secondary",
 };
 
 export const Transparent = Template.bind({});
 Transparent.args = {
-  color: "transparent",
+  variant: "transparent",
   children: "Transparent",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  color: "transparent",
+  variant: "transparent",
   children: "Disabled",
   disabled: true,
 };
 
 export const IconWithText = Template.bind({});
 IconWithText.args = {
-  color: "secondary",
+  variant: "secondary",
   children: "Icon With Text",
   icon: <AddtoCart />,
 };
@@ -49,6 +49,6 @@ IconWithText.args = {
 
 export const IconNoText = Template.bind({});
 IconNoText.args = {
-  color: "transparent",
+  variant: "transparent",
   icon: <AddtoCart />,
 };

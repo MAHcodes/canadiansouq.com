@@ -75,7 +75,7 @@ const NextPrev = ({
   action: () => void;
   rotate: string;
 }) => (
-  <Button color="transparent" size="" onClick={action}>
+  <Button variant="transparent" size="" onClick={action}>
     <Arrow className={`w-9 h-9 pointer-events-none ${rotate}`} />
   </Button>
 );

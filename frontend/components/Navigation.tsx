@@ -15,7 +15,7 @@ const Navigation: React.FC<Props> = ({ children, title, className }) => {
     <div className={`flex py-4 items-center justify-between gap-2 ${className}`}>
       <Button
         onClick={() => back()}
-        color="transparent"
+        variant="transparent"
         icon={<Arrow className="rotate-90 w-6 h-6" />}
       />
 

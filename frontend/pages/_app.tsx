@@ -5,7 +5,6 @@ import { Footer } from "../components/Footer";
 import { Router } from "next/router";
 import NProgress from "nprogress";
 import "../styles/Nprogress.css";
-import { getCategories } from "../graphql/queries/getCategories";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
@@ -25,9 +24,9 @@ function App({ Component, pageProps }: AppProps) {
     setShowChild(true)
   }, [])
 
-  /* if (!showChild) { */
-  /*   return null */
-  /* }; */
+  if (!showChild) {
+    return null
+  };
 
   return (
     <Provider store={store}>
