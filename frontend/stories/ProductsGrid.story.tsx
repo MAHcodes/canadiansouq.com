@@ -1,17 +1,21 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Provider } from "react-redux";
 import ProductsGrid from "../components/ProductsGrid/Grid";
+import { store } from "../redux/store";
 import { exampleProduct } from "./exampleProduct";
 
 export default {
   title: "Main/ProductsGrid",
   component: ProductsGrid,
   args: {
-    products: Array(8).fill(exampleProduct),
+    filteredProducts: Array(8).fill(exampleProduct),
   },
 } as ComponentMeta<typeof ProductsGrid>;
 
 const Template: ComponentStory<typeof ProductsGrid> = (args) => (
-  <ProductsGrid {...args} />
+  <Provider store={store}>
+    <ProductsGrid {...args} />
+  </Provider>
 );
 
 export const Grid = Template.bind({});
