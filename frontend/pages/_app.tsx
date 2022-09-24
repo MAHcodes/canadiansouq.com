@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
 import { useEffect, useState } from "react";
+import categories from "../constants/categories.json";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -30,7 +31,7 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <Header categories={["Power Tools", "Games"]} />
+      <Header categories={categories} />
       <Component {...pageProps} />
       <Footer />
     </Provider>
