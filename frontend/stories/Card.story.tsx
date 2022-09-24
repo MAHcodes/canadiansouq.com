@@ -5,7 +5,7 @@ import { store } from "../redux/store";
 import { exampleProduct } from "./exampleProduct";
 
 export default {
-  title: "Main/Card",
+  title: "Card",
   component: Card,
   args: {
     product: exampleProduct,

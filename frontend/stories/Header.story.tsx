@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { store } from "../redux/store";
 
 export default {
-  title: 'Main/Header',
+  title: 'Header',
   component: Header,
   args: {
     categories: ["Power Tools", "Electronics", "Games"],

@@ -28,7 +28,6 @@ const Cart = ({ prods: prods }: Props) => {
     [prods, cartItems]
   );
 
-  console.log(products);
   return (
     <div className="container my-4">
       <Navigation title="Cart">

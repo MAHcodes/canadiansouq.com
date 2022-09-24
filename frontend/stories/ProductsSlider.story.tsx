@@ -5,10 +5,10 @@ import { store } from "../redux/store";
 import { exampleProduct } from "./exampleProduct";
 
 export default {
-  title: "Main/ProductsSlider",
+  title: "ProductsSlider",
   component: ProductsSlider,
   args: {
-    title: "Test Products",
+    title: "Products Slider",
     products: Array(15).fill(exampleProduct),
   },
 } as ComponentMeta<typeof ProductsSlider>;

@@ -5,7 +5,7 @@ import { store } from "../redux/store";
 import { exampleProduct } from "./exampleProduct";
 
 export default {
-  title: "Main/ProductsGrid",
+  title: "ProductsGrid",
   component: ProductsGrid,
   args: {
     filteredProducts: Array(8).fill(exampleProduct),

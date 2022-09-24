@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import { AddtoCart } from '../components/icons';
 
 export default {
-  title: 'Main/Button',
+  title: 'Button',
   component: Button,
   args: {
     size: "md",
