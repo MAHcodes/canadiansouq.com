@@ -30,7 +30,7 @@ const ImagesSlider = ({ images, alt }: Props) => {
   };
 
   return (
-    <div className="flex items-center aspect-square gap-2 overflow-hidden">
+    <div className="flex items-center aspect-square gap-2">
       {imgsCount > 1 && <NextPrev action={prevImg} rotate="rotate-90" />}
 
       <div

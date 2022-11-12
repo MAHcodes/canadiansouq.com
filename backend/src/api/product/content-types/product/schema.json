@@ -72,8 +72,11 @@
         "Keyboards",
         "Network Cards",
         "Headphones",
-        "Cables"
-      ]
+        "Cables",
+        "Wrenches",
+        "Other"
+      ],
+      "default": "Other"
     }
   }
 }
