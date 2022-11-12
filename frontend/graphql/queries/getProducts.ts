@@ -166,7 +166,7 @@ export const getNewArrivalProducts = async (variables: { limit: number }) => {
 export const getProductsIDs = async () => {
   const PRODUCTS = gql`
     query getProductsIDs {
-      products {
+      products(pagination: {limit: -1}) {
         data {
           id
         }

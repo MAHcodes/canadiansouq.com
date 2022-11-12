@@ -97,15 +97,12 @@ const Product = ({ product, asPath }: Props) => {
                 : "text-danger"
             } font-bold`}
           />
-          <Info
-            title="Brand"
-            text={product.attributes.brand?.data.attributes.name!}
-          />
-          <Info title="Model" text={product.attributes.model!} />
+          {product.attributes.brand?.data?.attributes?.name ? <Info title="Brand" text={product.attributes.brand.data.attributes.name} /> : null}
+          {product.attributes.model ? <Info title="Model" text={product.attributes.model} /> : null}
           <Info title="Condition" text={product.attributes.condition!} />
-          <Info title="Description" className="col-span-2">
+          {product.attributes.description ? <Info title="Description" className="col-span-2">
             <div className="col-span-2" dangerouslySetInnerHTML={{ __html: marked.parse(product.attributes.description || "" ) }} />
-          </Info>
+          </Info> : null}
         </div>
       </div>
     </div>
