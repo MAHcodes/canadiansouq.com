@@ -1,4 +1,4 @@
-import Markdown from "marked-react";
+import { marked } from "marked";
 import { useDispatch, useSelector } from "react-redux";
 import { add as addToCart, remove as removeFromCart } from "../redux/cartSlice";
 import { add as addToWishlist, remove as removeFromWishlist } from "../redux/wishlistSlice";
@@ -104,9 +104,7 @@ const Product = ({ product, asPath }: Props) => {
           <Info title="Model" text={product.attributes.model!} />
           <Info title="Condition" text={product.attributes.condition!} />
           <Info title="Description" className="col-span-2">
-            <div className="col-span-2">
-              <Markdown>{product.attributes.description!}</Markdown>
-            </div>
+            <div className="col-span-2" dangerouslySetInnerHTML={{ __html: marked.parse(product.attributes.description || "" ) }} />
           </Info>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import Markdown from "marked-react";
+import { marked } from "marked";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { add as addToCart, remove as removeFromCart } from "../redux/cartSlice";
@@ -30,7 +30,7 @@ const Card = ({ grid, product }: Props) => {
     >
       <Link href={`/product/${product.id}`}>
         <div
-          className={`flex items-center justify-center cursor-pointer overflow-hidden rounded-lg mx-auto ${
+          className={`flex items-center justify-center aspect-square cursor-pointer overflow-hidden rounded-lg mx-auto ${
             grid
               ? "basis-44 min-w-[6rem] max-w-[8rem] md:max-w-[14rem]"
               : "max-w-[14rem]"
@@ -75,9 +75,7 @@ const Card = ({ grid, product }: Props) => {
                 {product.attributes.title}
               </h2>
               {grid && (
-                <div className="text-gray text-base twolines pointer-events-none">
-                  <Markdown>{product.attributes.description}</Markdown>
-                </div>
+                <div className="text-gray text-base twolines pointer-events-none" dangerouslySetInnerHTML={{ __html: marked.parse(product.attributes.description || "" ) }} />
               )}
             </div>
           </div>
