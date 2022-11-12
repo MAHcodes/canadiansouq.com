@@ -32,7 +32,7 @@ const Pagination = ({ router, page, pageCount }: Props) => {
       {(page > 2) && <span>...</span>}
         {[...Array(pageCount + 1)].map((_, i) => {
           if ( page === i -1 || page === i || page === i + 1) {
-            return <Button variant={i === page ? "secondary" : "transparent"} size="sm" onClick={() => navigate(i)}>{i.toString()}</Button>
+            return <Button key={i} variant={i === page ? "secondary" : "transparent"} size="sm" onClick={() => navigate(i)}>{i.toString()}</Button>
           }
         })}
       {(pageCount > page + 2) && <span>...</span>}
