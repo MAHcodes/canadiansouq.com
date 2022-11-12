@@ -1,3 +1,4 @@
 #!/usr/bin/bash
 
+rm -r ./frontend/public/images/uploads
  cp -r ./backend/public/uploads ./frontend/public/images/

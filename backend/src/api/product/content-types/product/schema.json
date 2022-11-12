@@ -69,8 +69,10 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "drills",
-        "batteries"
+        "Keyboards",
+        "Network Cards",
+        "Headphones",
+        "Cables"
       ]
     }
   }
