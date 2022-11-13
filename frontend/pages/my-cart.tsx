@@ -20,7 +20,6 @@ const MyCart = (props: Props) => {
   /* console.log(router.query.cart) */
 
   const urlProps = cart!.map( item => `${item.prod.id}x${item.qty}`).join("n");
-  console.log(urlProps)
 
   return (
     <div className="container my-4">

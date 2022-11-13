@@ -22,8 +22,6 @@ export const getStaticProps = async () => {
   const brands = featuredBrands.map((brand: {attributes: {name: string}}) => brand.attributes.name);
   const types = Array.from( new Set(featuredTypes.map((type: {attributes: {type: string}}) => type.attributes.type).filter((type: string | null) => type !== null)));
 
-  console.log(types)
-
   return {
     props: {
       products,

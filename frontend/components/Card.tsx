@@ -68,7 +68,7 @@ const Card = ({ grid, product }: Props) => {
 
             <div className="flex-1">
               <h2
-                className={`text-lg my-2 two-lines group-hover:underline ${
+                className={`text-lg my-2 two-lines group-hover:underline twolines ${
                   grid && "font-semibold"
                 }`}
               >

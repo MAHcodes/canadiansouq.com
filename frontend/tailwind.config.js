@@ -19,7 +19,7 @@ module.exports = {
         productSliderAndInfo: "40% auto",
         productInfo: "auto 1fr",
         productsGridM: "repeat(auto-fill, minmax(10rem, 1fr))",
-        productsGridD: "repeat(auto-fill, minmax(14rem, 1fr))",
+        productsGridD: "repeat(auto-fill, minmax(12rem, 1fr))",
       },
       keyframes: {
         bounce: {
