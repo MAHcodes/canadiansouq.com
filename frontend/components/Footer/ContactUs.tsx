@@ -7,7 +7,7 @@ const ContactUs = () => (
     <Title text="Contact Us" />
     <Info href="tel:+96181921320" Icon={<Phone />} text="+961 81 921 320" />
     <Info
-      href="mailto:canadiansouq@gmail.com"
+      href="mailto:contact@canadiansouq.com"
       Icon={<Mail />}
       text="canadiansouq@gmail.com"
     />
