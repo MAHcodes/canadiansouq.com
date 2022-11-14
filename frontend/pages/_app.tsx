@@ -21,10 +21,12 @@ store.subscribe(() => saveState(store.getState()));
 function App({ Component, pageProps }: AppProps) {
 
   const [showChild, setShowChild] = useState(false)
+
   useEffect(() => {
     setShowChild(true)
   }, [])
-  if (!showChild) {
+
+  if (!showChild && process.env.NODE_ENV !== "production") {
     return null
   };
 
