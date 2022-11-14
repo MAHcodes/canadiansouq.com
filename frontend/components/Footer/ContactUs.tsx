@@ -9,7 +9,7 @@ const ContactUs = () => (
     <Info
       href="mailto:contact@canadiansouq.com"
       Icon={<Mail />}
-      text="canadiansouq@gmail.com"
+      text="contact@canadiansouq.com"
     />
   </div>
 );
