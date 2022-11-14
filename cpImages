@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-cp -r ./backend/public/uploads ./frontend/public/images/

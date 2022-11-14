@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+rsync -Pcauv ./backend/public/uploads ./frontend/public/images/
