@@ -1,40 +1,40 @@
 export const exampleProduct = {
   "id": 1,
   "attributes": {
-    "title": "title",
+    "title": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
     "model": "model",
     "brand": {
       "data": {
         "attributes": {
-          "name": "Diablo",
+          "name": "Brand Name",
         }
       }
     },
     "availability": 2,
-    "price": 2,
-    "cost": 1,
+    "price": 99,
+    "cost": 120,
     "condition": "New",
-    "description": "desc",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque eum accusantium ipsam quae iste pariatur id modi odio fuga nostrum. Eius error aspernatur cupiditate magni temporibus sapiente aliquid commodi exercitationem.",
     "images": {
       "data": [
         {
           "attributes": {
-            "url": "/uploads/DD_5116_f46a58c836.jpg"
+            "url": "/uploads/MT_2612_Product_Image_Primary_Image_400_ef20c05c66.jpg"
           }
         },
         {
           "attributes": {
-            "url": "/uploads/Whats_App_Image_2022_02_22_at_7_51_40_PM_1e2e3d8ac7.jpeg"
+            "url": "/uploads/MT_2612_Product_Image_Primary_Image_400_ef20c05c66.jpg"
           }
         },
         {
           "attributes": {
-            "url": "/uploads/Whats_App_Image_2022_02_22_at_7_51_39_PM_39ca9f76f1.jpeg"
+            "url": "/uploads/MT_2612_Product_Image_Primary_Image_400_ef20c05c66.jpg"
           }
         },
         {
           "attributes": {
-            "url": "/uploads/Whats_App_Image_2022_02_22_at_7_51_46_PM_66e32d565c.jpeg"
+            "url": "/uploads/MT_2612_Product_Image_Primary_Image_400_ef20c05c66.jpg"
           }
         }
       ]
