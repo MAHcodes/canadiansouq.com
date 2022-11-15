@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import * as NextImage from 'next/image';
+import { themes } from '@storybook/theming';
 
 const OriginalNextImage = NextImage.default;
 
@@ -18,5 +19,8 @@ export const parameters = {
   },
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
+  },
+  docs: {
+    theme: themes.normal,
   },
 };
