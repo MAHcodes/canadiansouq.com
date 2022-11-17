@@ -20,7 +20,6 @@ const Home = ({ featuredProducts, newArrivalProcucts }: Props ) => {
           name="description"
           content="We offer you ORIGINAL products from Canada in Lebanon!"
         />
-        <meta name="theme-color" content="#242424" />
         <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon" />
       </Head>
 

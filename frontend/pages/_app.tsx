@@ -10,6 +10,7 @@ import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
 import { useEffect, useState } from "react";
 import categories from "../constants/categories.json";
+import Head from "next/head";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -32,6 +33,17 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="keywords" content="dewalt in lebanon,milwaukee in lebanon, matco tools in lebanon, hilti in lebanon" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#242424" />
+      </Head>
       <Header categories={categories} />
       <Component {...pageProps} />
       <Footer />
