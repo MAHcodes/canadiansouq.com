@@ -26,7 +26,7 @@ const Product = ({ product, asPath }: Props) => {
         <title>Canadian Souq | {product.attributes.title}</title>
       </Head>
     <div className="container grid lg:grid-cols-productSliderAndInfo gap-x-6 overflow-x-hidden">
-      <Navigation title="" className="col-span-full"><span /></Navigation>
+      <Navigation />
       <ImagesSlider
         images={product.attributes.images!}
         alt={product.attributes.title!}
