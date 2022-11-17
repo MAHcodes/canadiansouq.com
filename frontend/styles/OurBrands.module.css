@@ -24,6 +24,11 @@
   animation: mobileScroll 10s linear infinite;
 }
 
+.wrapper:active,
+.wrapper:hover {
+  animation-play-state: paused;
+}
+
 @media (min-width: 1024px) {
   .wrapper {
     width: 200%;
