@@ -67,7 +67,7 @@ const ProductsGrid = ({
 
   const router = useRouter();
   const { page } = router.query;
-  const limit = grid ? 8 : 14;
+  const limit = grid ? 8 : 12;
   const pagesCount = Math.ceil(filteredProducts.length / limit) - 1;
 
   useEffect(() => {
