@@ -24,7 +24,15 @@ const Product = ({ product, asPath }: Props) => {
     <>
       <Head>
         <title>Canadian Souq | {product.attributes.title}</title>
+        <meta name="description" content={product.attributes.description} />
+
+        <meta property="og:description" content={product.attributes.description} />
+        <meta property="og:image" content={product.attributes.images?.data[0].attributes.url}/>
+
+        <meta name="twitter:description" content={product.attributes.description} />
+        <meta name="twitter:image" content={product.attributes.images?.data[0].attributes.url} />
       </Head>
+
     <div className="container grid lg:grid-cols-productSliderAndInfo gap-x-6 overflow-x-hidden">
       <Navigation />
       <ImagesSlider
