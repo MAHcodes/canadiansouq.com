@@ -30,12 +30,14 @@ const Buttons: React.FC<Props> = ({
     <div className="flex items-stretch gap-2">
       <Button
         icon={grid ? <Grid /> : <List />}
+        title={grid ? "Grid View" : "List View"}
         variant="transparent"
         size="sm"
         onClick={handleGridChange}
       />
       <Button
         icon={<Filter active={openFilter} />}
+        title="Filter products"
         variant="transparent"
         size="sm"
         onClick={() => setOpenFilter((current) => !current)}

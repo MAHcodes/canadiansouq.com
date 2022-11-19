@@ -28,6 +28,7 @@ const Buttons = ({ grid, product }: Props) => {
       {cart.some((item) => item.prod.id === product.id) ? (
         <Button
           size="md"
+          title="Remove item from Cart"
           variant="secondary"
           className={`whitespace-nowrap ${grid ? "" : "flex-1"}`}
           onClick={() => dispatch(removeFromCart(product.id))}
@@ -38,6 +39,7 @@ const Buttons = ({ grid, product }: Props) => {
         <Button
           size="md"
           className={`${grid ? "" : "flex-1"}`}
+          title="Add item to Cart"
           onClick={() => dispatch(addToCart(product))}
         >
           Add to cart
@@ -46,6 +48,7 @@ const Buttons = ({ grid, product }: Props) => {
       {wishlist.some((item) => item.id === product.id) ? (
         <Button
           variant="secondary"
+          title="Remove item from Wishlist"
           size="md"
           onClick={() => dispatch(removeFromWishlist(product.id))}
           icon={<Bookmark clr="fill-black" />}
@@ -54,6 +57,7 @@ const Buttons = ({ grid, product }: Props) => {
       ) : (
         <Button
           variant="secondary"
+          title="Add item to Wishlist"
           size="md"
           onClick={() => dispatch(addToWishlist(product))}
           icon={<Bookmark />}

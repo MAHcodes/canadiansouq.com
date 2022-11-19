@@ -65,6 +65,7 @@ const Product = ({ product, asPath }: Props) => {
           {cart.some((item) => item.prod.id === product.id) ? (
             <Button
               variant="secondary"
+              title="Remove item from Cart"
               size="lg"
               onClick={() => dispatch(removeFromCart(product.id))}
               icon={<AddedtoCart />}
@@ -72,6 +73,7 @@ const Product = ({ product, asPath }: Props) => {
           ) : (
             <Button
               variant="secondary"
+              title="Add item to Cart"
               size="lg"
               onClick={() => dispatch(addToCart(product))}
               icon={<AddtoCart />}
@@ -80,6 +82,7 @@ const Product = ({ product, asPath }: Props) => {
           {wishlist.some((item) => item.id === product.id) ? (
             <Button
               variant="secondary"
+              title="Remove item from Wishlist"
               size="lg"
               onClick={() => dispatch(removeFromWishlist(product.id))}
               icon={<Bookmark clr="fill-black" />}
@@ -87,6 +90,7 @@ const Product = ({ product, asPath }: Props) => {
           ) : (
             <Button
               variant="secondary"
+              title="Add item to Wishlist"
               size="lg"
               onClick={() => dispatch(addToWishlist(product))}
               icon={<Bookmark />}

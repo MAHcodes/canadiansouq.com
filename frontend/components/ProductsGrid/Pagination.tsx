@@ -20,7 +20,7 @@ const Pagination = ({ router, page, pageCount }: Props) => {
     <div className="flex items-center justify-between gap-4 my-4 overflow-x-auto">
       <Button
         icon={<Arrow className="rotate-90" />}
-        title="Previous"
+        title="Previous page"
         size="sm"
         onClick={() => navigate(page - 1)}
         variant="transparent"
@@ -40,7 +40,7 @@ const Pagination = ({ router, page, pageCount }: Props) => {
       </div>
 
       <Button
-        title="Next"
+        title="Next page"
         size="sm"
         iconAfter={true}
         variant="transparent"
