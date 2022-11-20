@@ -13,8 +13,14 @@ const cartSlice = createSlice({
     remove: (state, action) => {
       return state.filter((item) => item.prod.id !== action.payload);
     },
+    increment: (state, action) => {
+      return state.map((item) => item.prod.id === action.payload ? {...item, qty: item.qty + 1} : item);
+    },
+    decrement: (state, action) => {
+      return state.map((item) => item.prod.id === action.payload ? {...item, qty: item.qty - 1} : item);
+    },
   }
 })
 
-export const { add, remove } = cartSlice.actions;
+export const { add, remove, increment, decrement } = cartSlice.actions;
 export default cartSlice.reducer;

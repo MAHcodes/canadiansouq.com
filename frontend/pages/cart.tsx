@@ -35,7 +35,7 @@ const Cart = ({ prods: prods }: Props) => {
       </Navigation>
       <div className="flex flex-col gap-2">
         {products.map((product) => (
-          <Card key={product.id} grid product={product} />
+          <Card key={product.id} grid product={product} cart={true} />
         ))}
       </div>
     </div>

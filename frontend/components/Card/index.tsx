@@ -3,14 +3,16 @@ import Thumbnail from "./Thumbnail";
 import Header from "./Header";
 import Info from "./Info";
 import Buttons from "./Buttons";
+import CartButtons from "./CartButtons";
 import Link from "next/link";
 
 interface Props {
   grid?: boolean;
   product: IProduct;
+  cart?: boolean;
 }
 
-const Card = ({ grid, product }: Props) => (
+const Card = ({ grid, product, cart }: Props) => (
   <div
     className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4 group basis-56
         ${grid
@@ -45,7 +47,11 @@ const Card = ({ grid, product }: Props) => (
           description={product.attributes.description}
         />
 
-        <Buttons grid={grid} product={product} />
+        {cart ? (
+          <CartButtons product={product} grid={grid} />
+        ) : (
+          <Buttons grid={grid} product={product} />
+        )}
       </div>
     </div>
   </div>

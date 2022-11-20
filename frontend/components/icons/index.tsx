@@ -16,3 +16,5 @@ export { Cart } from "./Cart";
 export { Grid } from "./Grid";
 export { List } from "./List";
 export { Filter } from "./Filter";
+export { Plus } from "./Plus";
+export { Minus } from "./Minus";
