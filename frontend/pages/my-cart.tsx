@@ -10,6 +10,7 @@ interface Props {
 
 const MyCart = (props: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
+
   if (cart.length < 1) return <EmptyCart />;
 
   /* useEffect(() => {
@@ -26,7 +27,7 @@ const MyCart = (props: Props) => {
       <Navigation title="My Cart"><span /></Navigation>
       <div className="flex flex-col gap-2">
         {cart.map((product) => (
-          <Card key={product.prod.id} grid product={product.prod} cart={true} />
+          <Card key={product.prod.id} grid product={product.prod} qty={product.qty} />
         ))}
       </div>
     </div>

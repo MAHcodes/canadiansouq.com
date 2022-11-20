@@ -9,18 +9,18 @@ interface Props {
   brand?: string;
   cost?: number;
   price?: number;
-  cart?: boolean;
+  qty?: number;
   prodID: number;
 }
 
-const Header = ({ prodID, brand, cost, price, cart }: Props) => {
+const Header = ({ prodID, brand, cost, price, qty }: Props) => {
   const dispatch = useDispatch();
 
   return <div className={`flex items-center justify-between`}>
     <div>
       <h2 className="text-base text-gray">{brand}</h2>
     </div>
-    {cart ? 
+    {qty ? 
     <Button
       variant="secondary"
       icon={<Close />}

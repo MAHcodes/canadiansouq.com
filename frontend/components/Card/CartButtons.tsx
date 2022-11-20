@@ -6,15 +6,14 @@ import {
   increment as incQty,
   decrement as decQty,
 } from "../../redux/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { useDispatch } from "react-redux";
 
 interface Props {
   product: IProduct;
+  qty: number;
 }
 
-const CartButtons = ({ product }: Props) => {
-  const [item] = useSelector((state: RootState) => state.cart.filter(item => item.prod.id === product.id));
+const CartButtons = ({ product, qty }: Props) => {
   const dispatch = useDispatch();
 
   return (
@@ -25,10 +24,10 @@ const CartButtons = ({ product }: Props) => {
         variant="transparent"
         size="sm"
         icon={<Minus />}
-        disabled={item.qty <= 1}
+        disabled={qty <= 1}
         onClick={() => dispatch(decQty(product.id))}
       />
-      <span className="font-bold">{ item.qty }</span>
+      <span className="font-bold">{ qty }</span>
       <Button
         variant="transparent"
         size="sm"
@@ -37,7 +36,6 @@ const CartButtons = ({ product }: Props) => {
         /* disabled={item.qty >= item.prod.attributes.availability!} */
       />
       </div>
-      <div></div>
     </div>
   );
 };

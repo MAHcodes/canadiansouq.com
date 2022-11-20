@@ -4,15 +4,14 @@ import Header from "./Header";
 import Info from "./Info";
 import Buttons from "./Buttons";
 import CartButtons from "./CartButtons";
-import Link from "next/link";
 
 interface Props {
   grid?: boolean;
   product: IProduct;
-  cart?: boolean;
+  qty?: number;
 }
 
-const Card = ({ grid, product, cart }: Props) => (
+const Card = ({ grid, product, qty }: Props) => (
   <div
     className={`card bg-fff rounded-lg transition-shadow flex gap-4 shadow-black hover:shadow-xl items-stretch snap-center overflow-x-clip p-4 group basis-56
         ${
@@ -34,7 +33,7 @@ const Card = ({ grid, product, cart }: Props) => (
         brand={product.attributes.brand?.data?.attributes?.name}
         cost={product.attributes.cost}
         price={product.attributes.price}
-        cart={cart}
+        qty={qty}
         prodID={product.id!}
       />
 
@@ -46,8 +45,8 @@ const Card = ({ grid, product, cart }: Props) => (
           description={product.attributes.description}
         />
 
-        {cart ? (
-          <CartButtons product={product} />
+        {qty ? (
+          <CartButtons product={product} qty={qty} />
         ) : (
           <Buttons grid={grid} product={product} />
         )}

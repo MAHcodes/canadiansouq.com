@@ -24,7 +24,7 @@ const Cart = ({ prods: prods }: Props) => {
     () =>
       prods.filter((product) =>
         cartItems.some((item: { prod: string }) => item.prod === product.id?.toString())
-      ),
+      ).map(prod => ({prod, qty: cartItems.find(item => item.prod === prod.id?.toString())?.qty })),
     [prods, cartItems]
   );
 
@@ -35,7 +35,7 @@ const Cart = ({ prods: prods }: Props) => {
       </Navigation>
       <div className="flex flex-col gap-2">
         {products.map((product) => (
-          <Card key={product.id} grid product={product} cart={true} />
+          <Card key={product.prod.id} grid product={product.prod} qty={+product.qty!} />
         ))}
       </div>
     </div>
