@@ -7,6 +7,7 @@ import {
   decrement as decQty,
 } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
+import router from "next/router";
 
 interface Props {
   product: IProduct;
@@ -15,6 +16,7 @@ interface Props {
 
 const CartButtons = ({ product, qty }: Props) => {
   const dispatch = useDispatch();
+  const isMyCart = router.pathname.includes("my-cart");
 
   return (
     <div className="flex items-stretch justify-end gap-2 mt-2">
@@ -24,7 +26,7 @@ const CartButtons = ({ product, qty }: Props) => {
         variant="transparent"
         size="sm"
         icon={<Minus />}
-        disabled={qty <= 1}
+        disabled={qty <= 1 || !isMyCart}
         onClick={() => dispatch(decQty(product.id))}
       />
       <span className="font-bold">{ qty }</span>
@@ -33,6 +35,7 @@ const CartButtons = ({ product, qty }: Props) => {
         size="sm"
         icon={<Plus/>}
         onClick={() => dispatch(incQty(product.id))}
+        disabled={!isMyCart}
         /* disabled={item.qty >= item.prod.attributes.availability!} */
       />
       </div>

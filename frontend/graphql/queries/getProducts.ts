@@ -49,7 +49,7 @@ export const getCategoryProducts = async (cat: { cat: string }) => {
 export const getProducts = async () => {
   const PRODUCTS = gql`
     query getProducts {
-      products {
+      products(pagination: {limit: -1}) {
         data {
           id
           attributes {
