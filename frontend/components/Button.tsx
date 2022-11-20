@@ -43,7 +43,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2 border-solid
+      className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2
          ${disabled ? "cursor-not-allowed opacity-40" : ""}
          ${ children ? sizes[size] : iconSized[size] }
          ${variants[variant]}

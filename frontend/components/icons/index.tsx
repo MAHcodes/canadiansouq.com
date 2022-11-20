@@ -18,3 +18,4 @@ export { List } from "./List";
 export { Filter } from "./Filter";
 export { Plus } from "./Plus";
 export { Minus } from "./Minus";
+export { Close } from "./Close";

@@ -9,6 +9,7 @@ import { AddedtoCart, AddtoCart, Bookmark } from "./icons";
 import ImagesSlider from "./ImagesSlider";
 import Head from "next/head";
 import Navigation from "./Navigation";
+import Pricing from "./Card/Pricing";
 
 interface Props {
   product: IProduct;
@@ -42,12 +43,7 @@ const Product = ({ product, asPath }: Props) => {
       <div className="flex-1 w-full mt-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold">{product.attributes.title}</h1>
-          <div className="items-center">
-            <p className="text-base line-through text-gray">
-              ${product.attributes.cost}
-            </p>
-            <h3 className="text-lg font-bold">${product.attributes.price}</h3>
-          </div>
+          <Pricing cost={product.attributes?.cost} price={product.attributes.price} />
         </div>
         <div className="flex items-stretch gap-2 my-4">
           <a

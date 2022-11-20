@@ -1,23 +1,33 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import Button from "../Button";
+import { Close } from "../icons";
+import Pricing from "./Pricing";
+import { remove as removeFromCart } from "../../redux/cartSlice";
 
 interface Props {
   brand?: string;
   cost?: number;
   price?: number;
+  cart?: boolean;
+  prodID: number;
 }
 
-const Header = ({ brand, cost, price }: Props) => (
-  <div className={`flex items-center justify-between`}>
+const Header = ({ prodID, brand, cost, price, cart }: Props) => {
+  const dispatch = useDispatch();
+
+  return <div className={`flex items-center justify-between`}>
     <div>
       <h2 className="text-base text-gray">{brand}</h2>
     </div>
-    <div className="flex items-center flex-col">
-      {price !== cost && (
-        <h4 className="text-sm text-gray line-through">${cost}</h4>
-      )}
-      <h3 className="text-black font-bold">${price}</h3>
-    </div>
+    {cart ? 
+    <Button
+      variant="secondary"
+      icon={<Close />}
+      onClick={() => dispatch(removeFromCart(prodID))}
+    /> :
+    <Pricing cost={cost} price={price} />}
   </div>
-);
+};
 
 export default Header;

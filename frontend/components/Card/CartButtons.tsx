@@ -20,6 +20,7 @@ const CartButtons = ({ product }: Props) => {
   return (
     <div className="flex items-stretch justify-end gap-2 mt-2">
       <div className="flex items-center gap-2">
+      <span className="text-xs font-bold">Qty: </span>
       <Button
         variant="transparent"
         size="sm"
@@ -27,17 +28,16 @@ const CartButtons = ({ product }: Props) => {
         disabled={item.qty <= 1}
         onClick={() => dispatch(decQty(product.id))}
       />
-      <span className="font-bold">{
-          item.qty
-        }</span>
+      <span className="font-bold">{ item.qty }</span>
       <Button
         variant="transparent"
         size="sm"
         icon={<Plus/>}
         onClick={() => dispatch(incQty(product.id))}
-        disabled={item.qty >= item.prod.attributes.availability!}
+        /* disabled={item.qty >= item.prod.attributes.availability!} */
       />
       </div>
+      <div></div>
     </div>
   );
 };
