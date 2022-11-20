@@ -10,11 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 interface Props {
-  grid?: boolean;
   product: IProduct;
 }
 
-const CartButtons = ({ grid, product }: Props) => {
+const CartButtons = ({ product }: Props) => {
   const [item] = useSelector((state: RootState) => state.cart.filter(item => item.prod.id === product.id));
   const dispatch = useDispatch();
 

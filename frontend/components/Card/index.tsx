@@ -48,7 +48,7 @@ const Card = ({ grid, product, cart }: Props) => (
         />
 
         {cart ? (
-          <CartButtons product={product} grid={grid} />
+          <CartButtons product={product} />
         ) : (
           <Buttons grid={grid} product={product} />
         )}
