@@ -27,7 +27,7 @@ const Header = ({ prodID, brand, cost, price, qty }: Props) => {
       variant="secondary"
       icon={<Close />}
       onClick={() => dispatch(removeFromCart(prodID))}
-      disabled={isMyCart}
+      disabled={!isMyCart}
     /> :
     <Pricing cost={cost} price={price} />}
   </div>

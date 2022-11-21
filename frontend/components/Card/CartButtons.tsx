@@ -8,6 +8,7 @@ import {
 } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import router from "next/router";
+import Pricing from "./Pricing";
 
 interface Props {
   product: IProduct;
@@ -19,9 +20,9 @@ const CartButtons = ({ product, qty }: Props) => {
   const isMyCart = router.pathname.includes("my-cart");
 
   return (
-    <div className="flex items-stretch justify-end gap-2 mt-2">
-      <div className="flex items-center gap-2">
+    <div className="flex items-center justify-end gap-2 mt-4 pt-2 border-t-gray border-t border-opacity-50">
       <span className="text-xs font-bold">Qty: </span>
+      <div className="flex items-center flex-col-reverse gap-1">
       <Button
         variant="transparent"
         size="sm"
@@ -38,6 +39,12 @@ const CartButtons = ({ product, qty }: Props) => {
         disabled={!isMyCart}
         /* disabled={item.qty >= item.prod.attributes.availability!} */
       />
+      </div>
+      <div className="flex items-center gap-4">
+        <span className="font-bold" >x</span>
+        <Pricing cost={product.attributes.cost} price={product.attributes.price} />
+        <span className="font-bold">=</span>
+        <Pricing cost={product.attributes.cost! * qty} price={product.attributes.price! * qty} />
       </div>
     </div>
   );
