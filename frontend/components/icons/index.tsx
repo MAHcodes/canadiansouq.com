@@ -6,10 +6,10 @@ export { Arrow } from "./Arrow";
 export { Bookmark } from "./Bookmark";
 export { Phone } from "./Phone";
 export { Mail } from "./Mail";
-export { Whatsapp } from "./Whatsapp"
-export { Instagram } from "./Instagram"
-export { Facebook } from "./Facebook"
-export { OpenTime } from "./OpenTime"
+export { Whatsapp } from "./Whatsapp";
+export { Instagram } from "./Instagram";
+export { Facebook } from "./Facebook";
+export { OpenTime } from "./OpenTime";
 export { AddedtoCart } from "./AddedtoCart";
 export { AddtoCart } from "./AddtoCart";
 export { Cart } from "./Cart";

@@ -14,10 +14,21 @@ type Props = {
 
 const Products = ({ products, brands, types }: Props) => {
   const { query } = useRouter();
-  return <ProductsGrid products={products} brands={brands} types={types} title={query.cat!.toString()}  />;
+  return (
+    <ProductsGrid
+      products={products}
+      brands={brands}
+      types={types}
+      title={query.cat!.toString()}
+    />
+  );
 };
 
-export const getStaticProps = async ({params}: {params: { cat: string }}) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { cat: string };
+}) => {
   const categroyProducts = await getCategoryProducts({ cat: params.cat });
   const categoryBrands = await getCategoryBrands(params.cat);
   const categoryTypes = await getCategoryTypes(params.cat);
@@ -27,8 +38,21 @@ export const getStaticProps = async ({params}: {params: { cat: string }}) => {
       category.attributes.products.data
   );
 
-  const brands = categoryBrands.map((category: {attributes: {name: string}}) => (category.attributes.name)).filter((brand: string | null) => brand !== null);
-  const types = Array.from( new Set(categoryTypes.map((category: {attributes: {type: string}}) => (category.attributes.type)).filter((type: string | null) => type !== null)));
+  const brands = categoryBrands
+    .map(
+      (category: { attributes: { name: string } }) => category.attributes.name
+    )
+    .filter((brand: string | null) => brand !== null);
+  const types = Array.from(
+    new Set(
+      categoryTypes
+        .map(
+          (category: { attributes: { type: string } }) =>
+            category.attributes.type
+        )
+        .filter((type: string | null) => type !== null)
+    )
+  );
 
   return {
     props: {

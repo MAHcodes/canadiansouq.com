@@ -12,10 +12,11 @@ const Thumbnail = ({ id, grid, src, alt }: Props) => {
   return (
     <Link href={`/product/${id}`}>
       <div
-        className={`flex items-center justify-center aspect-square cursor-pointer overflow-hidden rounded-lg mx-auto ${grid
+        className={`flex items-center justify-center aspect-square cursor-pointer overflow-hidden rounded-lg mx-auto ${
+          grid
             ? "basis-44 min-w-[6rem] max-w-[8rem] md:max-w-[14rem]"
             : "max-w-[14rem]"
-          }`}
+        }`}
       >
         <img
           className="object-cover group-hover:scale-105 group-active:scale-105 transition-transform"

@@ -4,7 +4,7 @@ interface Props extends SVGProps<SVGSVGElement> {
   active?: boolean;
 }
 
-const Hamburger: React.FC<Props> = ({active, ...props}) => (
+const Hamburger: React.FC<Props> = ({ active, ...props }) => (
   <svg
     width="23"
     height="24"
@@ -14,8 +14,24 @@ const Hamburger: React.FC<Props> = ({active, ...props}) => (
     {...props}
   >
     <rect x="2" y="5" width="19" height="2" rx="1" fill="#F5F5F5" />
-    <rect x="2" y="11" width={active ? "19" : "11"} height="2" rx="1" fill="#F5F5F5" className="transition-all" />
-    <rect x="2" y="17" width={active ? "19" : "16"} height="2" rx="1" fill="#F5F5F5" className="transition-all" />
+    <rect
+      x="2"
+      y="11"
+      width={active ? "19" : "11"}
+      height="2"
+      rx="1"
+      fill="#F5F5F5"
+      className="transition-all"
+    />
+    <rect
+      x="2"
+      y="17"
+      width={active ? "19" : "16"}
+      height="2"
+      rx="1"
+      fill="#F5F5F5"
+      className="transition-all"
+    />
   </svg>
 );
 

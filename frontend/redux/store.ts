@@ -6,7 +6,7 @@ import { loadState } from "./browserStorage";
 const reducers = combineReducers({
   cart: cartReducer,
   wishlist: wishlistReducer,
-})
+});
 
 export const store = configureStore({
   devTools: true,
@@ -14,5 +14,5 @@ export const store = configureStore({
   preloadedState: loadState(),
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

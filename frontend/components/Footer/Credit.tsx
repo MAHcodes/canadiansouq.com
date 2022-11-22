@@ -1,4 +1,3 @@
-
 const Credit = () => (
   <div className="container text-base">
     <div className="flex items-center justify-between flex-col md:flex-row gap-4 border-t border-solid border-t-gray border-opacity-25 py-4 mt-4">

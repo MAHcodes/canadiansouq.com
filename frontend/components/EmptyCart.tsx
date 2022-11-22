@@ -3,7 +3,7 @@ import React from "react";
 import EmptyCardIcon from "../components/icons/EmptyCart";
 import Button from "./Button";
 
-interface Props {};
+interface Props {}
 
 const EmptyCart: React.FC<Props> = () => {
   const router = useRouter();

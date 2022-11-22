@@ -17,4 +17,4 @@ export const DeliveryTruck: React.FC<SVGProps<SVGSVGElement>> = (props) => {
       />
     </svg>
   );
-}
+};

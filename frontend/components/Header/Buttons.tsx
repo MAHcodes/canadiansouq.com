@@ -10,19 +10,24 @@ const Buttons = () => {
   return (
     <div className="flex items-center gap-2">
       <Link href="/wishlist?page=0">
-      <Button
-        size="sm"
-        variant="transparent"
-        title="My Bookmark list"
-        icon={<Bookmark clr="stroke-white" />}
-      />
+        <Button
+          size="sm"
+          variant="transparent"
+          title="My Bookmark list"
+          icon={<Bookmark clr="stroke-white" />}
+        />
       </Link>
       <Link href="/my-cart">
-      <Button title="My Cart items" variant="transparent" className="relative p-1" icon={<Cart />}>
-        <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs max-w-[4ch]">
-          {cartItemsCount}
-        </span>
-      </Button>
+        <Button
+          title="My Cart items"
+          variant="transparent"
+          className="relative p-1"
+          icon={<Cart />}
+        >
+          <span className="absolute top-[-4px] right-[-4px] font-bold bg-success rounded-full px-[.25rem] text-xs max-w-[4ch]">
+            {cartItemsCount}
+          </span>
+        </Button>
       </Link>
     </div>
   );

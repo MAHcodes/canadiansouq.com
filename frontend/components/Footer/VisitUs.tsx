@@ -12,7 +12,7 @@ const VisitUs = () => (
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d208.31765961582673!2d35.476504!3d33.342793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2a803825ce1ad39c!2sCanadian%20Souq!5e0!3m2!1sen!2sus!4v1661622036129!5m2!1sen!2sus"
         frameBorder="0"
-        loading="lazy" 
+        loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
         className="w-full rounded-lg max-h-60 aspect-video"

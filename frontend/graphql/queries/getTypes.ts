@@ -1,7 +1,6 @@
 import { gql, request } from "graphql-request";
 const graphqlAPI = process.env.GRAPHQL_ENDPOINT!;
 
-
 export const getTypes = async () => {
   const TYPES = gql`
     query getTypes {

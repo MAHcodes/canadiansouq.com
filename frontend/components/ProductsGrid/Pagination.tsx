@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Pagination = ({ router, page, pageCount }: Props) => {
-  const isSmallScreen = useMediaQuery({minWidth: 440});
+  const isSmallScreen = useMediaQuery({ minWidth: 440 });
 
   const navigate = (page: number) => {
     router.query.page = page;
@@ -25,18 +25,41 @@ const Pagination = ({ router, page, pageCount }: Props) => {
         onClick={() => navigate(page - 1)}
         variant="transparent"
         disabled={page <= 0}
-      >{isSmallScreen ? "Prev" : ""}</Button>
+      >
+        {isSmallScreen ? "Prev" : ""}
+      </Button>
 
       <div className="flex items-center gap-2">
-      {(page >= 2) && <Button variant="transparent" size="sm" onClick={() => navigate(0)}>0</Button>}
-      {(page > 2) && <span>...</span>}
+        {page >= 2 && (
+          <Button variant="transparent" size="sm" onClick={() => navigate(0)}>
+            0
+          </Button>
+        )}
+        {page > 2 && <span>...</span>}
         {[...Array(pageCount + 1)].map((_, i) => {
-          if ( page === i -1 || page === i || page === i + 1) {
-            return <Button key={i} variant={i === page ? "secondary" : "transparent"} size="sm" onClick={() => navigate(i)}>{i.toString()}</Button>
+          if (page === i - 1 || page === i || page === i + 1) {
+            return (
+              <Button
+                key={i}
+                variant={i === page ? "secondary" : "transparent"}
+                size="sm"
+                onClick={() => navigate(i)}
+              >
+                {i.toString()}
+              </Button>
+            );
           }
         })}
-      {(pageCount > page + 2) && <span>...</span>}
-      {(pageCount >= page + 2) && <Button variant="transparent" size="sm" onClick={() => navigate(pageCount)}>{pageCount.toString()}</Button>}
+        {pageCount > page + 2 && <span>...</span>}
+        {pageCount >= page + 2 && (
+          <Button
+            variant="transparent"
+            size="sm"
+            onClick={() => navigate(pageCount)}
+          >
+            {pageCount.toString()}
+          </Button>
+        )}
       </div>
 
       <Button
@@ -47,7 +70,9 @@ const Pagination = ({ router, page, pageCount }: Props) => {
         icon={<Arrow className="rotate-[-90deg]" />}
         onClick={() => navigate(+page + 1)}
         disabled={page >= pageCount}
-      >{isSmallScreen ? "Next" : ""}</Button>
+      >
+        {isSmallScreen ? "Next" : ""}
+      </Button>
     </div>
   );
 };

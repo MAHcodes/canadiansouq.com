@@ -1,4 +1,3 @@
-
 export const Cart = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <g clipPath="url(#clip0_7_346)">

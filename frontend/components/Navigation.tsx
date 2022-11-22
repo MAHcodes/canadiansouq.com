@@ -12,7 +12,9 @@ const Navigation: React.FC<Props> = ({ children, title = "" }) => {
   const { back } = useRouter();
 
   return (
-    <div className={`flex py-4 items-center justify-between gap-2 col-span-full`}>
+    <div
+      className={`flex py-4 items-center justify-between gap-2 col-span-full`}
+    >
       <Button
         onClick={() => back()}
         variant="transparent"

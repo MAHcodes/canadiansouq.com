@@ -3,21 +3,28 @@ import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import { IProduct } from "../types/";
 import Card from "./Card";
 import { Arrow } from "./icons";
-import styles from "../styles/ProductsSlider.module.css"
+import styles from "../styles/ProductsSlider.module.css";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
+interface Props
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   title: string;
   slug: string;
   products: IProduct[];
-};
+}
 
-const ProductsSlider = ({ title, slug, products, className, ...props }: Props) => {
+const ProductsSlider = ({
+  title,
+  slug,
+  products,
+  className,
+  ...props
+}: Props) => {
   const [scroll, setScroll] = useState("start");
 
   const handleScroll = (e: any) => {
     const leftMax = e.target.scrollWidth - e.target.clientWidth;
-    if (e.target.scrollLeft === leftMax && e.target.scrollLeft === 0 ) {
-      setScroll("middle")
+    if (e.target.scrollLeft === leftMax && e.target.scrollLeft === 0) {
+      setScroll("middle");
     } else if (e.target.scrollLeft <= 5) {
       setScroll("start");
     } else if (e.target.scrollLeft >= leftMax - 5) {
@@ -42,8 +49,11 @@ const ProductsSlider = ({ title, slug, products, className, ...props }: Props) =
       </div>
 
       <div className={`${styles.scroll} ${scroll && styles[scroll]}`}>
-        <div onScroll={(e) => handleScroll(e)} className="snap-proximity snap-x flex items-stretch gap-2 overflow-x-auto noscrollbar [&>.card]:max-w-[14rem]">
-          {products.map(prod => (
+        <div
+          onScroll={(e) => handleScroll(e)}
+          className="snap-proximity snap-x flex items-stretch gap-2 overflow-x-auto noscrollbar [&>.card]:max-w-[14rem]"
+        >
+          {products.map((prod) => (
             <Card key={prod.id} product={prod} />
           ))}
         </div>

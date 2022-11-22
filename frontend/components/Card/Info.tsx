@@ -14,8 +14,9 @@ const Info = ({ id, title, grid, description }: Props) => (
     <div className="flex flex-col cursor-pointer flex-1">
       <div className="flex-1">
         <h2
-          className={`text-lg my-2 two-lines group-hover:underline twolines ${grid && "font-semibold"
-            }`}
+          className={`text-lg my-2 two-lines group-hover:underline twolines ${
+            grid && "font-semibold"
+          }`}
         >
           {title}
         </h2>

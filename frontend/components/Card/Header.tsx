@@ -18,19 +18,23 @@ const Header = ({ prodID, brand, cost, price, qty }: Props) => {
   const dispatch = useDispatch();
   const isMyCart = router.pathname.includes("my-cart");
 
-  return <div className={`flex items-center justify-between`}>
-    <div>
-      <h2 className="text-base text-gray">{brand}</h2>
+  return (
+    <div className={`flex items-center justify-between`}>
+      <div>
+        <h2 className="text-base text-gray">{brand}</h2>
+      </div>
+      {qty ? (
+        <Button
+          variant="secondary"
+          icon={<Close />}
+          onClick={() => dispatch(removeFromCart(prodID))}
+          disabled={!isMyCart}
+        />
+      ) : (
+        <Pricing cost={cost} price={price} />
+      )}
     </div>
-    {qty ? 
-    <Button
-      variant="secondary"
-      icon={<Close />}
-      onClick={() => dispatch(removeFromCart(prodID))}
-      disabled={!isMyCart}
-    /> :
-    <Pricing cost={cost} price={price} />}
-  </div>
+  );
 };
 
 export default Header;

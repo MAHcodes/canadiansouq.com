@@ -13,11 +13,7 @@ const OptionsGroup = ({ title, options, filter, onChange }: Props) => (
     <ul>
       {options.map((option) => (
         <li key={option}>
-          <CheckBox
-            text={option}
-            filter={filter}
-            onChange={onChange}
-          />
+          <CheckBox text={option} filter={filter} onChange={onChange} />
         </li>
       ))}
     </ul>

@@ -1,11 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Button from '../components/Button';
-import { AddtoCart } from '../components/icons';
+import Button from "../components/Button";
+import { AddtoCart } from "../components/icons";
 
 export default {
-  title: 'Button',
+  title: "Button",
   component: Button,
   args: {
     size: "md",
@@ -45,7 +45,6 @@ IconWithText.args = {
   children: "Icon With Text",
   icon: <AddtoCart />,
 };
-
 
 export const IconNoText = Template.bind({});
 IconNoText.args = {

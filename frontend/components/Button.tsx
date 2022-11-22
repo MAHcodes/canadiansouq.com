@@ -12,12 +12,13 @@ const iconSized = {
   md: "p-2",
   sm: "p-1",
   "": "",
-}
+};
 
 const variants = {
   primary: "text-white bg-black border-transparent",
   secondary: "text-black bg-transparent border-black",
-  transparent: "border-transparent hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-30",
+  transparent:
+    "border-transparent hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-30",
 };
 
 export interface Props
@@ -28,7 +29,7 @@ export interface Props
   size?: keyof typeof sizes | "";
   variant?: keyof typeof variants;
   icon?: ReactNode;
-  iconAfter?: boolean,
+  iconAfter?: boolean;
 }
 
 const Button: React.FC<Props> = ({
@@ -45,16 +46,14 @@ const Button: React.FC<Props> = ({
     <button
       className={`rounded-md font-bold text-base flex items-center justify-center cursor-pointer border-2 gap-2
          ${disabled ? "cursor-not-allowed opacity-40" : ""}
-         ${ children ? sizes[size] : iconSized[size] }
+         ${children ? sizes[size] : iconSized[size]}
          ${variants[variant]}
          ${className}
       `}
       disabled={disabled}
       {...props}
     >
-      {icon ? (
-        <span className={iconAfter ? "order-2" : ""}>{icon}</span>
-      ) : null}
+      {icon ? <span className={iconAfter ? "order-2" : ""}>{icon}</span> : null}
       {children}
     </button>
   );

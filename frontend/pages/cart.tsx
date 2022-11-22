@@ -18,13 +18,25 @@ const Cart = ({ prods: prods }: Props) => {
     setPageParams(router.query.cart!.toString());
   }, [router.isReady]);
 
-  const cartItems = pageParams.split("n").map((prod: string) => ({ prod: prod.split("x")[0], qty:prod.split("x")[1] }));
+  const cartItems = pageParams
+    .split("n")
+    .map((prod: string) => ({
+      prod: prod.split("x")[0],
+      qty: prod.split("x")[1],
+    }));
 
   const products = useMemo(
     () =>
-      prods.filter((product) =>
-        cartItems.some((item: { prod: string }) => item.prod === product.id?.toString())
-      ).map(prod => ({prod, qty: cartItems.find(item => item.prod === prod.id?.toString())?.qty })),
+      prods
+        .filter((product) =>
+          cartItems.some(
+            (item: { prod: string }) => item.prod === product.id?.toString()
+          )
+        )
+        .map((prod) => ({
+          prod,
+          qty: cartItems.find((item) => item.prod === prod.id?.toString())?.qty,
+        })),
     [prods, cartItems]
   );
 
@@ -35,7 +47,12 @@ const Cart = ({ prods: prods }: Props) => {
       </Navigation>
       <div className="flex flex-col gap-2">
         {products.map((product) => (
-          <Card key={product.prod.id} grid product={product.prod} qty={+product.qty!} />
+          <Card
+            key={product.prod.id}
+            grid
+            product={product.prod}
+            qty={+product.qty!}
+          />
         ))}
       </div>
     </div>

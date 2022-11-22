@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Card> = (args) => (
   <Provider store={store}>
     <Card {...args} />
   </Provider>
-)
+);
 
 export const List = Template.bind({});
 List.args = {
@@ -26,4 +26,4 @@ List.args = {
 export const Grid = Template.bind({});
 Grid.args = {
   grid: true,
-}
+};

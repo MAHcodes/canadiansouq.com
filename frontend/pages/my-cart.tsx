@@ -5,8 +5,7 @@ import EmptyCart from "../components/EmptyCart";
 import Navigation from "../components/Navigation";
 import { RootState } from "../redux/store";
 
-interface Props {
-}
+interface Props {}
 
 const MyCart = (props: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
@@ -20,14 +19,21 @@ const MyCart = (props: Props) => {
 
   /* console.log(router.query.cart) */
 
-  const urlProps = cart!.map( item => `${item.prod.id}x${item.qty}`).join("n");
+  const urlProps = cart!.map((item) => `${item.prod.id}x${item.qty}`).join("n");
 
   return (
     <div className="container my-4">
-      <Navigation title="My Cart"><span /></Navigation>
+      <Navigation title="My Cart">
+        <span />
+      </Navigation>
       <div className="flex flex-col gap-2">
         {cart.map((product) => (
-          <Card key={product.prod.id} grid product={product.prod} qty={product.qty} />
+          <Card
+            key={product.prod.id}
+            grid
+            product={product.prod}
+            qty={product.qty}
+          />
         ))}
       </div>
     </div>

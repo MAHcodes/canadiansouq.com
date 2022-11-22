@@ -7,9 +7,21 @@ const FollowUs = () => (
     <Title text="Follow Us" />
     <SocialIcons>
       <div className="flex flex-col items-start">
-        <Info href="https://wa.me/+96181921320" Icon={<Whatsapp />} text="+961 81 921 320" />
-        <Info href="https://instagram.com/canadiansouq" Icon={<Instagram />} text="@canadiansouq" />
-        <Info href="https://facebook.com/canadiansouq" Icon={<Facebook />} text="/canadiansouq" />
+        <Info
+          href="https://wa.me/+96181921320"
+          Icon={<Whatsapp />}
+          text="+961 81 921 320"
+        />
+        <Info
+          href="https://instagram.com/canadiansouq"
+          Icon={<Instagram />}
+          text="@canadiansouq"
+        />
+        <Info
+          href="https://facebook.com/canadiansouq"
+          Icon={<Facebook />}
+          text="/canadiansouq"
+        />
       </div>
     </SocialIcons>
   </div>

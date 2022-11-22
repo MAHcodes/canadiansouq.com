@@ -2,10 +2,16 @@ import { useRouter } from "next/router";
 import React from "react";
 import Box from "./Box";
 
-interface Props extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {};
+interface Props
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {}
 
-const SearchInput:React.FC<Props> = (props) => {
-  const { query: { cat = "" } } = useRouter();
+const SearchInput: React.FC<Props> = (props) => {
+  const {
+    query: { cat = "" },
+  } = useRouter();
 
   return (
     <Box title="search" className="relative p-1 pt-2 my-3 ">
