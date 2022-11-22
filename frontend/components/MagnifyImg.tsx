@@ -39,6 +39,7 @@ const MagnifyImg: React.FC<
       onMouseMove={zoom}
       onTouchMove={zoom}
     >
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <img
         className={`transition-opacity block w-full hover:opacity-0 ${props.className}`}
         {...props}

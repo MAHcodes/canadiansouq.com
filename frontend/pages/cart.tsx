@@ -16,7 +16,7 @@ const Cart = ({ prods: prods }: Props) => {
   useEffect(() => {
     if (!router.isReady) return;
     setPageParams(router.query.cart!.toString());
-  }, [router.isReady]);
+  }, [router.isReady, router.query.cart]);
 
   const cartItems = pageParams
     .split("n")

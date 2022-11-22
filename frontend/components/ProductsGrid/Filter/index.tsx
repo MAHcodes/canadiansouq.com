@@ -20,7 +20,7 @@ const Filter = ({ brands, types, filter, dispatch }: Props) => {
 
   useEffect(() => {
     dispatch({ type: "search", value: search });
-  }, [debouncedValue]);
+  }, [debouncedValue, dispatch, search]);
 
   return (
     <div className="bg-fff rounded-md mb-4 p-4 relative before:absolute before:border-b-fff before:border-solid before:border-transparent before:border-8 before:top-0 before:right-2 before:translate-y-[-100%] animate-slideDownIn origin-top-right">
