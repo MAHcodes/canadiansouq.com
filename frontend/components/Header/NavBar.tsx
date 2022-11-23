@@ -9,7 +9,7 @@ interface Props {
 const NavBar = ({ categories, checked, setChecked }: Props) => {
   return (
     <>
-      <input type="checkbox" className="peer hidden" defaultChecked={checked} />
+      <input type="checkbox" className="peer hidden" checked={checked} />
       <ul className="hidden peer-checked:flex lg:flex peer-checked:absolute bottom-[-.5rem] left-4 right-4 peer-checked:translate-y-full peer-checked:bg-black peer-checked:p-4 peer-checked:flex-col rounded-lg items-center gap-6 text-base text-white text-opacity-80">
         {categories.map((category) => (
           <li
