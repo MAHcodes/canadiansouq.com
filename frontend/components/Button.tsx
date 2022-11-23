@@ -16,6 +16,7 @@ const iconSized = {
 
 const variants = {
   primary: "text-white bg-black border-transparent",
+  primaryDark: "text-black bg-fff border-transparent",
   secondary: "text-black bg-transparent border-black",
   transparent:
     "border-transparent hover:bg-gray hover:bg-opacity-20 active:bg-gray active:bg-opacity-30",

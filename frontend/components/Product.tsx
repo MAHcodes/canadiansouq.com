@@ -8,7 +8,7 @@ import {
 import { RootState } from "../redux/store";
 import { IProduct } from "../types/";
 import Button from "./Button";
-import { AddedtoCart, AddtoCart, Bookmark } from "./icons";
+import { AddedtoCart, AddtoCart, Bookmark, Whatsapp } from "./icons";
 import ImagesSlider from "./ImagesSlider";
 import Head from "next/head";
 import Navigation from "./Navigation";
@@ -72,7 +72,7 @@ const Product = ({ product, asPath }: Props) => {
               rel="noopener noreferrer"
               className="flex-1"
             >
-              <Button size="lg" className="w-full">
+              <Button size="lg" className="w-full group" icon={<Whatsapp fill="rgb(230 230 230)" />}>
                 Order Now
               </Button>
             </a>
