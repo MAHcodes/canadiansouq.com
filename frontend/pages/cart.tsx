@@ -18,12 +18,10 @@ const Cart = ({ prods: prods }: Props) => {
     setPageParams(router.query.cart!.toString());
   }, [router.isReady, router.query.cart]);
 
-  const cartItems = pageParams
-    .split("n")
-    .map((prod: string) => ({
-      prod: prod.split("x")[0],
-      qty: prod.split("x")[1],
-    }));
+  const cartItems = pageParams.split("n").map((prod: string) => ({
+    prod: prod.split("x")[0],
+    qty: prod.split("x")[1],
+  }));
 
   const products = useMemo(
     () =>
@@ -55,6 +53,18 @@ const Cart = ({ prods: prods }: Props) => {
           />
         ))}
       </div>
+      <p className="my-2 text-center">
+        Total:
+        <span className="font-bold">
+          {" $"}
+          {products.reduce((accumulator, currentValue) => {
+            return (
+              accumulator +
+              currentValue.prod.attributes.price! * +currentValue.qty!
+            );
+          }, 0)}
+        </span>
+      </p>
     </div>
   );
 };

@@ -14,13 +14,6 @@ const MyCart = (props: Props) => {
 
   if (cart.length < 1) return <EmptyCart />;
 
-  /* useEffect(() => {
-    router.query.cart = "2x3n3x8";
-    router.push(router)
-  }, []) */
-
-  /* console.log(router.query.cart) */
-
   const urlProps = cart!.map((item) => `${item.prod.id}x${item.qty}`).join("n");
 
   return (
@@ -40,7 +33,8 @@ const MyCart = (props: Props) => {
         <div className="bg-black text-white sticky bottom-2 p-4 rounded-md">
           <p className="mb-2 text-center">
             Total:
-            <span className="font-bold"> $
+            <span className="font-bold">
+              $
               {cart.reduce((accumulator, currentValue) => {
                 return (
                   accumulator +
@@ -49,14 +43,21 @@ const MyCart = (props: Props) => {
               }, 0)}
             </span>
           </p>
-          <Button
-            variant="primaryDark"
-            size="md"
-            className="w-full group"
-            icon={<Whatsapp fill="rgb(36 36 36)" />}
+          <a
+            href={`https://wa.me/+96181921320/?text=Hey check my cart... ${process.env.NEXT_PUBLIC_HOST || ""
+              }/cart/?cart=${urlProps}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Order Now
-          </Button>
+            <Button
+              variant="primaryDark"
+              size="md"
+              className="w-full group"
+              icon={<Whatsapp fill="rgb(36 36 36)" />}
+            >
+              Order Now
+            </Button>
+          </a>
         </div>
       </div>
     </div>

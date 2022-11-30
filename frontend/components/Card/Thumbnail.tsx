@@ -22,7 +22,6 @@ const Thumbnail = ({ id, grid, src, alt }: Props) => {
           className="object-cover group-hover:scale-105 group-active:scale-105 transition-transform"
           src={"/images" + src}
           alt={alt}
-          loading="lazy"
         />
       </div>
     </Link>
