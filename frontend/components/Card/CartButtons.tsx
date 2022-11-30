@@ -7,8 +7,8 @@ import {
   decrement as decQty,
 } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import router from "next/router";
 import Pricing from "./Pricing";
+import { useRouter } from "next/router";
 
 interface Props {
   product: IProduct;
@@ -17,6 +17,7 @@ interface Props {
 
 const CartButtons = ({ product, qty }: Props) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const isMyCart = router.pathname.includes("my-cart");
 
   return (

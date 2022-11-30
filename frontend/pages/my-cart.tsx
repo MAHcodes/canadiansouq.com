@@ -7,9 +7,7 @@ import { Whatsapp } from "../components/icons";
 import Navigation from "../components/Navigation";
 import { RootState } from "../redux/store";
 
-interface Props { }
-
-const MyCart = (props: Props) => {
+const MyCart = () => {
   const cart = useSelector((state: RootState) => state.cart);
 
   if (cart.length < 1) return <EmptyCart />;
@@ -44,8 +42,7 @@ const MyCart = (props: Props) => {
             </span>
           </p>
           <a
-            href={`https://wa.me/+96181921320/?text=Hey check my cart... ${process.env.NEXT_PUBLIC_HOST || ""
-              }/cart/?cart=${urlProps}`}
+            href={`https://wa.me/+96181921320/?text=Hey check my cart... ${process.env.NEXT_PUBLIC_HOST || ""}/cart/?cart=${urlProps}`}
             target="_blank"
             rel="noopener noreferrer"
           >

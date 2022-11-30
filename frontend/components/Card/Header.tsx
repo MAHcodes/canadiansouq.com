@@ -4,7 +4,7 @@ import Button from "../Button";
 import { Close } from "../icons";
 import Pricing from "./Pricing";
 import { remove as removeFromCart } from "../../redux/cartSlice";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 interface Props {
   brand?: string;
@@ -16,6 +16,7 @@ interface Props {
 
 const Header = ({ prodID, brand, cost, price, qty }: Props) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const isMyCart = router.pathname.includes("my-cart");
 
   return (
