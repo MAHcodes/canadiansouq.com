@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://canadiansouq.com
+
+# Sitemaps
+Sitemap: https://canadiansouq.com/sitemap.xml

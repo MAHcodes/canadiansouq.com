@@ -23,6 +23,7 @@ body {
   font-family: NunitoSans, Poppins, Helvetica Neue, sans-serif;
   font-size: clamp(1rem, 2.5vmin, 1.15rem);
   text-size-adjust: none;
+  font-display: swap;
 
   @apply bg-white text-black font-normal scroll-smooth;
 }

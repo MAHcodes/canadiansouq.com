@@ -4,12 +4,12 @@ const Credit = () => (
       <p>
         Made with &#10084;&#65039; by{" "}
         <a
-          href="https://github.com/mhmdali102"
+          href="https://github.com/MAHcodes"
           target="_blank"
           rel="noreferrer"
           className="underline font-bold transition-colors hover:text-white"
         >
-          Mhmd Ali Hsen
+          MAH.codes
         </a>
       </p>
       <p>
