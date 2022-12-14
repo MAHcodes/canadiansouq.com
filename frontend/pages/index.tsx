@@ -7,6 +7,7 @@ import {
 } from "../graphql/queries/getProducts";
 import { IProduct } from "../types/";
 import ProductsSlider from "../components/ProductsSlider";
+import Head from "next/head";
 
 interface Props {
   featuredProducts: IProduct[];
@@ -15,7 +16,64 @@ interface Props {
 
 const Home = ({ featuredProducts, newArrivalProcucts }: Props) => {
   return (
-    <div>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <title>
+          Canadian Souq - Buy ORIGINAL products from Canada in Lebanon
+        </title>
+        <meta
+          name="title"
+          content="Canadian Souq - Buy ORIGINAL products from Canada in Lebanon"
+        />
+        <meta
+          name="description"
+          content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
+        />
+        <meta
+          property="og:description"
+          content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
+        />
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_HOST}/images/hero.avif`}
+        />
+        <meta property="og:site_name" content={process.env.NEXT_PUBLIC_HOST}>
+          <meta
+            name="twitter:description"
+            content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
+          />
+          <meta
+            name="twitter:image"
+            content={`${process.env.NEXT_PUBLIC_HOST}/images/hero.avif`}
+          />
+          <meta
+            name="keywords"
+            content="dewalt in lebanon,milwaukee in lebanon, hilti in lebanon"
+          />
+          <meta name="theme-color" content="#242424" />
+          <link
+            rel="shortcut icon"
+            href={`${process.env.NEXT_PUBLIC_HOST}/images/logo.svg`}
+            type="image/x-icon"
+          />
+
+          <meta property="og:url" content={process.env.NEXT_PUBLIC_HOST} />
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content="Canadian Souq - Buy ORIGINAL products from Canada in Lebanon"
+          />
+
+          <meta name="robots" content="index, follow" />
+        </meta>
+      </Head>
       <Hero />
       <OurBrands />
       <Feutures />
@@ -31,7 +89,7 @@ const Home = ({ featuredProducts, newArrivalProcucts }: Props) => {
         products={newArrivalProcucts}
         className="container"
       />
-    </div>
+    </>
   );
 };
 
