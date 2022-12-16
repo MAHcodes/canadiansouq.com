@@ -24,12 +24,41 @@ const Product = ({ product, asPath }: Props) => {
   const wishlist = useSelector((state: RootState) => state.wishlist);
   const dispatch = useDispatch();
 
+  const structuredData = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.attributes.title,
+    image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data[0].attributes.url}`,
+    description: product.attributes.description,
+    mpn: product.attributes.model,
+    brand: {
+      "@type": "Thing",
+      name: product.attributes.brand?.data.attributes.name,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.4",
+      reviewCount: "28",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: product.attributes.price,
+      priceValidUntil: "2022-11-05",
+      itemCondition: product.attributes.condition?.toLowerCase().startsWith("new") ? "NewCondition" : "UsedCondition",
+      availability: product.attributes.availability,
+      seller: {
+        "@type": "Organization",
+        name: "Canadian Souq",
+      },
+    },
+  };
+
   return (
     <>
       <Head>
         <title>Canadian Souq | {product.attributes.title}</title>
         <meta name="description" content={product.attributes.description} />
-
         <meta
           property="og:description"
           content={product.attributes.description}
@@ -38,7 +67,6 @@ const Product = ({ product, asPath }: Props) => {
           property="og:image"
           content={product.attributes.images?.data[0].attributes.url}
         />
-
         <meta
           name="twitter:description"
           content={product.attributes.description}
@@ -46,6 +74,13 @@ const Product = ({ product, asPath }: Props) => {
         <meta
           name="twitter:image"
           content={product.attributes.images?.data[0].attributes.url}
+        />
+        <script
+          key="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </Head>
 
@@ -65,14 +100,17 @@ const Product = ({ product, asPath }: Props) => {
           </div>
           <div className="flex items-stretch gap-2 my-4">
             <a
-              href={`https://wa.me/+96181921320/?text=Hello, I saw this... ${
-                process.env.NEXT_PUBLIC_HOST || ""
-              }${asPath}`}
+              href={`https://wa.me/+96181921320/?text=Hello, I saw this... ${process.env.NEXT_PUBLIC_HOST || ""
+                }${asPath}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1"
             >
-              <Button size="lg" className="w-full group" icon={<Whatsapp fill="rgb(230 230 230)" />}>
+              <Button
+                size="lg"
+                className="w-full group"
+                icon={<Whatsapp fill="rgb(230 230 230)" />}
+              >
                 Order Now
               </Button>
             </a>
@@ -119,11 +157,10 @@ const Product = ({ product, asPath }: Props) => {
                   ? "In Stock"
                   : "Out of Stock"
               }
-              className={`${
-                product.attributes.availability! > 0
+              className={`${product.attributes.availability! > 0
                   ? "text-success"
                   : "text-danger"
-              } font-bold`}
+                } font-bold`}
             />
             {product.attributes.brand?.data?.attributes?.name ? (
               <Info
