@@ -24,29 +24,48 @@ const Product = ({ product, asPath }: Props) => {
   const wishlist = useSelector((state: RootState) => state.wishlist);
   const dispatch = useDispatch();
 
-  const structuredData = {
+  const productJsonLd = {
     "@context": "https://schema.org/",
     "@type": "Product",
     name: product.attributes.title,
-    image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data[0].attributes.url}`,
+    image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data}`,
     description: product.attributes.description,
     mpn: product.attributes.model,
     brand: {
-      "@type": "Thing",
+      "@type": "Brand",
       name: product.attributes.brand?.data.attributes.name,
+    },
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "4",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "MAHcodes",
+      },
     },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.4",
-      reviewCount: "28",
+      reviewCount: "89",
     },
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
       price: product.attributes.price,
       priceValidUntil: "2022-11-05",
-      itemCondition: product.attributes.condition?.toLowerCase().startsWith("new") ? "NewCondition" : "UsedCondition",
-      availability: product.attributes.availability,
+      itemCondition: product.attributes.condition
+        ?.toLowerCase()
+        .startsWith("new")
+        ? "NewCondition"
+        : "UsedCondition",
+      availability:
+        product.attributes.availability! > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
       seller: {
         "@type": "Organization",
         name: "Canadian Souq",
@@ -79,7 +98,7 @@ const Product = ({ product, asPath }: Props) => {
           key="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
+            __html: JSON.stringify(productJsonLd),
           }}
         />
       </Head>
