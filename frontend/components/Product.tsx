@@ -28,7 +28,7 @@ const Product = ({ product, asPath }: Props) => {
     "@context": "https://schema.org/",
     "@type": "Product",
     name: product.attributes.title,
-    image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data}`,
+    image: product.attributes.images?.data.map(img => `${process.env.NEXT_PUBLIC_HOST}${img.attributes.url}`),
     description: product.attributes.description || "",
     url: `${process.env.NEXT_PUBLIC_HOST}/product/${product.id}`,
     productID: product.id,
@@ -77,19 +77,34 @@ const Product = ({ product, asPath }: Props) => {
     },
   };
 
+  const TITLE = `Canadian Souq | ${product.attributes.title}`;
+
   return (
     <>
       <Head>
-        <title>Canadian Souq | {product.attributes.title}</title>
+        <title>{TITLE}</title>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="title" content={TITLE} />
         <meta name="description" content={product.attributes.description || ""} />
-        <meta
-          property="og:description"
-          content={product.attributes.description || ""}
+        <meta name="theme-color" content="#242424" />
+        <link
+          rel="shortcut icon"
+          href={`${process.env.NEXT_PUBLIC_HOST}/images/logo.svg`}
+          type="image/x-icon"
         />
-        <meta
-          property="og:image"
-          content={product.attributes.images?.data[0].attributes.url}
-        />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#242424" />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_HOST}/product/${product.id}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:description" content={product.attributes.description || ""} />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_HOST}/images${product.attributes.images?.data[0].attributes.url}`} />
+        <meta property="og:site_name" content="Canadian Souq" />
         <meta
           name="twitter:description"
           content={product.attributes.description || ""}
