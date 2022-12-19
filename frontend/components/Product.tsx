@@ -29,13 +29,13 @@ const Product = ({ product, asPath }: Props) => {
     "@type": "Product",
     name: product.attributes.title,
     image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data}`,
-    description: product.attributes.description,
+    description: product.attributes.description || "",
     url: `${process.env.NEXT_PUBLIC_HOST}/product/${product.id}`,
     productID: product.id,
-    mpn: product.attributes.model,
+    mpn: product.attributes.model || "",
     brand: {
       "@type": "Brand",
-      name: product.attributes.brand?.data.attributes.name,
+      name: product.attributes.brand?.data?.attributes?.name || "",
     },
     review: {
       "@type": "Review",
@@ -58,7 +58,7 @@ const Product = ({ product, asPath }: Props) => {
       "@type": "Offer",
       priceCurrency: "USD",
       name: product.attributes.title,
-      description: product.attributes.description,
+      description: product.attributes.description || "",
       price: product.attributes.price,
       priceValidUntil: "2023-11-05",
       itemCondition: product.attributes.condition
@@ -81,10 +81,10 @@ const Product = ({ product, asPath }: Props) => {
     <>
       <Head>
         <title>Canadian Souq | {product.attributes.title}</title>
-        <meta name="description" content={product.attributes.description} />
+        <meta name="description" content={product.attributes.description || ""} />
         <meta
           property="og:description"
-          content={product.attributes.description}
+          content={product.attributes.description || ""}
         />
         <meta
           property="og:image"
@@ -92,7 +92,7 @@ const Product = ({ product, asPath }: Props) => {
         />
         <meta
           name="twitter:description"
-          content={product.attributes.description}
+          content={product.attributes.description || ""}
         />
         <meta
           name="twitter:image"
