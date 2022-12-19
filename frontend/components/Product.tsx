@@ -30,6 +30,8 @@ const Product = ({ product, asPath }: Props) => {
     name: product.attributes.title,
     image: `${process.env.NEXT_PUBLIC_HOST}${product.attributes.images?.data}`,
     description: product.attributes.description,
+    url: `${process.env.NEXT_PUBLIC_HOST}/product/${product.id}`,
+    productID: product.id,
     mpn: product.attributes.model,
     brand: {
       "@type": "Brand",
@@ -55,13 +57,15 @@ const Product = ({ product, asPath }: Props) => {
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
+      name: product.attributes.title,
+      description: product.attributes.description,
       price: product.attributes.price,
-      priceValidUntil: "2022-11-05",
+      priceValidUntil: "2023-11-05",
       itemCondition: product.attributes.condition
         ?.toLowerCase()
         .startsWith("new")
-        ? "NewCondition"
-        : "UsedCondition",
+        ? "http://schema.org/NewCondition"
+        : "http://schema.org/UsedCondition",
       availability:
         product.attributes.availability! > 0
           ? "https://schema.org/InStock"

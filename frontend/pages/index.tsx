@@ -14,6 +14,48 @@ interface Props {
   newArrivalProcucts: IProduct[];
 }
 
+const TITLE = "Canadian Souq - Buy ORIGINAL products from Canada in Lebanon";
+const DESC =
+  "Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!";
+const IMG = `${process.env.NEXT_PUBLIC_HOST}/images/hero.avif`;
+
+const storeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  image: [IMG],
+  "@id": process.env.NEXT_PUBLIC_HOST,
+  name: "Canadian Souq",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: " Maifadoun, Nabatiye",
+    addressLocality: "Maifadoun, Nabatiye",
+    postalCode: "00000",
+    addressRegion: "Nabatiye",
+    addressCountry: "Lebanon",
+  },
+  review: {
+    "@type": "Review",
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "4",
+      bestRating: "5",
+    },
+    author: {
+      "@type": "Person",
+      name: "MAHcodes",
+    },
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.34281465765527,
+    longitude: 35.47657401119449,
+  },
+  url: process.env.NEXT_PUBLIC_HOST,
+  telephone: "+96181921320",
+  openingHours: "Mo-Sa 09:00-17:00",
+  acceptsReservations: "True",
+};
+
 const Home = ({ featuredProducts, newArrivalProcucts }: Props) => {
   return (
     <>
@@ -24,56 +66,42 @@ const Home = ({ featuredProducts, newArrivalProcucts }: Props) => {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
-        <title>
-          Canadian Souq - Buy ORIGINAL products from Canada in Lebanon
-        </title>
+        <title>{TITLE}</title>
+        <meta name="title" content={TITLE} />
+        <meta name="description" content={DESC} />
+        <meta name="theme-color" content="#242424" />
         <meta
-          name="title"
-          content="Canadian Souq - Buy ORIGINAL products from Canada in Lebanon"
+          name="keywords"
+          content="dewalt in lebanon,milwaukee in lebanon, hilti in lebanon"
         />
-        <meta
-          name="description"
-          content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
+        <link
+          rel="shortcut icon"
+          href={`${process.env.NEXT_PUBLIC_HOST}/images/logo.svg`}
+          type="image/x-icon"
         />
-        <meta
-          property="og:description"
-          content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
-        />
-        <meta
-          property="og:image"
-          content={`${process.env.NEXT_PUBLIC_HOST}/images/hero.avif`}
-        />
-        <meta property="og:site_name" content={process.env.NEXT_PUBLIC_HOST}>
-          <meta
-            name="twitter:description"
-            content="Online Lebanon Store offering ORIGINAL products and Tools from Canada in Lebanon!"
-          />
-          <meta
-            name="twitter:image"
-            content={`${process.env.NEXT_PUBLIC_HOST}/images/hero.avif`}
-          />
-          <meta
-            name="keywords"
-            content="dewalt in lebanon,milwaukee in lebanon, hilti in lebanon"
-          />
-          <meta name="theme-color" content="#242424" />
-          <link
-            rel="shortcut icon"
-            href={`${process.env.NEXT_PUBLIC_HOST}/images/logo.svg`}
-            type="image/x-icon"
-          />
+        <meta name="robots" content="index, follow" />
 
-          <meta property="og:url" content={process.env.NEXT_PUBLIC_HOST} />
-          <meta property="og:type" content="website" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="Canadian Souq - Buy ORIGINAL products from Canada in Lebanon"
-          />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_HOST} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:description" content={DESC} />
+        <meta property="og:image" content={IMG} />
+        <meta property="og:site_name" content="Canadian Souq" />
 
-          <meta name="robots" content="index, follow" />
-        </meta>
+        <meta name="twitter:description" content={DESC} />
+        <meta name="twitter:image" content={IMG} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+
+        <script
+          key="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(storeJsonLd),
+          }}
+        />
       </Head>
+
       <Hero />
       <OurBrands />
       <Feutures />
