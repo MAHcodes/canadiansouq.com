@@ -15,7 +15,7 @@
 
 .scroll::before {
   inset: 0 auto 0 0;
-  content: url(../public/images/arrow-left.svg);
+  content: "";
   background: linear-gradient(
     to right,
     rgb(230, 230, 230),
@@ -24,7 +24,7 @@
 }
 
 .scroll::after {
-  content: url(../public/images/arrow-right.svg);
+  content: "";
   inset: 0 0 0 auto;
   background: linear-gradient(
     to left,

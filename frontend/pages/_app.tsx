@@ -10,7 +10,6 @@ import { store } from "../redux/store";
 import { saveState } from "../redux/browserStorage";
 import { useEffect, useState } from "react";
 import categories from "../constants/categories.json";
-import Head from "next/head";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());

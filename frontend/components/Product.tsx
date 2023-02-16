@@ -138,7 +138,7 @@ const Product = ({ product, asPath }: Props) => {
           </div>
           <div className="flex items-stretch gap-2 my-4">
             <a
-              href={`https://wa.me/+96181921320/?text=Hello, I saw this... ${process.env.NEXT_PUBLIC_HOST || ""
+              href={`https://wa.me/+96181921320/?text=Hello,%20I%20saw%20this...%20${process.env.NEXT_PUBLIC_HOST || ""
                 }${asPath}`}
               target="_blank"
               rel="noopener noreferrer"
